@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  authentication:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-app-container
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=society
+      - DB_PASS=postgres
+      - DB_USER=postgres
+
+  postgres:
+    image: postgres
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: society
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
