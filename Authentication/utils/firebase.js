@@ -18,4 +18,13 @@ const signUpFirebase = async (userId, email, password, isAdmin = false) => {
     }
 }
 
-export { signUpFirebase }
+const signInFirebase = async (email, password) => {
+    const user = await admin.auth().signInWithEmailAndPassword(email, password);
+    logger.log('user signin', user);
+    return user;
+}
+
+export {
+    signUpFirebase,
+    signInFirebase
+}

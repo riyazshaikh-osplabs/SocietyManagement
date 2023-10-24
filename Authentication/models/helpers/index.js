@@ -1,5 +1,5 @@
 import moment from "moment"
-import { User } from "../index.js"
+import { User } from "../../models/index.js";
 
 const signUp = async (firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
     const userFields = {
@@ -21,4 +21,22 @@ const signUp = async (firstName, lastName, password, email, mobile, roomNumber, 
     return user;
 }
 
-export { signUp }
+/** getUserFromEmail takes email, isAdmin, isDeleted, activationStatus */
+const getUserFromEmail = async (email, isAdmin = false, isDeleted = false, activationStatus = true) => {
+    const adminCondition = isAdmin == null ? '' : isAdmin;
+    const deleteCondition = isDeleted == null ? '' : isDeleted;
+    const activationStatusCondition = activationStatus == null ? '' : activationStatus;
+
+    const user = User.findOne({
+        attributes: ['userId', "activationStatus", 'isDeleted', 'isAdmin', 'email', 'mobile', 'lastName', 'firstName', 'address', 'role', 'lastLoggedInOn'],
+        where: {
+            email: email,
+            ...adminCondition,
+            ...deleteCondition,
+            ...activationStatusCondition
+        }
+    })
+    return user;
+}
+
+export { signUp, getUserFromEmail }

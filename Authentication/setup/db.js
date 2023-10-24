@@ -29,7 +29,7 @@ const setupDbConnectionCleanUp = () => {
             try {
                 logger.debug(`Received signal: ${signal}`);
                 logger.debug('Releasing database connections...');
-                await sequelize.close();
+                await sequelize?.close();
                 logger.debug('Database connections released successfully...');
             } catch (error) {
                 logger.error(`Unable to release database connection`);

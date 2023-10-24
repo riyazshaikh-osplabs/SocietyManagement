@@ -1,13 +1,13 @@
 import { sequelize } from '../setup/db.js';
 import { sendResponse } from '../utils/api.js';
 import { signUp } from '../models/helpers/index.js';
-import { signUpFirebase } from '../utils/firebase.js';
-import { encryptPassword } from '../middlewares/authRequest.js';
+import { signInFirebase, signUpFirebase } from '../utils/firebase.js';
+import { encryptPassword, validatePassword } from '../utils/bcrypt.js';
 import logger from '../setup/logger.js';
 
 const SignUp = async (req, res, next) => {
-    console.log(req.body);
-    const transaction = await sequelize.transaction();
+    const transaction = await sequelize?.transaction();
+    logger.log([req.body]);
     try {
         const { firstName, lastName, password, email, mobile, roomNumber, role, address } = req.body;
 
@@ -37,6 +37,7 @@ const SignUp = async (req, res, next) => {
             address: user?.dataValues?.address,
             role: user?.dataValues?.role
         };
+        logger.debug(userSignup);
 
         sendResponse(res, 200, 'Admin user created successfully', [userSignup]);
     } catch (error) {
@@ -47,4 +48,36 @@ const SignUp = async (req, res, next) => {
     }
 }
 
-export { SignUp };
+const SignIn = async (req, res, next) => {
+    const transaction = await sequelize?.transaction();
+    try {
+        const { email, password } = req.body;
+        const { userId } = req.payload;
+
+        logger.debug(`Validating your password`);
+        const hashedPassword = await encryptPassword(password);
+        const isPasswordValid = await validatePassword(password, hashedPassword);
+        if (!isPasswordValid) { return logger.debug(`Your password is invalid`) }
+        logger.debug(`Your password is validated successfully`);
+
+        logger.debug(`Signin with firebase with userId ${userId}`);
+        const user = await signInFirebase(email, password);
+        logger.debug(`Signin successfully with firebase for userId ${userId}`);
+
+        logger.debug(`Commiting transactions to the database`);
+        await transaction?.commit();
+        logger.log(`Admin user loggedIn successfully`);
+
+        sendResponse(res, 200, 'Admin user loggedIn successfully', [user]);
+    } catch (error) {
+        logger.error(error);
+        logger.debug(`Rolling back any database transactions`);
+        await transaction?.rollback();
+        next(error);
+    }
+}
+
+export {
+    SignUp,
+    SignIn
+};
