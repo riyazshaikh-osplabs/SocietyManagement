@@ -9,14 +9,14 @@ const SignUp = async (req, res, next) => {
     console.log(req.body);
     const transaction = await sequelize.transaction();
     try {
-        const { firstName, lastName, password, email, mobile, flatNumber, role, address } = req.body;
+        const { firstName, lastName, password, email, mobile, roomNumber, role, address } = req.body;
 
         logger.debug(`Encrypting your password`);
         const hashedPassword = await encryptPassword(password);
         logger.debug(`Your password encrypted successfully`);
 
         logger.debug(`Signup with database for email ${email}`);
-        const user = await signUp(firstName, lastName, hashedPassword, email, mobile, flatNumber, role, address, true, false, true, transaction);
+        const user = await signUp(firstName, lastName, hashedPassword, email, mobile, roomNumber, role, address, true, false, true, transaction);
         logger.debug(`Successfully signup in the database for email ${email}`);
 
         const userId = user?.dataValues?.userId;
@@ -33,7 +33,7 @@ const SignUp = async (req, res, next) => {
             lastName: user?.dataValues?.lastName,
             email: user?.dataValues?.email,
             mobile: user?.dataValues?.mobile,
-            flatNumber: user?.dataValues?.flatNumber,
+            roomNumber: user?.dataValues?.roomNumber,
             address: user?.dataValues?.address,
             role: user?.dataValues?.role
         };

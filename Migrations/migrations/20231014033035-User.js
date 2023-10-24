@@ -93,9 +93,9 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true
       },
-      flatNumber: {
+      roomNumber: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: false,
       },
       role: {
         type: Sequelize.INTEGER,
@@ -108,7 +108,7 @@ module.exports = {
       verificationDocument: {
         type: Sequelize.BLOB,
         allowNull: true
-      }
+      },
     }, {
       schema: 'public',
       tableName: 'User',

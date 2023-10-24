@@ -1,14 +1,14 @@
 import moment from "moment"
 import { User } from "../index.js"
 
-const signUp = async (firstName, lastName, password, email, mobile, flatNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
+const signUp = async (firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
     const userFields = {
         firstName: firstName == null ? '' : firstName,
         lastName: lastName == null ? '' : lastName,
         password: password == null ? '' : password,
         email: email == null ? '' : email,
         mobile: mobile == null ? '' : mobile,
-        flatNumber: flatNumber == null ? '' : flatNumber,
+        roomNumber: roomNumber == null ? '' : roomNumber,
         role: role == null ? '' : role,
         address: address == null ? '' : address,
         createdOn: moment().format('YYYY-MM-DD'),

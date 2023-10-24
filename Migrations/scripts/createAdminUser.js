@@ -1,8 +1,7 @@
-const User = require('../models/User');
+const User = require("../models/User");
 const sequelize = require('../setup/db');
 const admin = require('../setup/firebase');
 const { ADMIN_FIRSTNAME, ADMIN_LASTNAME, ADMIN_EMAIL, ADMIN_MOBILE, ADMIN_PASSWORD } = require('../setup/secrets');
-const generateDate = require('../utils/utils');
 
 const createAdmin = async (firstName, lastName, email, mobile, password) => {
     const transaction = await sequelize.transaction();
@@ -18,6 +17,7 @@ const createAdmin = async (firstName, lastName, email, mobile, password) => {
             activationStatus: true,
             isDeleted: false,
             role: 1,
+            roomNumber: 102,
             createdOn: new Date()
         }, { transaction });
 

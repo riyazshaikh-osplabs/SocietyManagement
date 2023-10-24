@@ -92,9 +92,9 @@ const User = sequelize.define('User', {
         type: DataTypes.TEXT,
         allowNull: true
     },
-    flatNumber: {
+    roomNumber: {
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: false
     },
     role: {
         type: DataTypes.INTEGER,
