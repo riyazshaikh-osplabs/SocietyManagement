@@ -1,5 +1,7 @@
-import admin from "../setup/firebase.js"
+import admin from "../setup/firebase.js";
 import logger from "../setup/logger.js";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../setup/firebaseSignin.js";
 
 const signUpFirebase = async (userId, email, password, isAdmin = false) => {
     try {
@@ -19,9 +21,18 @@ const signUpFirebase = async (userId, email, password, isAdmin = false) => {
 }
 
 const signInFirebase = async (email, password) => {
-    const user = await admin.auth().signInWithEmailAndPassword(email, password);
-    logger.log('user signin', user);
-    return user;
+    try {
+        const auth = getAuth(app);
+        const user = await signInWithEmailAndPassword(auth, email, password);
+        logger.log('idToken', user?.user?.idToken);
+        logger.log('accessToken', user?.user?.accessToken);
+        logger.log('refreshToken', user?.user?.refreshToken);
+        return user;
+    } catch (error) {
+        logger.debug(`Error in signinFirebase`);
+        logger.error(error);
+    }
+
 }
 
 export {

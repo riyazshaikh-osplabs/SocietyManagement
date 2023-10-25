@@ -14,3 +14,4 @@ export const DB_ACCQUIRE_TIME = process.env.DB_ACCQUIRE_TIME;
 export const DB_IDLE_TIME = process.env.DB_IDLE_TIME;
 export const FIREBASE_CONFIG = process.env.FIREBASE_CONFIG;
 export const FIREBASE_KEY = process.env.FIREBASE_KEY;
+export const FIREBASE_APP_CONFIG = process.env.FIREBASE_APP_CONFIG
