@@ -28,7 +28,7 @@ const SignUp = async (req, res, next) => {
         await transaction?.commit();
         logger.debug(`Admin user created successfully`);
 
-        const userSignup = {
+        const signupResponse = {
             firstName: user?.dataValues?.firstName,
             lastName: user?.dataValues?.lastName,
             email: user?.dataValues?.email,
@@ -37,9 +37,9 @@ const SignUp = async (req, res, next) => {
             address: user?.dataValues?.address,
             role: user?.dataValues?.role
         };
-        logger.debug(userSignup);
+        logger.debug('signupResponse', signupResponse);
 
-        sendResponse(res, 200, 'Admin user created successfully', [userSignup]);
+        sendResponse(res, 200, 'Admin user created successfully', [signupResponse]);
     } catch (error) {
         logger.error(error);
         logger.debug('Rolling back any database transactions');
@@ -52,12 +52,15 @@ const SignIn = async (req, res, next) => {
     const transaction = await sequelize?.transaction();
     try {
         const { email, password } = req.body;
-        const { userId } = req.payload;
+        const { userId, dbPassword } = req.payload;
 
         logger.debug(`Validating your password`);
-        const hashedPassword = await encryptPassword(password);
-        const isPasswordValid = await validatePassword(password, hashedPassword);
-        if (!isPasswordValid) { return logger.debug(`Your password is invalid`) }
+        const isPasswordValid = await validatePassword(password, dbPassword);
+
+        if (!isPasswordValid) {
+            logger.debug(`Invalid Password`);
+            return sendResponse(res, 401, 'Invalid Password');
+        }
         logger.debug(`Your password is validated successfully`);
 
         logger.debug(`Signin with firebase with userId ${userId}`);
@@ -68,7 +71,13 @@ const SignIn = async (req, res, next) => {
         await transaction?.commit();
         logger.log(`Admin user loggedIn successfully`);
 
-        sendResponse(res, 200, 'Admin user loggedIn successfully', [user]);
+        const signinResponse = {
+            accessToken: user?.user?.accessToken,
+            refreshToken: user?.user?.refreshToken,
+            expiresIn: user?.user?.stsTokenManager?.expirationTime
+        }
+        logger.debug('signinResponse', signinResponse);
+        sendResponse(res, 200, 'Admin user loggedIn successfully', [signinResponse]);
     } catch (error) {
         logger.error(error);
         logger.debug(`Rolling back any database transactions`);

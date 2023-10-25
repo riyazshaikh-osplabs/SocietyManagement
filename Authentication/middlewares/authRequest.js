@@ -27,15 +27,10 @@ const ValidateEmailForSignup = isAdmin => {
             }
 
             req.payload = {
-                userId: userDetails.userId,
-                isAdmin: userDetails.isAdmin,
-                isDeleted: userDetails.isDeleted,
-                lastLoggedInOn: userDetails.lastLoggedInOn,
-                mobile: userDetails.mobile,
-                email: userDetails.email,
-                firstName: userDetails.firstName,
-                lastName: userDetails.lastName,
-                role: userDetails.role
+                userId: userDetails?.userId,
+                isAdmin: userDetails?.isAdmin,
+                email: userDetails?.email,
+                role: userDetails?.role
             }
             next();
         } catch (error) {
@@ -63,15 +58,12 @@ const ValidateEmailForSignin = isAdmin => {
             }
 
             req.payload = {
-                userId: userDetails.userId,
-                isAdmin: userDetails.isAdmin,
-                isDeleted: userDetails.isDeleted,
-                lastLoggedInOn: userDetails.lastLoggedInOn,
-                mobile: userDetails.mobile,
-                email: userDetails.email,
-                firstName: userDetails.firstName,
-                lastName: userDetails.lastName,
-                role: userDetails.role
+                userId: userDetails?.userId,
+                isAdmin: userDetails?.isAdmin,
+                lastLoggedInOn: userDetails?.lastLoggedInOn,
+                dbPassword: userDetails?.password,
+                email: userDetails?.email,
+                role: userDetails?.role
             }
             next();
         } catch (error) {

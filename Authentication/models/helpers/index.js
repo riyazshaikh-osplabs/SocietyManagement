@@ -28,7 +28,7 @@ const getUserFromEmail = async (email, isAdmin = false, isDeleted = false, activ
     const activationStatusCondition = activationStatus == null ? '' : activationStatus;
 
     const user = User.findOne({
-        attributes: ['userId', "activationStatus", 'isDeleted', 'isAdmin', 'email', 'mobile', 'lastName', 'firstName', 'address', 'role', 'lastLoggedInOn'],
+        attributes: ['userId', "activationStatus", 'password', 'isDeleted', 'isAdmin', 'email', 'mobile', 'lastName', 'firstName', 'address', 'role', 'lastLoggedInOn'],
         where: {
             email: email,
             ...adminCondition,

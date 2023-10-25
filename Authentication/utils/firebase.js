@@ -24,15 +24,11 @@ const signInFirebase = async (email, password) => {
     try {
         const auth = getAuth(app);
         const user = await signInWithEmailAndPassword(auth, email, password);
-        logger.log('idToken', user?.user?.idToken);
-        logger.log('accessToken', user?.user?.accessToken);
-        logger.log('refreshToken', user?.user?.refreshToken);
         return user;
     } catch (error) {
         logger.debug(`Error in signinFirebase`);
         logger.error(error);
     }
-
 }
 
 export {
