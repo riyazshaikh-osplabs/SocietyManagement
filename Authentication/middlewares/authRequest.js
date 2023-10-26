@@ -1,13 +1,51 @@
 import { sendResponse } from "../utils/api.js";
-import { getUserFromEmail } from "../models/helpers/index.js";
+import { getUserById, getUserFromEmail } from "../models/helpers/index.js";
 import logger from "../setup/logger.js";
+import admin from "../setup/firebase.js";
 
 const ValidateClaims = isAdmin => {
-    try {
+    return async (req, res, next) => {
+        try {
+            logger.debug('Validating claims');
 
-    } catch (error) {
-        logger.error(error);
-        logger.debug(`Error in validating claims`);
+            const bearerToken = req.headers?.authorization;
+            if (!bearerToken) {
+                return sendResponse(res, 401, 'Missing Authorization Header');
+            }
+
+            const token = bearerToken.split(' ')[1];
+
+            let decodedToken;
+            try {
+                decodedToken = await admin.auth().verifyIdToken(token, isAdmin);
+                logger.log('decodedToken', decodedToken);
+            } catch (error) {
+                logger.error(error);
+                logger.debug(`Invalid Token`);
+                return sendResponse(res, 401, 'Invalid Token');
+            }
+            const adminClaim = decodedToken?.admin;
+
+            if (isAdmin !== adminClaim) {
+                return sendResponse(res, 403, 'Invalid Claim in token');
+            }
+
+            const userDetails = await getUserById(parseInt(decodedToken?.uid), isAdmin, false, true);
+            if (!userDetails) {
+                return sendResponse(res, 404, 'Invalid User');
+            }
+
+            req.payload = {
+                userId: userDetails?.dataValues?.userId,
+                email: userDetails?.dataValues?.email,
+                isAdmin: userDetails?.dataValues?.isAdmin,
+                firstName: userDetails?.dataValues?.firstName
+            }
+            next();
+        } catch (error) {
+            logger.error(error);
+            logger.debug(`Error in validating claims`);
+        }
     }
 }
 
@@ -22,16 +60,6 @@ const ValidateEmailForSignup = isAdmin => {
                 return sendResponse(res, 404, 'User already registered');
             }
 
-            if (!userDetails.activationStatus) {
-                return sendResponse(res, 400, 'User is disabled');
-            }
-
-            req.payload = {
-                userId: userDetails?.userId,
-                isAdmin: userDetails?.isAdmin,
-                email: userDetails?.email,
-                role: userDetails?.role
-            }
             next();
         } catch (error) {
             logger.error(error);

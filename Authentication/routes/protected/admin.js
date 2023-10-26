@@ -1,8 +1,7 @@
 import express from "express";
+import { SignOut } from "../../controllers/admin.js";
 const router = express.Router();
-// import { SignUp } from "../../controllers/admin.js";
-// const { ValidateClaims } = require('../../middlewares/authRequest');
 
-// router.post('/signup', SignUp);
+router.post('/signout', SignOut);
 
 export default router;

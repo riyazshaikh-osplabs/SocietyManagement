@@ -1,6 +1,7 @@
 import moment from "moment"
 import { User } from "../../models/index.js";
 
+/** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
 const signUp = async (firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
     const userFields = {
         firstName: firstName == null ? '' : firstName,
@@ -39,4 +40,31 @@ const getUserFromEmail = async (email, isAdmin = false, isDeleted = false, activ
     return user;
 }
 
-export { signUp, getUserFromEmail }
+/** updateLastLoggedIn takes userId, transaction */
+const updateLastLoggedIn = async (userId, transaction) => {
+    const currentTime = moment();
+    await User.update({ lastLoggedInOn: currentTime }, { where: { userId: userId }, transaction });
+}
+
+const getUserById = async (userId, isAdmin, isDeleted, activationStatus) => {
+    const isAdminCondition = isAdmin == null ? {} : { isAdmin: isAdmin };
+    const deleteCondition = isDeleted == null ? {} : { isDeleted: isDeleted };
+    const activationStatusCondition = activationStatus == null ? {} : { activationStatus: activationStatus };
+
+    const user = await User.findOne({
+        attributes: ['userId', 'isAdmin', 'email', 'firstName'],
+        where: {
+            userId: userId,
+            ...isAdminCondition,
+            ...deleteCondition,
+            ...activationStatusCondition
+        }
+    });
+    return user;
+}
+export {
+    signUp,
+    getUserFromEmail,
+    updateLastLoggedIn,
+    getUserById
+}

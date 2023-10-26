@@ -1,7 +1,6 @@
-import admin from "../setup/firebase.js";
+import admin, { app } from "../setup/firebase.js";
 import logger from "../setup/logger.js";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../setup/firebaseSignin.js";
 
 const signUpFirebase = async (userId, email, password, isAdmin = false) => {
     try {

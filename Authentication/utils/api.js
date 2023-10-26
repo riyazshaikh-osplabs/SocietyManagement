@@ -38,4 +38,8 @@ const requestLogger = (req, res, next) => {
     next();
 }
 
-export { sendResponse, sendError, requestLogger }
+export {
+    sendResponse,
+    sendError,
+    requestLogger
+}

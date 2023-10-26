@@ -41,4 +41,7 @@ const setupDbConnectionCleanUp = () => {
 }
 setupDbConnectionCleanUp();
 
-export { sequelize, setupDbConnectionCleanUp }
+export {
+    sequelize,
+    setupDbConnectionCleanUp
+}

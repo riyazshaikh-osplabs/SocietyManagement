@@ -1,13 +1,13 @@
 import { sequelize } from '../setup/db.js';
 import { sendResponse } from '../utils/api.js';
-import { signUp } from '../models/helpers/index.js';
+import { signUp, updateLastLoggedIn } from '../models/helpers/index.js';
 import { signInFirebase, signUpFirebase } from '../utils/firebase.js';
 import { encryptPassword, validatePassword } from '../utils/bcrypt.js';
 import logger from '../setup/logger.js';
+import moment from 'moment';
 
 const SignUp = async (req, res, next) => {
     const transaction = await sequelize?.transaction();
-    logger.log([req.body]);
     try {
         const { firstName, lastName, password, email, mobile, roomNumber, role, address } = req.body;
 
@@ -37,7 +37,7 @@ const SignUp = async (req, res, next) => {
             address: user?.dataValues?.address,
             role: user?.dataValues?.role
         };
-        logger.debug('signupResponse', signupResponse);
+        logger.debug(`signupResponse ${signupResponse}`);
 
         sendResponse(res, 200, 'Admin user created successfully', [signupResponse]);
     } catch (error) {
@@ -67,16 +67,24 @@ const SignIn = async (req, res, next) => {
         const user = await signInFirebase(email, password);
         logger.debug(`Signin successfully with firebase for userId ${userId}`);
 
-        logger.debug(`Commiting transactions to the database`);
-        await transaction?.commit();
-        logger.log(`Admin user loggedIn successfully`);
-
         const signinResponse = {
             accessToken: user?.user?.accessToken,
             refreshToken: user?.user?.refreshToken,
             expiresIn: user?.user?.stsTokenManager?.expirationTime
         }
-        logger.debug('signinResponse', signinResponse);
+
+        const expirationTime = moment().add(1, 'hours');
+        signinResponse.expiresIn = expirationTime.format('HH:mm:ss');
+
+        logger.debug(`Updating the lastLoggedin time`);
+        await updateLastLoggedIn(userId, transaction);
+        logger.debug(`lastLoggedIn time is updated`);
+
+        logger.debug(`Commiting transactions to the database`);
+        await transaction?.commit();
+        logger.log(`Admin user loggedIn successfully`);
+
+        logger.debug(`signinResponse ${signinResponse}`);
         sendResponse(res, 200, 'Admin user loggedIn successfully', [signinResponse]);
     } catch (error) {
         logger.error(error);
@@ -86,7 +94,20 @@ const SignIn = async (req, res, next) => {
     }
 }
 
+const SignOut = async (req, res, next) => {
+    try {
+        logger.debug(`Admin user loggedOut successfully`);
+        sendResponse(res, 200, 'Admin user loggedOut successfully');
+    } catch (error) {
+        logger.error(error);
+        logger.debug(`Rolling back any database transaction`);
+        await transaction?.rollback();
+        next(error);
+    }
+}
+
 export {
     SignUp,
-    SignIn
-};
+    SignIn,
+    SignOut
+}
