@@ -93,9 +93,22 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true
       },
+      buildingWing: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        references: {
+          model: 'Building',
+          key: 'buildingWing'
+        }
+      },
       roomNumber: {
         type: Sequelize.INTEGER,
         allowNull: false,
+
+        references: {
+          model: 'Floor',
+          key: 'floorId'
+        }
       },
       role: {
         type: Sequelize.INTEGER,

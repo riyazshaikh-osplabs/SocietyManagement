@@ -1,9 +1,9 @@
 const User = require("../models/User");
 const sequelize = require('../setup/db');
 const admin = require('../setup/firebase');
-const { ADMIN_FIRSTNAME, ADMIN_LASTNAME, ADMIN_EMAIL, ADMIN_MOBILE, ADMIN_PASSWORD } = require('../setup/secrets');
+const { ADMIN_FIRSTNAME, ADMIN_LASTNAME, ADMIN_EMAIL, ADMIN_MOBILE, ADMIN_PASSWORD, ADMIN_WING, ADMIN_FLATNUMBER } = require('../setup/secrets');
 
-const createAdmin = async (firstName, lastName, email, mobile, password) => {
+const createAdmin = async (firstName, lastName, email, mobile, password, buildingWing, roomNumber) => {
     const transaction = await sequelize.transaction();
     try {
         console.log('Creating admin user in database...');
@@ -16,6 +16,8 @@ const createAdmin = async (firstName, lastName, email, mobile, password) => {
             isAdmin: true,
             activationStatus: true,
             isDeleted: false,
+            buildingWing: buildingWing,
+            roomNumber: roomNumber,
             role: 1,
             roomNumber: 102,
             createdOn: new Date()
@@ -45,4 +47,4 @@ const createAdmin = async (firstName, lastName, email, mobile, password) => {
     process.exit(0);
 }
 
-createAdmin(ADMIN_FIRSTNAME, ADMIN_LASTNAME, ADMIN_EMAIL, ADMIN_MOBILE, ADMIN_PASSWORD);
+createAdmin(ADMIN_FIRSTNAME, ADMIN_LASTNAME, ADMIN_EMAIL, ADMIN_MOBILE, ADMIN_PASSWORD, ADMIN_WING, ADMIN_FLATNUMBER);

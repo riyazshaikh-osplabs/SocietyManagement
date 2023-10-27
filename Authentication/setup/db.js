@@ -7,7 +7,7 @@ const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
     port: DB_PORT,
     dialect: 'postgres',
     operatorsAliases: 0,
-    logging: false,
+    logging: console.log,
     pool: {
         max: Number(DB_MAX_CONNECTIONS_POOL),
         min: Number(DB_MIN_CONNECTIONS_POOL),

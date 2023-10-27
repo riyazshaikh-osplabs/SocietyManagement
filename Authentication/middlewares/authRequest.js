@@ -1,5 +1,5 @@
 import { sendResponse } from "../utils/api.js";
-import { getUserById, getUserFromEmail } from "../models/helpers/index.js";
+import { getUserById, getUserByRoomNumber, getUserFromEmail, isValidRoomNumber } from "../models/helpers/index.js";
 import logger from "../setup/logger.js";
 import admin from "../setup/firebase.js";
 
@@ -100,9 +100,32 @@ const ValidateEmailForSignin = isAdmin => {
     }
 }
 
+const ValidateRoomNumber = async (req, res, next) => {
+    try {
+        const roomNumber = Number(req.body?.roomNumber);
+        const buildingWing = req.body?.buildingWing;
+
+        const isRoomExists = await isValidRoomNumber(roomNumber, buildingWing);
+        if (!isRoomExists) {
+            return sendResponse(res, 403, 'Enter a valid Room Number');
+        }
+
+        const user = await getUserByRoomNumber(roomNumber, buildingWing);
+        if (user) {
+            return sendResponse(res, 400, 'Room is already occupied. Please choose another.');
+        }
+
+        next();
+    } catch (error) {
+        logger.error(error);
+        logger.debug(`Error in validateRoomNumber`);
+        next(error);
+    }
+}
 
 export {
     ValidateClaims,
     ValidateEmailForSignup,
-    ValidateEmailForSignin
+    ValidateEmailForSignin,
+    ValidateRoomNumber
 }

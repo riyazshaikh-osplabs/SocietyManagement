@@ -92,9 +92,21 @@ const User = sequelize.define('User', {
         type: DataTypes.TEXT,
         allowNull: true
     },
+    buildingWing: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+            model: 'Building',
+            key: 'buildingWing'
+        }
+    },
     roomNumber: {
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: false,
+        references: {
+            model: 'Floor',
+            key: 'floorId'
+        }
     },
     role: {
         type: DataTypes.INTEGER,

@@ -40,6 +40,11 @@ const SignupValidationRules = () => {
             .isInt().withMessage('Mobile should be of type number')
             .isLength({ max: 10 }).withMessage('Mobile should be of 10 number')
             .trim(),
+        body('buildingWing')
+            .not().isEmpty().withMessage('Building Wing is required')
+            .isString().withMessage('Building Wings should be of type string')
+            .isLength({ max: 1 }).withMessage('Wing should be of single character')
+            .trim(),
         body('roomNumber')
             .not().isEmpty().withMessage('Room Number is required')
             .isInt().withMessage('Room Number should be of type number')

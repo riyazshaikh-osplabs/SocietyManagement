@@ -1,21 +1,22 @@
 import moment from "moment"
-import { User } from "../../models/index.js";
+import { Building, Floor, User } from "../../models/index.js";
 
 /** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
-const signUp = async (firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
+const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
     const userFields = {
-        firstName: firstName == null ? '' : firstName,
-        lastName: lastName == null ? '' : lastName,
-        password: password == null ? '' : password,
-        email: email == null ? '' : email,
-        mobile: mobile == null ? '' : mobile,
-        roomNumber: roomNumber == null ? '' : roomNumber,
-        role: role == null ? '' : role,
-        address: address == null ? '' : address,
+        firstName: firstName == null ? null : firstName,
+        lastName: lastName == null ? null : lastName,
+        password: password == null ? null : password,
+        email: email == null ? null : email,
+        mobile: mobile == null ? null : mobile,
+        buildingWing: buildingWing == null ? null : buildingWing,
+        roomNumber: roomNumber == null ? null : roomNumber,
+        role: role == null ? null : role,
+        address: address == null ? null : address,
         createdOn: moment().format('YYYY-MM-DD'),
-        isAdmin: isAdmin == null ? '' : isAdmin,
-        isDeleted: isDeleted == null ? '' : isDeleted,
-        activationStatus: activationStatus == null ? '' : activationStatus
+        isAdmin: isAdmin == null ? null : isAdmin,
+        isDeleted: isDeleted == null ? null : isDeleted,
+        activationStatus: activationStatus == null ? null : activationStatus
     };
 
     const user = await User.create(userFields, { transaction });
@@ -62,9 +63,53 @@ const getUserById = async (userId, isAdmin, isDeleted, activationStatus) => {
     });
     return user;
 }
+
+const getUserByRoomNumber = async (roomNumber, buildingWing) => {
+    const roomNumberCondition = roomNumber == null ? null : roomNumber;
+    const buildingWingCondition = buildingWing == null ? null : buildingWing;
+
+    const room = await User.findOne({
+        attributes: ['buildingWing', 'isAdmin', 'userId', 'roomNumber', 'email', 'firstName', 'role'],
+        include: [
+            {
+                model: Building,
+            },
+            {
+                model: Floor,
+            }
+        ],
+        where: {
+            roomNumber: roomNumberCondition,
+            buildingWing: buildingWingCondition
+        }
+    });
+    return room;
+}
+
+const isValidRoomNumber = async (roomNumber, buildingWing) => {
+    const roomNumberCondition = roomNumber == null ? null : roomNumber;
+    const buildingWingCondition = buildingWing == null ? null : buildingWing;
+
+    const floorExists = await Floor.findOne({
+        attributes: ['floorId', 'roomNumber', 'floorNumber'],
+        include: [{
+            model: Building,
+            where: {
+                buildingWing: buildingWingCondition
+            }
+        }],
+        where: {
+            roomNumber: roomNumberCondition
+        }
+    })
+    return !!floorExists;
+}
+
 export {
     signUp,
     getUserFromEmail,
     updateLastLoggedIn,
-    getUserById
+    getUserById,
+    getUserByRoomNumber,
+    isValidRoomNumber
 }

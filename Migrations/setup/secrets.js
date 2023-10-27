@@ -10,5 +10,7 @@ module.exports = {
     ADMIN_LAST_NAME: process.env.ADMIN_LAST_NAME,
     ADMIN_EMAIL: process.env.ADMIN_EMAIL,
     ADMIN_MOBILE: process.env.ADMIN_MOBILE,
-    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD
+    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
+    ADMIN_WING: process.env.ADMIN_WING,
+    ADMIN_FLATNUMBER: process.env.ADMIN_FLATNUMBER
 }
