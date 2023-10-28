@@ -15,14 +15,14 @@ const SignUp = async (req, res, next) => {
         const hashedPassword = await encryptPassword(password);
         logger.debug(`Your password encrypted successfully`);
 
-        logger.debug(`Signup with database for email ${email}`);
+        logger.debug(`Signup with database for email: ${email}`);
         const user = await signUp(firstName, lastName, hashedPassword, email, mobile, roomNumber, role, address, false, false, true, transaction);
-        logger.debug(`Successfully signup in the database for email ${email}`);
+        logger.debug(`Successfully signup in the database for email: ${email}`);
 
         const userId = user?.dataValues?.userId;
-        logger.debug(`Signup with firebase for userId ${userId}`);
+        logger.debug(`Signup with firebase for userId: ${userId}`);
         await signUpFirebase(userId, email, password, false);
-        logger.debug(`Successfully signup in firebase for userId ${userId}`);
+        logger.debug(`Successfully signup in firebase for userId: ${userId}`);
 
         logger.debug(`Committing transactions to the database`);
         await transaction?.commit();
@@ -37,7 +37,7 @@ const SignUp = async (req, res, next) => {
             address: user?.dataValues?.address,
             role: user?.dataValues?.role
         };
-        logger.debug(`signupResponse ${signupResponse}`);
+        logger.log(`signupResponse: ${JSON.stringify(signupResponse, null, 2)}`);
 
         sendResponse(res, 200, 'Admin user created successfully', [signupResponse]);
     } catch (error) {
@@ -63,9 +63,9 @@ const SignIn = async (req, res, next) => {
         }
         logger.debug(`Your password is validated successfully`);
 
-        logger.debug(`Signin with firebase with userId ${userId}`);
+        logger.debug(`Signin with firebase with userId: ${userId}`);
         const user = await signInFirebase(email, password);
-        logger.debug(`Signin successfully with firebase for userId ${userId}`);
+        logger.debug(`Signin successfully with firebase for userId: ${userId}`);
 
         const signinResponse = {
             accessToken: user?.user?.accessToken,
@@ -82,10 +82,10 @@ const SignIn = async (req, res, next) => {
 
         logger.debug(`Commiting transactions to the database`);
         await transaction?.commit();
-        logger.log(`Admin user loggedIn successfully`);
+        logger.log(`User loggedIn successfully`);
 
-        logger.debug(`signinResponse ${signinResponse}`);
-        sendResponse(res, 200, 'Admin user loggedIn successfully', [signinResponse]);
+        logger.log(`signinResponse: ${JSON.stringify(signinResponse, null, 2)}`);
+        sendResponse(res, 200, 'User loggedIn successfully', [signinResponse]);
     } catch (error) {
         logger.error(error);
         logger.debug(`Rolling back any database transactions`);

@@ -20,7 +20,7 @@ const ValidateClaims = isAdmin => {
                 decodedToken = await admin.auth().verifyIdToken(token, isAdmin);
                 logger.log('decodedToken', decodedToken);
             } catch (error) {
-                logger.error(error);
+                logger.error(error.message);
                 logger.debug(`Invalid Token`);
                 return sendResponse(res, 401, 'Invalid Token');
             }
@@ -30,17 +30,19 @@ const ValidateClaims = isAdmin => {
                 return sendResponse(res, 403, 'Invalid Claim in token');
             }
 
-            const userDetails = await getUserById(parseInt(decodedToken?.uid), isAdmin, false, true);
+            const userDetails = await getUserById(decodedToken?.user_id, isAdmin, false, true);
             if (!userDetails) {
                 return sendResponse(res, 404, 'Invalid User');
             }
 
             req.payload = {
-                userId: userDetails?.dataValues?.userId,
+                userId: decodedToken?.user_id,
                 email: userDetails?.dataValues?.email,
                 isAdmin: userDetails?.dataValues?.isAdmin,
                 firstName: userDetails?.dataValues?.firstName
             }
+            logger.log(`Claims validated successfully`);
+
             next();
         } catch (error) {
             logger.error(error);

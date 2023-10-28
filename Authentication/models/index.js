@@ -10,10 +10,10 @@ User.hasMany(Floor, { foreignKey: 'roomNumber', sourceKey: 'roomNumber' });
 Role.hasMany(User, { foreignKey: 'role' });
 
 Floor.belongsTo(User, { foreignKey: 'roomNumber', targetKey: 'roomNumber' });
-Floor.belongsTo(Building, { foreignKey: 'buildingId', targetKey: 'buildingId' });
+Floor.belongsTo(Building, { foreignKey: 'buildingId' });
 
 Building.belongsTo(User, { foreignKey: 'buildingWing', targetKey: 'buildingWing' });
-Building.hasMany(Floor, { foreignKey: 'buildingId', sourceKey: 'buildingId' });
+Building.hasMany(Floor, { foreignKey: 'buildingId' });
 
 export {
     Role,

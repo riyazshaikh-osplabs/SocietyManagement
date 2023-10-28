@@ -1,6 +1,6 @@
 import admin, { app } from "../setup/firebase.js";
 import logger from "../setup/logger.js";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const signUpFirebase = async (userId, email, password, isAdmin = false) => {
     try {
@@ -30,7 +30,12 @@ const signInFirebase = async (email, password) => {
     }
 }
 
+const revokeTokens = async (userId) => {
+    await admin.auth().revokeRefreshTokens(userId);
+}
+
 export {
     signUpFirebase,
-    signInFirebase
+    signInFirebase,
+    revokeTokens
 }

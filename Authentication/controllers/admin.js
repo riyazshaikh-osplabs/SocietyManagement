@@ -1,7 +1,7 @@
 import { sequelize } from '../setup/db.js';
 import { sendResponse } from '../utils/api.js';
 import { signUp, updateLastLoggedIn } from '../models/helpers/index.js';
-import { signInFirebase, signUpFirebase } from '../utils/firebase.js';
+import { revokeTokens, signInFirebase, signUpFirebase } from '../utils/firebase.js';
 import { encryptPassword, validatePassword } from '../utils/bcrypt.js';
 import logger from '../setup/logger.js';
 import moment from 'moment';
@@ -15,14 +15,14 @@ const SignUp = async (req, res, next) => {
         const hashedPassword = await encryptPassword(password);
         logger.debug(`Your password encrypted successfully`);
 
-        logger.debug(`Signup with database for email ${email}`);
+        logger.debug(`Signup with database for email: ${email}`);
         const user = await signUp(firstName, lastName, hashedPassword, email, mobile, buildingWing, roomNumber, role, address, true, false, true, transaction);
-        logger.debug(`Successfully signup in the database for email ${email}`);
+        logger.debug(`Successfully signup in the database for email: ${email}`);
 
         const userId = user?.dataValues?.userId;
-        logger.debug(`Signup with firebase for userId ${userId}`);
+        logger.debug(`Signup with firebase for userId: ${userId}`);
         await signUpFirebase(userId, email, password, true);
-        logger.debug(`Successfully signup in firebase for userId ${userId}`);
+        logger.debug(`Successfully signup in firebase for userId: ${userId}`);
 
         logger.debug(`Committing transactions to the database`);
         await transaction?.commit();
@@ -37,7 +37,7 @@ const SignUp = async (req, res, next) => {
             address: user?.dataValues?.address,
             role: user?.dataValues?.role
         };
-        logger.debug(`signupResponse ${signupResponse}`);
+        logger.debug(`signupResponse ${JSON.stringify(signupResponse, null, 2)}`);
 
         sendResponse(res, 200, 'Admin user created successfully', [signupResponse]);
     } catch (error) {
@@ -63,9 +63,9 @@ const SignIn = async (req, res, next) => {
         }
         logger.debug(`Your password is validated successfully`);
 
-        logger.debug(`Signin with firebase with userId ${userId}`);
+        logger.debug(`Signin with firebase with userId: ${userId}`);
         const user = await signInFirebase(email, password);
-        logger.debug(`Signin successfully with firebase for userId ${userId}`);
+        logger.debug(`Signin successfully with firebase for userId: ${userId}`);
 
         const signinResponse = {
             accessToken: user?.user?.accessToken,
@@ -82,10 +82,10 @@ const SignIn = async (req, res, next) => {
 
         logger.debug(`Commiting transactions to the database`);
         await transaction?.commit();
-        logger.log(`Admin user loggedIn successfully`);
+        logger.log(`User loggedIn successfully`);
 
-        logger.debug(`signinResponse ${signinResponse}`);
-        sendResponse(res, 200, 'Admin user loggedIn successfully', [signinResponse]);
+        logger.log(`signinResponse: ${JSON.stringify(signinResponse, null, 2)}`);
+        sendResponse(res, 200, 'User loggedIn successfully', [signinResponse]);
     } catch (error) {
         logger.error(error);
         logger.debug(`Rolling back any database transactions`);
@@ -96,11 +96,31 @@ const SignIn = async (req, res, next) => {
 
 const SignOut = async (req, res, next) => {
     try {
-        logger.debug(`Admin user loggedOut successfully`);
-        sendResponse(res, 200, 'Admin user loggedOut successfully');
+        const { userId } = req.payload;
+
+        logger.debug(`Revoking refresh tokens for userId: ${userId}`);
+        await revokeTokens(userId);
+        logger.debug(`Refresh tokens revoked for userId: ${userId}`);
+
+        logger.debug(`User Logged Out successfully`);
+        sendResponse(res, 200, 'User loggedOut successfully');
     } catch (error) {
-        logger.error(error);
-        logger.debug(`Rolling back any database transaction`);
+        logger.error(error.message);
+        logger.debug(`Error while signOut`);
+        next(error);
+    }
+}
+
+const ResetPassword = async (req, res, next) => {
+    const transsaction = await sequelize?.transaction();
+    try {
+        const { userId } = req.payload;
+        const { password, newPassword } = req.body;
+
+        sendResponse(res, 200, 'Password reset successfully');
+    } catch (error) {
+        logger.error(error.message);
+        logger.debug(`Rolling back any database transactions`);
         await transaction?.rollback();
         next(error);
     }
@@ -109,5 +129,6 @@ const SignOut = async (req, res, next) => {
 export {
     SignUp,
     SignIn,
-    SignOut
+    SignOut,
+    ResetPassword
 }
