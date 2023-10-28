@@ -3,10 +3,10 @@ const logger = {
         console.log(...message);
     },
     error: (...message) => {
-        console.log(...message);
+        console.error(...message);
     },
     debug: (...message) => {
-        console.log(...message);
+        console.debug(...message);
     }
 }
 
