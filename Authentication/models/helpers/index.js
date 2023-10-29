@@ -1,5 +1,6 @@
 import moment from "moment"
 import { Building, Floor, User } from "../../models/index.js";
+import logger from "../../setup/logger.js";
 
 /** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
 const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
@@ -105,11 +106,42 @@ const isValidRoomNumber = async (roomNumber, buildingWing) => {
     return !!floorExists;
 }
 
+const resetPasswordInDb = async (userId, newPassword) => {
+    const userIdCondition = userId == null ? null : { userId: userId };
+
+    const user = await User.update(
+        { password: newPassword },
+        {
+            where: {
+                ...userIdCondition,
+            }
+        }
+    )
+    logger.log(`rowsUpdated ${user}`);
+    return user;
+}
+
+const updateUpdateBy = async (userId, transaction) => {
+    const currentTime = moment();
+
+    await User.update(
+        {
+            updatedOn: currentTime,
+            updatedBy: userId
+        },
+        {
+            where: { userId: userId }
+        }, transaction
+    )
+}
+
 export {
     signUp,
     getUserFromEmail,
     updateLastLoggedIn,
     getUserById,
     getUserByRoomNumber,
-    isValidRoomNumber
+    isValidRoomNumber,
+    resetPasswordInDb,
+    updateUpdateBy
 }

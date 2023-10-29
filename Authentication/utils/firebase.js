@@ -34,8 +34,15 @@ const revokeTokens = async (userId) => {
     await admin.auth().revokeRefreshTokens(userId);
 }
 
+const resetPasswordInFirebase = async (userId, password) => {
+    await admin.auth().updateUser(userId, {
+        password: password
+    })
+}
+
 export {
     signUpFirebase,
     signInFirebase,
-    revokeTokens
+    revokeTokens,
+    resetPasswordInFirebase
 }

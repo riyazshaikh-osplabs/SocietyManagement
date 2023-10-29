@@ -1,7 +1,7 @@
 import { sequelize } from '../setup/db.js';
 import { sendResponse } from '../utils/api.js';
-import { signUp, updateLastLoggedIn } from '../models/helpers/index.js';
-import { revokeTokens, signInFirebase, signUpFirebase } from '../utils/firebase.js';
+import { resetPasswordInDb, signUp, updateLastLoggedIn, updateUpdateBy } from '../models/helpers/index.js';
+import { resetPasswordInFirebase, revokeTokens, signInFirebase, signUpFirebase } from '../utils/firebase.js';
 import { encryptPassword, validatePassword } from '../utils/bcrypt.js';
 import logger from '../setup/logger.js';
 import moment from 'moment';
@@ -112,10 +112,32 @@ const SignOut = async (req, res, next) => {
 }
 
 const ResetPassword = async (req, res, next) => {
-    const transsaction = await sequelize?.transaction();
+    const transaction = await sequelize?.transaction();
     try {
         const { userId } = req.payload;
         const { password, newPassword } = req.body;
+
+        if (password === newPassword) {
+            await transaction?.rollback();
+            return sendResponse(res, 403, 'New password cannot be same as old password');
+        }
+
+        logger.debug(`Encrypting your new password`);
+        const hashedPassword = await encryptPassword(newPassword);
+        logger.debug(`Your new password encrypted successfully`);
+
+        logger.debug(`Changing password in database for userId: ${userId}`);
+        const pass = await resetPasswordInDb(userId, hashedPassword);
+        logger.log(`updatedUser: ${pass}`);
+        logger.debug(`Password changed successfully in database for userId: ${userId}`);
+
+        logger.debug(`Changing password in firebase for userId: ${userId}`);
+        await resetPasswordInFirebase(userId, newPassword);
+        logger.debug(`Password changed successfully in firebase for userId: ${userId}`);
+
+        logger.debug(`Updating updatedBy for userId: ${userId}`);
+        await updateUpdateBy(userId, transaction);
+        logger.debug(`Updated updatedBy successfully for userId: ${userId}`);
 
         sendResponse(res, 200, 'Password reset successfully');
     } catch (error) {
