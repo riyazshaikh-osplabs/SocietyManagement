@@ -75,11 +75,28 @@ const SiginValidationRules = () => {
             .isStrongPassword({ minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }).withMessage('Password must contain atleast one lowercase, uppercase, number and special characters')
             .trim()
     ]
+}
 
+const ValidateResetPassword = () => {
+    return [
+        body('password')
+            .not().isEmpty().withMessage('Password is required').bail()
+            .isString().withMessage('Password must be of type string').bail()
+            .isLength({ min: 6, max: 20 }).withMessage('Password must be between 6 to 20 characters').bail()
+            .isStrongPassword({ minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }).withMessage('Password must contain atleast one lowercase, uppercase, number and special characters')
+            .trim(),
+        body('confirmPassword')
+            .not().isEmpty().withMessage('Password is required').bail()
+            .isString().withMessage('Password must be of type string').bail()
+            .isLength({ min: 6, max: 20 }).withMessage('Password must be between 6 to 20 characters').bail()
+            .isStrongPassword({ minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }).withMessage('Password must contain atleast one lowercase, uppercase, number and special characters')
+            .trim()
+    ]
 }
 
 export {
     ValidateReqParams,
     SignupValidationRules,
-    SiginValidationRules
+    SiginValidationRules,
+    ValidateResetPassword
 }

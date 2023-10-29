@@ -115,15 +115,15 @@ const ResetPassword = async (req, res, next) => {
     const transaction = await sequelize?.transaction();
     try {
         const { userId } = req.payload;
-        const { password, newPassword } = req.body;
+        const { password, confirmPassword } = req.body;
 
-        if (password === newPassword) {
+        if (!(password === confirmPassword)) {
             await transaction?.rollback();
-            return sendResponse(res, 403, 'New password cannot be same as old password');
+            return sendResponse(res, 403, 'Password does not match');
         }
 
         logger.debug(`Encrypting your new password`);
-        const hashedPassword = await encryptPassword(newPassword);
+        const hashedPassword = await encryptPassword(confirmPassword);
         logger.debug(`Your new password encrypted successfully`);
 
         logger.debug(`Changing password in database for userId: ${userId}`);
@@ -132,13 +132,14 @@ const ResetPassword = async (req, res, next) => {
         logger.debug(`Password changed successfully in database for userId: ${userId}`);
 
         logger.debug(`Changing password in firebase for userId: ${userId}`);
-        await resetPasswordInFirebase(userId, newPassword);
+        await resetPasswordInFirebase(userId, confirmPassword);
         logger.debug(`Password changed successfully in firebase for userId: ${userId}`);
 
         logger.debug(`Updating updatedBy for userId: ${userId}`);
         await updateUpdateBy(userId, transaction);
         logger.debug(`Updated updatedBy successfully for userId: ${userId}`);
 
+        logger.log(`Password reset successfully`);
         sendResponse(res, 200, 'Password reset successfully');
     } catch (error) {
         logger.error(error.message);
