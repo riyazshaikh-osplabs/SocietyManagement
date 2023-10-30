@@ -2,6 +2,7 @@ import { sendResponse } from "../utils/api.js";
 import { getUserById, getUserByRoomNumber, getUserFromEmail, isValidRoomNumber } from "../models/helpers/index.js";
 import logger from "../setup/logger.js";
 import admin from "../setup/firebase.js";
+import jwt from "jsonwebtoken";
 
 const ValidateClaims = isAdmin => {
     return async (req, res, next) => {
@@ -89,6 +90,7 @@ const ValidateEmailForSignin = isAdmin => {
 
             req.payload = {
                 userId: userDetails?.userId,
+                firstName: userDetails?.firstName,
                 isAdmin: userDetails?.isAdmin,
                 lastLoggedInOn: userDetails?.lastLoggedInOn,
                 dbPassword: userDetails?.password,
@@ -125,9 +127,27 @@ const ValidateRoomNumber = async (req, res, next) => {
     }
 }
 
+const ValidateCredentials = async (req, res, next) => {
+    try {
+        const { userId, token } = req.params;
+        const secret = process.env.JWT_SECRET;
+        const payload = jwt.verify(token, secret);
+
+        const userDetails = await getUserById(userId, payload?.isAdmin, false, true);
+        if (!userDetails) {
+            return sendResponse(res, 404, 'User not found');
+        }
+    } catch (error) {
+        logger.error(error);
+        logger.debug(`Error in validateCredentials`);
+        next(error);
+    }
+}
+
 export {
     ValidateClaims,
     ValidateEmailForSignup,
     ValidateEmailForSignin,
-    ValidateRoomNumber
+    ValidateRoomNumber,
+    ValidateCredentials
 }

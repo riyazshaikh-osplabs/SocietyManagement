@@ -1,6 +1,7 @@
 import moment from "moment"
 import { Building, Floor, User } from "../../models/index.js";
 import logger from "../../setup/logger.js";
+import UserForgotPassword from "../UserForgotPassword.js";
 
 /** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
 const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
@@ -135,6 +136,19 @@ const updateUpdateBy = async (userId, transaction) => {
     )
 }
 
+const saveEmailToken = async (userId, emailToken, transaction) => {
+    const tokenExpiry = moment().add({
+        minutes: 10
+    })
+
+    await UserForgotPassword.create({
+        userId: userId,
+        emailToken: emailToken,
+        expiryOn: tokenExpiry,
+        isActive: true
+    })
+}
+
 export {
     signUp,
     getUserFromEmail,
@@ -143,5 +157,6 @@ export {
     getUserByRoomNumber,
     isValidRoomNumber,
     resetPasswordInDb,
-    updateUpdateBy
+    updateUpdateBy,
+    saveEmailToken
 }

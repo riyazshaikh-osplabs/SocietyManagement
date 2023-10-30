@@ -94,9 +94,20 @@ const ValidateResetPassword = () => {
     ]
 }
 
+const ForgotPasswordValidationRules = () => {
+    return [
+        body('email')
+            .not().isEmpty().withMessage('Email is required').bail()
+            .isEmail().withMessage('Provide a valid email')
+            .normalizeEmail()
+            .trim(),
+    ]
+}
+
 export {
     ValidateReqParams,
     SignupValidationRules,
     SiginValidationRules,
-    ValidateResetPassword
+    ValidateResetPassword,
+    ForgotPasswordValidationRules
 }
