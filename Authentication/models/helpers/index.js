@@ -2,6 +2,7 @@ import moment from "moment"
 import { Building, Floor, User } from "../../models/index.js";
 import logger from "../../setup/logger.js";
 import UserForgotPassword from "../UserForgotPassword.js";
+import { Op } from "sequelize";
 
 /** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
 const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
@@ -49,6 +50,7 @@ const updateLastLoggedIn = async (userId, transaction) => {
     await User.update({ lastLoggedInOn: currentTime }, { where: { userId: userId }, transaction });
 }
 
+/** getUserById takes userId, isAdmin, isDeleted, activationStatus */
 const getUserById = async (userId, isAdmin, isDeleted, activationStatus) => {
     const isAdminCondition = isAdmin == null ? {} : { isAdmin: isAdmin };
     const deleteCondition = isDeleted == null ? {} : { isDeleted: isDeleted };
@@ -66,6 +68,7 @@ const getUserById = async (userId, isAdmin, isDeleted, activationStatus) => {
     return user;
 }
 
+/** getUserByRoomNumber takes roomNumber, buildingWing */
 const getUserByRoomNumber = async (roomNumber, buildingWing) => {
     const roomNumberCondition = roomNumber == null ? null : roomNumber;
     const buildingWingCondition = buildingWing == null ? null : buildingWing;
@@ -88,6 +91,7 @@ const getUserByRoomNumber = async (roomNumber, buildingWing) => {
     return room;
 }
 
+/** isValidRoomNumber takes roomNumber, buildingWing */
 const isValidRoomNumber = async (roomNumber, buildingWing) => {
     const roomNumberCondition = roomNumber == null ? null : roomNumber;
     const buildingWingCondition = buildingWing == null ? null : buildingWing;
@@ -107,6 +111,7 @@ const isValidRoomNumber = async (roomNumber, buildingWing) => {
     return !!floorExists;
 }
 
+/** resetPasswordInDb takes userId, newPassword */
 const resetPasswordInDb = async (userId, newPassword) => {
     const userIdCondition = userId == null ? null : { userId: userId };
 
@@ -122,13 +127,14 @@ const resetPasswordInDb = async (userId, newPassword) => {
     return user;
 }
 
-const updateUpdateBy = async (userId, transaction) => {
+/** updateUpdatedBy takes userId, updatedBy, transaction */
+const updateUpdateBy = async (userId, updatedBy, transaction) => {
     const currentTime = moment();
 
     await User.update(
         {
             updatedOn: currentTime,
-            updatedBy: userId
+            updatedBy: updatedBy
         },
         {
             where: { userId: userId }
@@ -136,6 +142,7 @@ const updateUpdateBy = async (userId, transaction) => {
     )
 }
 
+/** saveEmailToken takes userId, emaitToken, transaction */
 const saveEmailToken = async (userId, emailToken, transaction) => {
     const tokenExpiry = moment().add({
         minutes: 10
@@ -149,6 +156,29 @@ const saveEmailToken = async (userId, emailToken, transaction) => {
     })
 }
 
+/** isEmailTokenValid takes emailToken */
+const isEmailTokenValid = async (emailToken) => {
+    const currentTime = moment();
+    const userToken = await UserForgotPassword.findOne({
+        where: {
+            emailToken: emailToken,
+            expiryOn: { [Op.gt]: currentTime },
+            isActive: true
+        }
+    });
+    if (!userToken) return false;
+
+    logger.log(`userToken`, userToken);
+    return userToken?.userId;
+}
+
+/** useEmailToken takes userId, emailToken, transaction */
+const useEmailToken = async (userId, emailToken, transaction) => {
+    await UserForgotPassword.update(
+        { isActive: false },
+        { where: { userId: userId, emailToken: emailToken } }, transaction)
+}
+
 export {
     signUp,
     getUserFromEmail,
@@ -158,5 +188,7 @@ export {
     isValidRoomNumber,
     resetPasswordInDb,
     updateUpdateBy,
-    saveEmailToken
+    saveEmailToken,
+    isEmailTokenValid,
+    useEmailToken
 }

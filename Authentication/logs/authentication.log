@@ -1,0 +1,564 @@
+[2023-10-31T15:55:13.104] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T15:55:13.255] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T15:55:13.291] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T15:59:15.337] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-10-31T15:59:15.387] [DEBUG] auhtentication - Encrypting your password
+[2023-10-31T15:59:15.462] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-10-31T15:59:15.463] [DEBUG] auhtentication - Signup with database for email: faiyazshaikh1904@gmail.com
+[2023-10-31T15:59:15.474] [DEBUG] auhtentication - Successfully signup in the database for email: faiyazshaikh1904@gmail.com
+[2023-10-31T15:59:15.474] [DEBUG] auhtentication - Signup with firebase for userId: 8
+[2023-10-31T15:59:17.398] [DEBUG] auhtentication - Successfully signup in firebase for userId: 8
+[2023-10-31T15:59:17.399] [DEBUG] auhtentication - Committing transactions to the database
+[2023-10-31T15:59:17.410] [DEBUG] auhtentication - Admin user created successfully
+[2023-10-31T15:59:17.410] [INFO] auhtentication - signupResponse: {
+  "firstName": "Faiyaz",
+  "lastName": "Shaikh",
+  "email": "faiyazshaikh1904@gmail.com",
+  "mobile": "8762145638",
+  "roomNumber": 402,
+  "address": "Naya Nagar",
+  "role": 4
+}
+[2023-10-31T16:00:02.289] [DEBUG] auhtentication - Request : POST /auth/user/signin
+[2023-10-31T16:00:02.307] [DEBUG] auhtentication - Validating your password
+[2023-10-31T16:00:02.383] [DEBUG] auhtentication - Your password is validated successfully
+[2023-10-31T16:00:02.383] [DEBUG] auhtentication - Signin with firebase with userId: 8
+[2023-10-31T16:00:03.193] [DEBUG] auhtentication - Signin successfully with firebase for userId: 8
+[2023-10-31T16:00:03.195] [DEBUG] auhtentication - Updating the lastLoggedin time
+[2023-10-31T16:00:03.200] [DEBUG] auhtentication - lastLoggedIn time is updated
+[2023-10-31T16:00:03.200] [DEBUG] auhtentication - Commiting transactions to the database
+[2023-10-31T16:00:03.207] [INFO] auhtentication - User loggedIn successfully
+[2023-10-31T16:00:03.207] [INFO] auhtentication - signinResponse: {
+  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6ZmFsc2UsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9zb2NpZXR5bWFuYWdlbWVudC05Y2NmZiIsImF1ZCI6InNvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXV0aF90aW1lIjoxNjk4NzQ4MjAyLCJ1c2VyX2lkIjoiOCIsInN1YiI6IjgiLCJpYXQiOjE2OTg3NDgyMDIsImV4cCI6MTY5ODc1MTgwMiwiZW1haWwiOiJmYWl5YXpzaGFpa2gxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJmYWl5YXpzaGFpa2gxOTA0QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.NaKhpFCTwarAUa1adNZgepnvVAFE2bS7CqBgy9WBHjNt5U-geUpn0vCG5q5hVFqcPJCS0Z20bw3BJRIgikuyT0sIrBp38U5QZwqX7obHyldl-8sz4M8A-Ji3ExSG8Ca7ruUV8IdKew9nfIsOp-2ldtr2VL-IHdOXxRTX0CJF3qzpe1-WKXBpfgF92kedaQxHBkPKkmFklCkCGlk_evSZ72tyXepeTxaHLIeLWyuDZ9Se_zkAXWuMPDLwYy8JNtGyFtaTdUII3w6aNVyk8OQI_RrFeXPsi7HWAilANXDdgg5PUN48NRjGrATvEIZaVV1nUTtNahXYXWJZrr1969Iu1Q",
+  "refreshToken": "AMf-vBwF0hsvcXa83-dvr6eAq7lA9xJrcLtPtltfMxIJ7nd6ZYqjSTGGDSHlO4XMZi3P4z_LZJN-ccOQiZ8yC0ljuQXOFFp5AR_ZhGrkq1zvLLvdIrjCu6zeoRN7Npqjcdt4-_mubg1iql7ZQCUKNWjcsYCL4hsNZmohqnX2477I5Dmwe1r2NcZikIJWQVxmSOVEe-y6kwoe17-4nRJUfoD_nvFJfztN6w",
+  "expiresIn": "17:00:03"
+}
+[2023-10-31T16:01:17.993] [DEBUG] auhtentication - Request : POST /auth/admin/signup
+[2023-10-31T16:01:18.011] [DEBUG] auhtentication - Encrypting your password
+[2023-10-31T16:01:18.097] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-10-31T16:01:18.098] [DEBUG] auhtentication - Signup with database for email: riyaz.s@osplabs.com
+[2023-10-31T16:01:18.101] [DEBUG] auhtentication - Successfully signup in the database for email: riyaz.s@osplabs.com
+[2023-10-31T16:01:18.101] [DEBUG] auhtentication - Signup with firebase for userId: 9
+[2023-10-31T16:01:19.771] [DEBUG] auhtentication - Successfully signup in firebase for userId: 9
+[2023-10-31T16:01:19.772] [DEBUG] auhtentication - Committing transactions to the database
+[2023-10-31T16:01:19.781] [DEBUG] auhtentication - Admin user created successfully
+[2023-10-31T16:01:19.782] [DEBUG] auhtentication - signupResponse {
+  "firstName": "Riyaz",
+  "lastName": "Shaikh",
+  "email": "riyaz.s@osplabs.com",
+  "mobile": "6325987410",
+  "roomNumber": 101,
+  "address": "Naya Nagar",
+  "role": 1
+}
+[2023-10-31T18:29:56.465] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-10-31T18:29:56.478] [DEBUG] auhtentication - Creating email token
+[2023-10-31T18:29:56.479] [ERROR] auhtentication - crypto is not defined
+[2023-10-31T18:29:56.479] [DEBUG] auhtentication - Rolling back any database transactions
+[2023-10-31T18:31:11.061] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-10-31T18:33:05.474] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:33:05.796] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:33:05.840] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:33:11.043] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-10-31T18:33:34.646] [DEBUG] auhtentication - Creating email token
+[2023-10-31T18:33:39.217] [DEBUG] auhtentication - Email token created successfully
+[2023-10-31T18:33:41.665] [DEBUG] auhtentication - Saving email token
+[2023-10-31T18:33:55.873] [DEBUG] auhtentication - Email token saved successfully
+[2023-10-31T18:34:04.264] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-10-31T18:34:22.673] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-10-31T18:34:26.127] [DEBUG] auhtentication - Commiting transactions to database
+[2023-10-31T18:34:47.186] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698757487 i3-20020a170902c94300b001c8836a3795sm1278228pla.271 - gsmtp
+[2023-10-31T18:35:14.744] [DEBUG] auhtentication - Request : GET /reset-password/9?token=2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9
+[2023-10-31T18:37:06.592] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:37:06.864] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:37:06.921] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:37:14.311] [DEBUG] auhtentication - Request : POST /protected/auth/admin/reset-password
+[2023-10-31T18:37:17.146] [DEBUG] auhtentication - Validating claims
+[2023-10-31T18:37:25.586] [ERROR] auhtentication - Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.
+[2023-10-31T18:37:26.545] [DEBUG] auhtentication - Invalid Token
+[2023-10-31T18:38:01.163] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:38:01.411] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:38:01.469] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:38:03.316] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T18:38:14.255] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T18:38:31.616] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T18:56:10.077] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:56:10.337] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:56:10.377] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:56:15.282] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T18:57:24.911] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:57:25.199] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:57:25.281] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:57:34.893] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T18:58:06.209] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:58:06.456] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:58:06.498] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:58:20.991] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:58:21.248] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:58:21.291] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:58:23.335] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T18:58:53.589] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T18:59:44.715] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T18:59:44.960] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T18:59:45.020] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T18:59:46.439] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T18:59:52.278] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T18:59:52.279] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 5,
+    userId: 9,
+    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
+    expiryOn: 2023-10-31T13:13:47.042Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 5,
+    userId: 9,
+    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
+    expiryOn: 2023-10-31T13:13:47.042Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T19:00:24.585] [DEBUG] auhtentication - Using email token
+[2023-10-31T19:00:24.624] [DEBUG] auhtentication - Email token used
+[2023-10-31T19:00:24.628] [DEBUG] auhtentication - Updating updatedBy
+[2023-10-31T19:00:24.649] [DEBUG] auhtentication - Updated successfully
+[2023-10-31T19:00:24.650] [DEBUG] auhtentication - Encrypting your new password
+[2023-10-31T19:00:24.729] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-10-31T19:00:24.732] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-10-31T19:00:24.740] [INFO] auhtentication - rowsUpdated 1
+[2023-10-31T19:00:24.741] [INFO] auhtentication - updatedUser: 1
+[2023-10-31T19:00:24.742] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-10-31T19:00:24.743] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-10-31T19:00:24.926] [ERROR] auhtentication - The uid must be a non-empty string with at most 128 characters.
+[2023-10-31T19:00:24.926] [DEBUG] auhtentication - Rolling back any database transactions
+[2023-10-31T19:03:25.061] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:03:25.298] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:03:25.340] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:03:27.297] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:03:36.100] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T19:03:36.101] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 5,
+    userId: 9,
+    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
+    expiryOn: 2023-10-31T13:13:47.042Z,
+    isActive: false
+  },
+  _previousDataValues: {
+    forgotPasswordId: 5,
+    userId: 9,
+    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
+    expiryOn: 2023-10-31T13:13:47.042Z,
+    isActive: false
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T19:04:42.342] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:04:42.589] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:04:42.627] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:04:45.782] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:04:57.332] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T19:04:57.333] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 5,
+    userId: 9,
+    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
+    expiryOn: 2023-10-31T13:13:47.042Z,
+    isActive: false
+  },
+  _previousDataValues: {
+    forgotPasswordId: 5,
+    userId: 9,
+    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
+    expiryOn: 2023-10-31T13:13:47.042Z,
+    isActive: false
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T19:05:32.129] [DEBUG] auhtentication - Using email token
+[2023-10-31T19:05:37.986] [DEBUG] auhtentication - Email token used
+[2023-10-31T19:05:40.410] [DEBUG] auhtentication - Updating updatedBy
+[2023-10-31T19:05:48.187] [DEBUG] auhtentication - Updated successfully
+[2023-10-31T19:05:49.265] [DEBUG] auhtentication - Encrypting your new password
+[2023-10-31T19:06:01.273] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-10-31T19:06:05.144] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-10-31T19:06:08.345] [INFO] auhtentication - rowsUpdated 1
+[2023-10-31T19:06:09.656] [INFO] auhtentication - updatedUser: 1
+[2023-10-31T19:06:11.033] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-10-31T19:06:12.504] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-10-31T19:06:19.728] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
+[2023-10-31T19:06:23.048] [DEBUG] auhtentication - Updating updatedBy for userId: 9
+[2023-10-31T19:06:29.976] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
+[2023-10-31T19:06:31.656] [INFO] auhtentication - Password reset successfully
+[2023-10-31T19:12:28.493] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:25:32.010] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:25:32.298] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:25:32.337] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:25:38.284] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-10-31T19:26:13.406] [DEBUG] auhtentication - Creating email token
+[2023-10-31T19:26:13.407] [DEBUG] auhtentication - Email token created successfully
+[2023-10-31T19:26:13.408] [DEBUG] auhtentication - Saving email token
+[2023-10-31T19:26:27.262] [DEBUG] auhtentication - Email token saved successfully
+[2023-10-31T19:26:33.869] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-10-31T19:26:36.235] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-10-31T19:26:36.236] [DEBUG] auhtentication - Commiting transactions to database
+[2023-10-31T19:26:38.860] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698760598 k17-20020a170902c41100b001c73f3a9b7fsm1349818plk.185 - gsmtp
+[2023-10-31T19:26:47.060] [DEBUG] auhtentication - Request : GET /reset-password/9?token=dcf41b9b5d1b1f5dc41b1ca15fd1d7839fa0e0f8f4bfced55bc2d8c410f0425d26a6c78793ef8b7ef7456b63400cd2a5eb34401dbbbdd6c89723f00cd8b93d8db6e021c4ce07c9a834276cda683688e024a68b8bb6106705f38bcf48ae922b9f283101692cfc8d21cc9454c9fbf99c8d000a86743d4d0bfc7f7fbfcbd42d38e5
+[2023-10-31T19:27:09.778] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:27:10.023] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:27:10.060] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:27:26.332] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:27:56.012] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:27:56.263] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:27:56.332] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:27:58.214] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:28:12.121] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T19:28:12.121] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 6,
+    userId: 9,
+    emailToken: 'dcf41b9b5d1b1f5dc41b1ca15fd1d7839fa0e0f8f4bfced55bc2d8c410f0425d26a6c78793ef8b7ef7456b63400cd2a5eb34401dbbbdd6c89723f00cd8b93d8db6e021c4ce07c9a834276cda683688e024a68b8bb6106705f38bcf48ae922b9f283101692cfc8d21cc9454c9fbf99c8d000a86743d4d0bfc7f7fbfcbd42d38e5',
+    expiryOn: 2023-10-31T14:06:17.246Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 6,
+    userId: 9,
+    emailToken: 'dcf41b9b5d1b1f5dc41b1ca15fd1d7839fa0e0f8f4bfced55bc2d8c410f0425d26a6c78793ef8b7ef7456b63400cd2a5eb34401dbbbdd6c89723f00cd8b93d8db6e021c4ce07c9a834276cda683688e024a68b8bb6106705f38bcf48ae922b9f283101692cfc8d21cc9454c9fbf99c8d000a86743d4d0bfc7f7fbfcbd42d38e5',
+    expiryOn: 2023-10-31T14:06:17.246Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T19:28:45.217] [DEBUG] auhtentication - Using email token
+[2023-10-31T19:28:53.169] [DEBUG] auhtentication - Email token used
+[2023-10-31T19:28:54.137] [DEBUG] auhtentication - Updating updatedBy
+[2023-10-31T19:28:56.122] [DEBUG] auhtentication - Updated successfully
+[2023-10-31T19:28:59.823] [DEBUG] auhtentication - Encrypting your new password
+[2023-10-31T19:29:04.903] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-10-31T19:29:05.968] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-10-31T19:29:06.645] [INFO] auhtentication - rowsUpdated 1
+[2023-10-31T19:29:07.296] [INFO] auhtentication - updatedUser: 1
+[2023-10-31T19:29:08.463] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-10-31T19:29:09.313] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-10-31T19:29:12.641] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
+[2023-10-31T19:29:13.553] [DEBUG] auhtentication - Updating updatedBy for userId: 9
+[2023-10-31T19:29:16.216] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
+[2023-10-31T19:29:17.128] [INFO] auhtentication - Password reset successfully
+[2023-10-31T19:29:53.163] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:29:53.407] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:29:53.448] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:29:56.119] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:30:30.701] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-10-31T19:30:34.461] [DEBUG] auhtentication - Creating email token
+[2023-10-31T19:30:34.461] [DEBUG] auhtentication - Email token created successfully
+[2023-10-31T19:30:34.461] [DEBUG] auhtentication - Saving email token
+[2023-10-31T19:30:45.927] [DEBUG] auhtentication - Email token saved successfully
+[2023-10-31T19:30:45.928] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-10-31T19:30:52.165] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-10-31T19:30:52.166] [DEBUG] auhtentication - Commiting transactions to database
+[2023-10-31T19:30:55.187] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698760855 m29-20020a638c1d000000b0056b6d1ac949sm1102528pgd.13 - gsmtp
+[2023-10-31T19:31:03.512] [DEBUG] auhtentication - Request : GET /reset-password/9?token=5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73
+[2023-10-31T19:31:32.527] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:31:32.769] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:31:32.807] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:31:36.044] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:31:48.514] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T19:31:48.515] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 7,
+    userId: 9,
+    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
+    expiryOn: 2023-10-31T14:10:41.747Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 7,
+    userId: 9,
+    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
+    expiryOn: 2023-10-31T14:10:41.747Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T19:32:24.324] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T19:32:24.572] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T19:32:24.615] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T19:32:27.077] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:32:36.711] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T19:32:36.712] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 7,
+    userId: 9,
+    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
+    expiryOn: 2023-10-31T14:10:41.747Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 7,
+    userId: 9,
+    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
+    expiryOn: 2023-10-31T14:10:41.747Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T19:32:46.128] [DEBUG] auhtentication - Using email token
+[2023-10-31T19:32:47.199] [DEBUG] auhtentication - Email token used
+[2023-10-31T19:32:47.815] [DEBUG] auhtentication - Updating updatedBy
+[2023-10-31T19:32:49.704] [DEBUG] auhtentication - Updated successfully
+[2023-10-31T19:32:50.752] [DEBUG] auhtentication - Encrypting your new password
+[2023-10-31T19:32:52.343] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-10-31T19:32:53.551] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-10-31T19:32:54.236] [INFO] auhtentication - rowsUpdated 1
+[2023-10-31T19:32:55.110] [INFO] auhtentication - updatedUser: 1
+[2023-10-31T19:32:55.111] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-10-31T19:32:55.937] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-10-31T19:32:59.031] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
+[2023-10-31T19:33:01.376] [DEBUG] auhtentication - Updating updatedBy for userId: 9
+[2023-10-31T19:33:03.040] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
+[2023-10-31T19:33:03.937] [INFO] auhtentication - Password reset successfully
+[2023-10-31T19:33:16.387] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-10-31T19:33:21.881] [DEBUG] auhtentication - Validating your password
+[2023-10-31T19:33:21.957] [DEBUG] auhtentication - Your password is validated successfully
+[2023-10-31T19:33:21.957] [DEBUG] auhtentication - Signin with firebase with userId: 9
+[2023-10-31T19:33:27.726] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
+[2023-10-31T19:33:27.729] [DEBUG] auhtentication - Updating the lastLoggedin time
+[2023-10-31T19:33:27.738] [DEBUG] auhtentication - lastLoggedIn time is updated
+[2023-10-31T19:33:27.738] [DEBUG] auhtentication - Commiting transactions to the database
+[2023-10-31T19:33:27.751] [INFO] auhtentication - User loggedIn successfully
+[2023-10-31T19:33:27.752] [INFO] auhtentication - signinResponse: {
+  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg3NjEwMDUsInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODc2MTAwNSwiZXhwIjoxNjk4NzY0NjA1LCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.glIYHR2JiWkkWCaUy9f0965Yw7GJuOKzwD9qjLoQ7NJGUZyQOxDXK7vtaPKtoIFlTeix3hGxFr-r8WJ2nOnKvPO-QcyezIfoduKLJglzkIpxlTVLo-1-Ml8vt6awpq5sFbBab4CnH822oy2fR3iCXgIXmZlGY7O-4WFwbs5ADToe3vqHweJqR8g8ndwMZQFr-XnvWARWKcSPERPPcQbfqRt2lcnSDKr8mEHRSR7lkgUuAtbd5dqhKdim4VtoXYaXQEtIG80Xujjx9LEsFI8CGnDVlkpGfA5qij1mHmh4NPA3oZyyUJjWKfQL1dPBSo77_6wQ6cJB22n7cYFPKhZikw",
+  "refreshToken": "AMf-vBxM1UgLgI79Djwf78t1a1JwXJOFKjgxt1jj04HQUNmkIHrpJjlulVR0M11UqQErFGVUHZPTVv9ZM9GYn6-eHWa7v2KSDKGcVW_yrGRdhrP246b8UZDGosm7m9u_n4S3yzN4XG6Ti3UMxC6GIakst3mi9tRRiqyvKevXpRt1lLUmnpGxUxiAdHrDs3mD3uVtSMI-Ar-G",
+  "expiresIn": "20:33:27"
+}
+[2023-10-31T19:34:08.136] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-10-31T19:34:13.454] [DEBUG] auhtentication - Creating email token
+[2023-10-31T19:34:13.455] [DEBUG] auhtentication - Email token created successfully
+[2023-10-31T19:34:13.455] [DEBUG] auhtentication - Saving email token
+[2023-10-31T19:34:13.479] [DEBUG] auhtentication - Email token saved successfully
+[2023-10-31T19:34:13.479] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-10-31T19:34:13.487] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-10-31T19:34:13.487] [DEBUG] auhtentication - Commiting transactions to database
+[2023-10-31T19:34:15.924] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698761055 jo13-20020a170903054d00b001c9cb2fb8d8sm1372259plb.49 - gsmtp
+[2023-10-31T19:34:23.690] [DEBUG] auhtentication - Request : GET /reset-password/9?token=2c303d1584685af2d542d9f2a454b67275bcc0787052572de3a742a634c58fad451b8679d2507351746137959b360897541eec4c767a5d3f4cf57e497191e499427e3bffb0d5540fc8de1787586abd45b1966e2210ebc846be252773266b752699fc29fe229bfc0cc62b3e936fdf08c150910e2c76ed2af9881d95393d012825
+[2023-10-31T19:34:51.240] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T19:34:57.387] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T19:34:57.388] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 8,
+    userId: 9,
+    emailToken: '2c303d1584685af2d542d9f2a454b67275bcc0787052572de3a742a634c58fad451b8679d2507351746137959b360897541eec4c767a5d3f4cf57e497191e499427e3bffb0d5540fc8de1787586abd45b1966e2210ebc846be252773266b752699fc29fe229bfc0cc62b3e936fdf08c150910e2c76ed2af9881d95393d012825',
+    expiryOn: 2023-10-31T14:14:13.455Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 8,
+    userId: 9,
+    emailToken: '2c303d1584685af2d542d9f2a454b67275bcc0787052572de3a742a634c58fad451b8679d2507351746137959b360897541eec4c767a5d3f4cf57e497191e499427e3bffb0d5540fc8de1787586abd45b1966e2210ebc846be252773266b752699fc29fe229bfc0cc62b3e936fdf08c150910e2c76ed2af9881d95393d012825',
+    expiryOn: 2023-10-31T14:14:13.455Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T19:35:20.955] [DEBUG] auhtentication - Using email token
+[2023-10-31T19:35:22.883] [DEBUG] auhtentication - Email token used
+[2023-10-31T19:35:23.834] [DEBUG] auhtentication - Updating updatedBy
+[2023-10-31T19:35:25.515] [DEBUG] auhtentication - Updated successfully
+[2023-10-31T19:35:26.666] [DEBUG] auhtentication - Encrypting your new password
+[2023-10-31T19:35:29.251] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-10-31T19:35:30.426] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-10-31T19:35:33.370] [INFO] auhtentication - rowsUpdated 1
+[2023-10-31T19:35:34.347] [INFO] auhtentication - updatedUser: 1
+[2023-10-31T19:35:34.347] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-10-31T19:35:35.745] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-10-31T19:35:40.130] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
+[2023-10-31T19:35:41.218] [DEBUG] auhtentication - Updating updatedBy for userId: 9
+[2023-10-31T19:35:44.602] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
+[2023-10-31T19:35:46.129] [INFO] auhtentication - Password reset successfully
+[2023-10-31T19:36:02.391] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-10-31T19:36:07.002] [DEBUG] auhtentication - Validating your password
+[2023-10-31T19:36:07.094] [DEBUG] auhtentication - Invalid Password
+[2023-10-31T19:36:16.544] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-10-31T19:36:23.251] [DEBUG] auhtentication - Validating your password
+[2023-10-31T19:36:23.326] [DEBUG] auhtentication - Your password is validated successfully
+[2023-10-31T19:36:23.327] [DEBUG] auhtentication - Signin with firebase with userId: 9
+[2023-10-31T19:36:26.351] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
+[2023-10-31T19:36:26.352] [DEBUG] auhtentication - Updating the lastLoggedin time
+[2023-10-31T19:36:26.356] [DEBUG] auhtentication - lastLoggedIn time is updated
+[2023-10-31T19:36:26.356] [DEBUG] auhtentication - Commiting transactions to the database
+[2023-10-31T19:36:26.368] [INFO] auhtentication - User loggedIn successfully
+[2023-10-31T19:36:26.368] [INFO] auhtentication - signinResponse: {
+  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg3NjExODQsInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODc2MTE4NCwiZXhwIjoxNjk4NzY0Nzg0LCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.ZTaTyHY1bw6wHAsukf0G6TKu7ZkoFCJYMOJnzOrPxQuNN6rQ8Q7hDSMcBmXzwZpwNMAnABQ2ZIlUXyGvoFPGgZ7VU6HsEEK9Qco6Of-jceT2E9nkcNeo73hwiQrIqCZLDh8JC7A-oE3sgt6vKiOAppeLrBZhR0yqsVLnb31fLvANpu9NjLvUZSpSk7vsxFFQTHxAjh-79V2mjtyUoaRAzDJQYaxdG8WQtisHk9fC00-Lh6VwGnKB5UOM-1pvcvujY9zfG8zCSZXt2orfpm7kxGRCtP4TBZAYO3V5C5Fd9UZuV6GJcAET2TB4cWfFBLuo6fgH4bfPgPsz40IaMCCVTA",
+  "refreshToken": "AMf-vBwHrfWwiuYoKH9Ci4gX3Xe7KqBrAQy3KoSKGeC4r9ZnBB_bDX1SMrwNtEP6JwttQeofvNDafdyMFxpqMPTBcZ4gdNvZf6PUDvoQX3YtBb8b0MDKjHQyfSrjP1h9QTl70w11P0uZ2fXmf8whJKl0ns-ROCSsDDquB-2KW8Q8210LUtUW2GyOU84NtjuXvMM4sjDlCyDc",
+  "expiresIn": "20:36:26"
+}
+[2023-10-31T20:17:23.285] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-10-31T20:17:23.597] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-10-31T20:17:23.671] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-10-31T20:17:32.390] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-10-31T20:17:37.050] [DEBUG] auhtentication - Creating email token
+[2023-10-31T20:17:37.051] [DEBUG] auhtentication - Email token created successfully
+[2023-10-31T20:17:37.051] [DEBUG] auhtentication - Saving email token
+[2023-10-31T20:17:37.083] [DEBUG] auhtentication - Email token saved successfully
+[2023-10-31T20:17:37.084] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-10-31T20:17:37.097] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-10-31T20:17:37.097] [DEBUG] auhtentication - Commiting transactions to database
+[2023-10-31T20:17:40.459] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698763660 x22-20020aa79ad6000000b006c107a9e8f0sm1332536pfp.128 - gsmtp
+[2023-10-31T20:18:01.416] [DEBUG] auhtentication - Request : GET /reset-password/9?token=fe8cf2c6073ef3939ec31a034173ae1f46af816ad096d4fffab1a6f46615304ef1b3fd509c7217360852efd11c3ac2c4f71b5836e427650be07c7e23c4adb5e180921533de536fa38b6fd8e7118e92fe99e9ae80c69dbe28010e1532c691f60d238a3cdba7e24ccf10b80323c7bdd959fbc1d5e0a74acb09a717f5c4a35e2fd9
+[2023-10-31T20:18:23.659] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-10-31T20:18:28.893] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-10-31T20:18:28.895] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 9,
+    userId: 9,
+    emailToken: 'fe8cf2c6073ef3939ec31a034173ae1f46af816ad096d4fffab1a6f46615304ef1b3fd509c7217360852efd11c3ac2c4f71b5836e427650be07c7e23c4adb5e180921533de536fa38b6fd8e7118e92fe99e9ae80c69dbe28010e1532c691f60d238a3cdba7e24ccf10b80323c7bdd959fbc1d5e0a74acb09a717f5c4a35e2fd9',
+    expiryOn: 2023-10-31T14:57:37.052Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 9,
+    userId: 9,
+    emailToken: 'fe8cf2c6073ef3939ec31a034173ae1f46af816ad096d4fffab1a6f46615304ef1b3fd509c7217360852efd11c3ac2c4f71b5836e427650be07c7e23c4adb5e180921533de536fa38b6fd8e7118e92fe99e9ae80c69dbe28010e1532c691f60d238a3cdba7e24ccf10b80323c7bdd959fbc1d5e0a74acb09a717f5c4a35e2fd9',
+    expiryOn: 2023-10-31T14:57:37.052Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-10-31T20:18:34.931] [DEBUG] auhtentication - Using email token
+[2023-10-31T20:18:36.323] [DEBUG] auhtentication - Email token used
+[2023-10-31T20:18:36.835] [DEBUG] auhtentication - Updating updatedBy
+[2023-10-31T20:18:37.794] [DEBUG] auhtentication - Updated successfully
+[2023-10-31T20:18:38.646] [DEBUG] auhtentication - Encrypting your new password
+[2023-10-31T20:18:39.565] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-10-31T20:18:40.099] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-10-31T20:18:40.681] [INFO] auhtentication - rowsUpdated 1
+[2023-10-31T20:18:41.171] [INFO] auhtentication - updatedUser: 1
+[2023-10-31T20:18:41.171] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-10-31T20:18:41.712] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-10-31T20:18:44.477] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
+[2023-10-31T20:18:45.171] [DEBUG] auhtentication - Updating updatedBy for userId: 9
+[2023-10-31T20:18:46.354] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
+[2023-10-31T20:18:46.877] [INFO] auhtentication - Password reset successfully

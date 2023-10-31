@@ -1,5 +1,5 @@
 import { sendResponse } from "../utils/api.js";
-import { getUserById, getUserByRoomNumber, getUserFromEmail, isValidRoomNumber } from "../models/helpers/index.js";
+import { getUserById, getUserByRoomNumber, getUserFromEmail, isEmailTokenValid, isValidRoomNumber } from "../models/helpers/index.js";
 import logger from "../setup/logger.js";
 import admin from "../setup/firebase.js";
 import jwt from "jsonwebtoken";
@@ -127,20 +127,32 @@ const ValidateRoomNumber = async (req, res, next) => {
     }
 }
 
-const ValidateCredentials = async (req, res, next) => {
-    try {
-        const { userId, token } = req.params;
-        const secret = process.env.JWT_SECRET;
-        const payload = jwt.verify(token, secret);
+const ValidateEmailToken = isAdmin => {
+    return async (req, res, next) => {
+        try {
+            const emailToken = req.body?.emailToken;
 
-        const userDetails = await getUserById(userId, payload?.isAdmin, false, true);
-        if (!userDetails) {
-            return sendResponse(res, 404, 'User not found');
+            const tokenId = await isEmailTokenValid(emailToken);
+            if (!tokenId) {
+                return sendResponse(res, 401, 'Invalid Email Token');
+            }
+
+            const userDetails = await getUserById(tokenId, isAdmin, false, true);
+            if (!userDetails) {
+                return sendResponse(res, 404, 'Invalid User');
+            }
+
+            req.payload = {
+                userId: tokenId.toString()
+            }
+
+            next()
+        } catch (error) {
+            logger.error(error);
+            logger.debug(`Error in validateCredentials`);
+            next(error);
         }
-    } catch (error) {
-        logger.error(error);
-        logger.debug(`Error in validateCredentials`);
-        next(error);
+
     }
 }
 
@@ -149,5 +161,5 @@ export {
     ValidateEmailForSignup,
     ValidateEmailForSignin,
     ValidateRoomNumber,
-    ValidateCredentials
+    ValidateEmailToken
 }

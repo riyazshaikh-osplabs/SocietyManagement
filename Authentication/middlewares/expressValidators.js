@@ -77,8 +77,12 @@ const SiginValidationRules = () => {
     ]
 }
 
-const ValidateResetPassword = () => {
+const ResetPasswordValidationRules = () => {
     return [
+        body('emailToken')
+            .not().isEmpty().withMessage('Email Token is required').bail()
+            .isHexadecimal().withMessage('Provide a valid email token')
+            .trim(),
         body('password')
             .not().isEmpty().withMessage('Password is required').bail()
             .isString().withMessage('Password must be of type string').bail()
@@ -108,6 +112,6 @@ export {
     ValidateReqParams,
     SignupValidationRules,
     SiginValidationRules,
-    ValidateResetPassword,
+    ResetPasswordValidationRules,
     ForgotPasswordValidationRules
 }

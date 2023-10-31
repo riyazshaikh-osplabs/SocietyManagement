@@ -1,13 +1,21 @@
-const logger = {
-    log: (...message) => {
-        console.log(...message);
+import log4js from 'log4js';
+
+log4js.configure({
+    appenders: {
+        console: { type: 'console' },
+        authentication: {
+            type: 'file',
+            filename: 'logs/authentication.log',
+            pattern: 'dd-MM-yyy',
+            maxLogSize: 10485760,
+            compress: true
+        },
     },
-    error: (...message) => {
-        console.error(...message);
+    categories: {
+        default: { appenders: ['console', 'authentication'], level: 'debug' }
     },
-    debug: (...message) => {
-        console.debug(...message);
-    }
-}
+});
+
+const logger = log4js.getLogger('auhtentication');
 
 export default logger;
