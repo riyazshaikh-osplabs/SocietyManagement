@@ -36,36 +36,36 @@ const SignupValidationRules = () => {
             .isStrongPassword({ minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }).withMessage('Password must contain atleast one lowercase, uppercase, number and special characters')
             .trim(),
         body('mobile')
-            .not().isEmpty().withMessage('Mobile is required')
-            .isInt().withMessage('Mobile should be of type number')
-            .isLength({ max: 10 }).withMessage('Mobile should be of 10 number')
+            .not().isEmpty().withMessage('Mobile is required').bail()
+            .isInt().withMessage('Mobile should be of type number').bail()
+            .isLength({ max: 10 }).withMessage('Mobile should be of 10 number').bail()
             .trim(),
         body('buildingWing')
-            .not().isEmpty().withMessage('Building Wing is required')
-            .isString().withMessage('Building Wings should be of type string')
+            .not().isEmpty().withMessage('Building Wing is required').bail()
+            .isString().withMessage('Building Wings should be of type string').bail()
             .isLength({ max: 1 }).withMessage('Wing should be of single character')
             .trim(),
         body('roomNumber')
-            .not().isEmpty().withMessage('Room Number is required')
+            .not().isEmpty().withMessage('Room Number is required').bail()
             .isInt().withMessage('Room Number should be of type number')
             .trim(),
         body('role')
-            .not().isEmpty().withMessage('Role is required')
+            .not().isEmpty().withMessage('Role is required').bail()
             .isInt().withMessage('Role should be of type number')
             .trim(),
         body('address')
-            .not().isEmpty().withMessage('Address is required')
-            .isString().withMessage('Address should be of type string')
+            .not().isEmpty().withMessage('Address is required').bail()
+            .isString().withMessage('Address should be of type string').bail()
             .isLength({ max: 200 }).withMessage('Address should be of 200 characters')
             .trim()
     ]
 }
 
-const SiginValidationRules = () => {
+const LoginOtpValidationRules = () => {
     return [
         body('email')
             .not().isEmpty().withMessage('Email is required').bail()
-            .isEmail().withMessage('Provide a valid email').bail()
+            .isEmail().withMessage('Provide a valid email')
             .normalizeEmail()
             .trim(),
         body('password')
@@ -108,10 +108,31 @@ const ForgotPasswordValidationRules = () => {
     ]
 }
 
+const SignInValidationRules = () => {
+    return [
+        body('email')
+            .not().isEmpty().withMessage('Email is required').bail()
+            .isEmail().withMessage('Provide a valid email')
+            .normalizeEmail()
+            .trim(),
+        body('password')
+            .not().isEmpty().withMessage('Password is required').bail()
+            .isString().withMessage('Password must be of type String').bail()
+            .isLength({ min: 6, max: 20 }).withMessage('Password must be between 6 to 20 characters')
+            .isStrongPassword({ minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 }).withMessage('Password must contain atleast one lowercase, uppercase, number and special characters'),
+        body('otp')
+            .not().isEmpty().withMessage('OTP is required').bail()
+            .isLength({ min: 4, max: 4 }).withMessage('OTP must be 4 digits long').bail()
+            .isNumeric().withMessage('OTP must be of type Number').bail()
+            .toInt()
+    ]
+}
+
 export {
     ValidateReqParams,
     SignupValidationRules,
-    SiginValidationRules,
+    LoginOtpValidationRules,
     ResetPasswordValidationRules,
-    ForgotPasswordValidationRules
+    ForgotPasswordValidationRules,
+    SignInValidationRules
 }

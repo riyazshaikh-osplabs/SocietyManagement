@@ -1,4 +1,6 @@
 import logger from "../setup/logger.js";
+import crypto from "crypto";
+import { TESTING_EMAILS } from "../setup/secrets.js";
 
 const sendResponse = (responseObj, statusCode, message, data = [], errors = []) => {
     const response = {
@@ -38,8 +40,16 @@ const requestLogger = (req, res, next) => {
     next();
 }
 
+const generateOtp = (email) => {
+    if (TESTING_EMAILS?.split(',')?.includes(email)) {
+        return "1234";
+    }
+    return crypto.randomInt(1000, 9999).toString();
+}
+
 export {
     sendResponse,
     sendError,
-    requestLogger
+    requestLogger,
+    generateOtp
 }

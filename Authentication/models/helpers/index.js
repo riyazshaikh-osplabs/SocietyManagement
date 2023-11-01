@@ -3,6 +3,7 @@ import { Building, Floor, User } from "../../models/index.js";
 import logger from "../../setup/logger.js";
 import UserForgotPassword from "../UserForgotPassword.js";
 import { Op } from "sequelize";
+import UserOtp from "../UserOtp.js";
 
 /** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
 const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
@@ -47,7 +48,7 @@ const getUserFromEmail = async (email, isAdmin = false, isDeleted = false, activ
 /** updateLastLoggedIn takes userId, transaction */
 const updateLastLoggedIn = async (userId, transaction) => {
     const currentTime = moment();
-    await User.update({ lastLoggedInOn: currentTime }, { where: { userId: userId }, transaction });
+    await User.update({ lastLoggedInOn: currentTime }, { where: { userId: userId } }, { transaction });
 }
 
 /** getUserById takes userId, isAdmin, isDeleted, activationStatus */
@@ -138,7 +139,7 @@ const updateUpdateBy = async (userId, updatedBy, transaction) => {
         },
         {
             where: { userId: userId }
-        }, transaction
+        }, { transaction }
     )
 }
 
@@ -153,7 +154,7 @@ const saveEmailToken = async (userId, emailToken, transaction) => {
         emailToken: emailToken,
         expiryOn: tokenExpiry,
         isActive: true
-    })
+    }, { transaction })
 }
 
 /** isEmailTokenValid takes emailToken */
@@ -176,7 +177,44 @@ const isEmailTokenValid = async (emailToken) => {
 const useEmailToken = async (userId, emailToken, transaction) => {
     await UserForgotPassword.update(
         { isActive: false },
-        { where: { userId: userId, emailToken: emailToken } }, transaction)
+        { where: { userId: userId, emailToken: emailToken } }, { transaction })
+}
+
+/** saveOtp takes userId, otp, transaction */
+const saveOtp = async (userId, otp, transaction) => {
+    const expiryTime = moment().add({
+        minutes: 2
+    });
+
+    await UserOtp.create({
+        otp: otp,
+        expiryOn: expiryTime,
+        userId: userId,
+        isActive: true
+    }, { transaction })
+}
+
+/** verifyUserOtp takes userId, otp */
+const verifyUserOtp = async (userId, otp) => {
+    const currentTime = moment();
+    const userIdCondition = userId == null ? null : { userId: userId };
+
+    const result = await UserOtp.findOne({
+        where: {
+            otp: otp,
+            expiryOn: { [Op.gt]: currentTime },
+            isActive: true,
+            ...userIdCondition
+        }
+    })
+    return !!result;
+}
+
+/** userOtp takes userId, otp, transaction */
+const useOtp = async (userId, otp, transaction) => {
+    const userIdCondition = userId == null ? null : { userId: userId };
+
+    await UserOtp.destroy({ where: { otp: otp, ...userIdCondition } }, { transaction });
 }
 
 export {
@@ -190,5 +228,8 @@ export {
     updateUpdateBy,
     saveEmailToken,
     isEmailTokenValid,
-    useEmailToken
+    useEmailToken,
+    saveOtp,
+    verifyUserOtp,
+    useOtp
 }

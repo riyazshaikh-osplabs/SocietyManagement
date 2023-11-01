@@ -1,5 +1,5 @@
 import { sendResponse } from "../utils/api.js";
-import { getUserById, getUserByRoomNumber, getUserFromEmail, isEmailTokenValid, isValidRoomNumber } from "../models/helpers/index.js";
+import { getUserById, getUserByRoomNumber, getUserFromEmail, isEmailTokenValid, isValidRoomNumber, verifyUserOtp } from "../models/helpers/index.js";
 import logger from "../setup/logger.js";
 import admin from "../setup/firebase.js";
 import jwt from "jsonwebtoken";
@@ -149,10 +149,27 @@ const ValidateEmailToken = isAdmin => {
             next()
         } catch (error) {
             logger.error(error);
-            logger.debug(`Error in validateCredentials`);
+            logger.debug(`Error in validateEmailToken`);
             next(error);
         }
+    }
+}
 
+const ValidateOtp = async (req, res, next) => {
+    try {
+        const userId = req.payload?.userId;
+        const { otp } = req.body;
+
+        const valid = await verifyUserOtp(userId, otp);
+        if (!valid) {
+            return sendResponse(res, 401, 'Invalid Otp');
+        }
+
+        next();
+    } catch (error) {
+        logger.error(error);
+        logger.debug(`Error in validateOtp`);
+        next(error);
     }
 }
 
@@ -161,5 +178,6 @@ export {
     ValidateEmailForSignup,
     ValidateEmailForSignin,
     ValidateRoomNumber,
-    ValidateEmailToken
+    ValidateEmailToken,
+    ValidateOtp
 }

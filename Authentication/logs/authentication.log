@@ -1,564 +1,1098 @@
-[2023-10-31T15:55:13.104] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T15:55:13.255] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T15:55:13.291] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T15:59:15.337] [DEBUG] auhtentication - Request : POST /auth/user/signup
-[2023-10-31T15:59:15.387] [DEBUG] auhtentication - Encrypting your password
-[2023-10-31T15:59:15.462] [DEBUG] auhtentication - Your password encrypted successfully
-[2023-10-31T15:59:15.463] [DEBUG] auhtentication - Signup with database for email: faiyazshaikh1904@gmail.com
-[2023-10-31T15:59:15.474] [DEBUG] auhtentication - Successfully signup in the database for email: faiyazshaikh1904@gmail.com
-[2023-10-31T15:59:15.474] [DEBUG] auhtentication - Signup with firebase for userId: 8
-[2023-10-31T15:59:17.398] [DEBUG] auhtentication - Successfully signup in firebase for userId: 8
-[2023-10-31T15:59:17.399] [DEBUG] auhtentication - Committing transactions to the database
-[2023-10-31T15:59:17.410] [DEBUG] auhtentication - Admin user created successfully
-[2023-10-31T15:59:17.410] [INFO] auhtentication - signupResponse: {
-  "firstName": "Faiyaz",
+[2023-11-01T12:22:51.096] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T12:22:51.963] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T12:22:52.110] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T12:33:59.728] [DEBUG] auhtentication - Request : GET /reset-password/5?token=d6ea2b0a080b0942fd845969660c7cd7c3d15980257beab87aff9cbcd0e3b2399df65efc0e0c92c2c940b6cdddf5c634255df9a9a884ab61b69e53a61d1fb5de9895dd0942542257c4dfcb7e2dd68dc3840ffc35f9430e08ad2cf5410020f412ca293dc47238c1f1c124a75bb6b9b333366bda794b9d54dc5dda5eded8399309
+[2023-11-01T12:40:58.414] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:36:35.832] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T15:36:35.989] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T15:36:36.032] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T15:36:52.920] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T15:36:53.036] [DEBUG] auhtentication - Validating your password
+[2023-11-01T15:36:53.125] [DEBUG] auhtentication - Invalid Password
+[2023-11-01T15:36:57.345] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T15:36:57.361] [DEBUG] auhtentication - Validating your password
+[2023-11-01T15:36:57.441] [DEBUG] auhtentication - Your password is validated successfully
+[2023-11-01T15:36:57.441] [DEBUG] auhtentication - Signin with firebase with userId: 9
+[2023-11-01T15:36:58.376] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
+[2023-11-01T15:36:58.379] [DEBUG] auhtentication - Updating the lastLoggedin time
+[2023-11-01T15:36:58.399] [DEBUG] auhtentication - lastLoggedIn time is updated
+[2023-11-01T15:36:58.399] [DEBUG] auhtentication - Commiting transactions to the database
+[2023-11-01T15:36:58.411] [INFO] auhtentication - User loggedIn successfully
+[2023-11-01T15:36:58.412] [INFO] auhtentication - signinResponse: {
+  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg4MzMyMTcsInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODgzMzIxNywiZXhwIjoxNjk4ODM2ODE3LCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.JGOnOHDSnWykBIy-0s7KvwyoTfWihEsEhhPOjsAIXQTEctS_U0NYf7tNteHmbhJuHsiu3eAVJn-6WaZ4wcdplZv2lp4odTt8iGbcmkHXl7DpYQN1bJoN0VmsII_AAVb4drjPXVLzz7woURMctACpjphWQEkbQbBAaEZPwnpW7kKn_eeD0A1QqQ8z44h2MLDuPi7vrjo5eOkrGp9evm6TgcKsekPGRn0GzWWE92OppQU3ir2cfSicZrirgbwlN85qx_VqG_X3NUx5fsv0uZfF-wGRi1HfilccyYmvelQQesYB7Kev125EWfU9w8qIh5pJ65eKtJH5bsjm89Uxnjc4Tg",
+  "refreshToken": "AMf-vBxeOgOOKYWYO7cSRT6imNva3OdtPrC6hgedoLuw78BOBKLMFi5P4qDMmY01T2HtrJ9BRKP1KkzO3Gn5CX2SCev9y38SBz_OnstVDXhAZLouzltK_pPU5cC0gpcJNFzZdhxURf_c59qGOSpCxRzT5qFllclUlu1QEzKxe9wYMC6LYbe4jbDZ5XrKailLcqJHTUtl_dHL",
+  "expiresIn": "16:36:58"
+}
+[2023-11-01T15:37:25.726] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-11-01T15:37:25.743] [DEBUG] auhtentication - Creating email token
+[2023-11-01T15:37:25.743] [DEBUG] auhtentication - Email token created successfully
+[2023-11-01T15:37:25.743] [DEBUG] auhtentication - Saving email token
+[2023-11-01T15:37:25.823] [DEBUG] auhtentication - Email token saved successfully
+[2023-11-01T15:37:25.823] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-11-01T15:37:25.846] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-11-01T15:37:25.846] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T15:37:29.166] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698833249 iz11-20020a170902ef8b00b001c726147a46sm1031591plb.234 - gsmtp
+[2023-11-01T15:38:27.674] [DEBUG] auhtentication - Request : GET /reset-password/9?token=398626be44417b94ad1ed6dd8637395b462fc15ed73333f84e2d09b003856835478fa226c77be4ffb7c5ffa6ce899dcc51504781c600d6dc7d1db7b96616491ac97ff31f694a1fd24753d3692aa05292cdd7601fff2af297c457ed98e4f042c6f616b50d6df1d9acc068d8b7194d823461d08caab46aa5b4c75b114ce5753c7e
+[2023-11-01T15:38:58.588] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-11-01T15:38:58.603] [DEBUG] auhtentication - Creating email token
+[2023-11-01T15:38:58.603] [DEBUG] auhtentication - Email token created successfully
+[2023-11-01T15:38:58.603] [DEBUG] auhtentication - Saving email token
+[2023-11-01T15:38:58.624] [DEBUG] auhtentication - Email token saved successfully
+[2023-11-01T15:38:58.624] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-11-01T15:38:58.625] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-11-01T15:38:58.625] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T15:39:01.103] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698833340 4-20020a170902e9c400b001c62d63b817sm1032996plk.179 - gsmtp
+[2023-11-01T15:39:04.394] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:04.394] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:11.122] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:11.122] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:11.306] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:11.306] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:11.474] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:11.474] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:11.634] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:11.634] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:11.786] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:11.786] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:11.946] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:11.946] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:12.106] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:12.106] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:12.234] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:12.234] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:12.402] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:12.402] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:12.666] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:12.666] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:12.801] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:12.802] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:12.890] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:12.890] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:39:13.041] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:39:13.042] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:40:04.366] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T15:40:04.516] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T15:40:04.554] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T15:40:07.937] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-11-01T15:40:07.964] [DEBUG] auhtentication - Creating email token
+[2023-11-01T15:40:07.964] [DEBUG] auhtentication - Email token created successfully
+[2023-11-01T15:40:07.964] [DEBUG] auhtentication - Saving email token
+[2023-11-01T15:40:08.062] [DEBUG] auhtentication - Email token saved successfully
+[2023-11-01T15:40:08.062] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-11-01T15:40:08.067] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-11-01T15:40:08.067] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T15:40:10.448] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698833410 jh19-20020a170903329300b001c61df93afdsm1047871plb.59 - gsmtp
+[2023-11-01T15:40:25.084] [DEBUG] auhtentication - Request : GET /reset-password/9?token=90805fc6497b2386d905910c8c80b608c11378a7dd733d69d30c88b2896d83b36175693c7d1ba04294f513f5ecfa210ea4398ad1573d895747a1aa6381d2df846fdad5aa071c955fc2089b94fb26c23cc77fae13144983343446592bad38e7ec69aeb497b08ca618aba4f748ed419b9e920e8a77be938f78d4a7ef5005cacb3d
+[2023-11-01T15:40:48.337] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-11-01T15:40:48.355] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-11-01T15:40:48.356] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 12,
+    userId: 9,
+    emailToken: '90805fc6497b2386d905910c8c80b608c11378a7dd733d69d30c88b2896d83b36175693c7d1ba04294f513f5ecfa210ea4398ad1573d895747a1aa6381d2df846fdad5aa071c955fc2089b94fb26c23cc77fae13144983343446592bad38e7ec69aeb497b08ca618aba4f748ed419b9e920e8a77be938f78d4a7ef5005cacb3d',
+    expiryOn: 2023-11-01T10:20:07.965Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 12,
+    userId: 9,
+    emailToken: '90805fc6497b2386d905910c8c80b608c11378a7dd733d69d30c88b2896d83b36175693c7d1ba04294f513f5ecfa210ea4398ad1573d895747a1aa6381d2df846fdad5aa071c955fc2089b94fb26c23cc77fae13144983343446592bad38e7ec69aeb497b08ca618aba4f748ed419b9e920e8a77be938f78d4a7ef5005cacb3d',
+    expiryOn: 2023-11-01T10:20:07.965Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-11-01T15:40:48.361] [DEBUG] auhtentication - Using email token
+[2023-11-01T15:40:48.385] [DEBUG] auhtentication - Email token used
+[2023-11-01T15:40:48.385] [DEBUG] auhtentication - Updating updatedBy
+[2023-11-01T15:40:48.393] [DEBUG] auhtentication - Updated successfully
+[2023-11-01T15:40:48.394] [DEBUG] auhtentication - Encrypting your new password
+[2023-11-01T15:40:48.469] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-11-01T15:40:48.469] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-11-01T15:40:48.477] [INFO] auhtentication - rowsUpdated 1
+[2023-11-01T15:40:48.477] [INFO] auhtentication - updatedUser: 1
+[2023-11-01T15:40:48.478] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-11-01T15:40:48.478] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-11-01T15:40:50.438] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
+[2023-11-01T15:40:50.439] [DEBUG] auhtentication - Updating updatedBy for userId: 9
+[2023-11-01T15:40:50.452] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
+[2023-11-01T15:40:50.452] [INFO] auhtentication - Password reset successfully
+[2023-11-01T15:45:14.284] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:14.284] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:19.211] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:19.212] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:19.403] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:19.403] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:19.564] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:19.564] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:19.707] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:19.708] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:19.859] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:19.860] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:20.003] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:20.003] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:20.139] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:20.140] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:20.275] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:20.275] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:20.395] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:20.395] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:20.507] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:20.508] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:20.619] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:20.620] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:45:20.771] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:45:20.772] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:47:10.782] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T15:47:10.938] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T15:47:10.977] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T15:47:12.183] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T15:47:12.184] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T15:47:14.671] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T15:47:14.829] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T15:47:14.867] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T17:04:40.209] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T17:05:50.367] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T17:05:50.524] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T17:05:50.561] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T17:05:57.173] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
+[2023-11-01T17:05:57.202] [DEBUG] auhtentication - Creating email token
+[2023-11-01T17:05:57.202] [DEBUG] auhtentication - Email token created successfully
+[2023-11-01T17:05:57.202] [DEBUG] auhtentication - Saving email token
+[2023-11-01T17:05:57.212] [DEBUG] auhtentication - Email token saved successfully
+[2023-11-01T17:05:57.212] [DEBUG] auhtentication - Sending mail of forgot password
+[2023-11-01T17:05:57.217] [DEBUG] auhtentication - Forgot password mail sent successfully
+[2023-11-01T17:05:57.217] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T17:06:00.549] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698838560 jd17-20020a170903261100b001cc2f9fd74csm1181307plb.189 - gsmtp
+[2023-11-01T17:06:14.148] [DEBUG] auhtentication - Request : GET /reset-password/9?token=d821cfc5ea49a272ddfb15ca327b35790dcc3c62e56509baacc4e9c8376bb95021966d9d1d05ef54c7c8e9b5424031ace01b22dc32f1e37680e4ad4b0f90a449f69bc15cd4ed132eb5e8e8153cb5d48dfc74a946b3ef77d7cb1f544440281bcf1cf42a5634cc5db0d28322417788c2b59bca6d31b98a00a378e8fc9b4759601d
+[2023-11-01T17:06:41.831] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
+[2023-11-01T17:06:41.848] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
+[2023-11-01T17:06:41.849] [INFO] auhtentication - [userToken] UserForgotPassword {
+  dataValues: {
+    forgotPasswordId: 13,
+    userId: 9,
+    emailToken: 'd821cfc5ea49a272ddfb15ca327b35790dcc3c62e56509baacc4e9c8376bb95021966d9d1d05ef54c7c8e9b5424031ace01b22dc32f1e37680e4ad4b0f90a449f69bc15cd4ed132eb5e8e8153cb5d48dfc74a946b3ef77d7cb1f544440281bcf1cf42a5634cc5db0d28322417788c2b59bca6d31b98a00a378e8fc9b4759601d',
+    expiryOn: 2023-11-01T11:45:57.203Z,
+    isActive: true
+  },
+  _previousDataValues: {
+    forgotPasswordId: 13,
+    userId: 9,
+    emailToken: 'd821cfc5ea49a272ddfb15ca327b35790dcc3c62e56509baacc4e9c8376bb95021966d9d1d05ef54c7c8e9b5424031ace01b22dc32f1e37680e4ad4b0f90a449f69bc15cd4ed132eb5e8e8153cb5d48dfc74a946b3ef77d7cb1f544440281bcf1cf42a5634cc5db0d28322417788c2b59bca6d31b98a00a378e8fc9b4759601d',
+    expiryOn: 2023-11-01T11:45:57.203Z,
+    isActive: true
+  },
+  uniqno: 1,
+  _changed: Set(0) {},
+  _options: {
+    isNewRecord: false,
+    _schema: 'public',
+    _schemaDelimiter: '',
+    raw: true,
+    attributes: [
+      'forgotPasswordId',
+      'userId',
+      'emailToken',
+      'expiryOn',
+      'isActive'
+    ]
+  },
+  isNewRecord: false
+}
+[2023-11-01T17:06:41.854] [DEBUG] auhtentication - Using email token
+[2023-11-01T17:06:41.881] [DEBUG] auhtentication - Email token used
+[2023-11-01T17:06:41.881] [DEBUG] auhtentication - Updating updatedBy
+[2023-11-01T17:06:41.889] [DEBUG] auhtentication - Updated successfully
+[2023-11-01T17:06:41.889] [DEBUG] auhtentication - Encrypting your new password
+[2023-11-01T17:06:41.966] [DEBUG] auhtentication - Your new password encrypted successfully
+[2023-11-01T17:06:41.966] [DEBUG] auhtentication - Changing password in database for userId: 9
+[2023-11-01T17:06:41.972] [INFO] auhtentication - rowsUpdated 1
+[2023-11-01T17:06:41.973] [INFO] auhtentication - updatedUser: 1
+[2023-11-01T17:06:41.973] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
+[2023-11-01T17:06:41.973] [DEBUG] auhtentication - Changing password in firebase for userId: 9
+[2023-11-01T17:06:43.284] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
+[2023-11-01T17:06:43.284] [DEBUG] auhtentication - Updating updatedBy for userId: 9
+[2023-11-01T17:06:43.297] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
+[2023-11-01T17:06:43.298] [INFO] auhtentication - Password reset successfully
+[2023-11-01T17:11:46.072] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T17:11:46.072] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T17:12:05.255] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T17:12:05.255] [DEBUG] auhtentication - Releasing database connections...
+[2023-11-01T17:14:31.867] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T17:14:37.412] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T17:14:37.462] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T17:14:41.756] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T17:15:28.955] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T17:15:29.210] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T17:15:29.256] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T17:15:31.517] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T17:16:33.996] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T17:16:34.252] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T17:16:34.299] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T17:16:37.814] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T17:16:53.901] [DEBUG] auhtentication - Your verification code is: 2694.
+[2023-11-01T17:16:55.974] [DEBUG] auhtentication - Saving otp in database
+[2023-11-01T17:17:28.473] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T17:17:28.731] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T17:17:28.775] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T17:17:31.796] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T17:17:49.883] [DEBUG] auhtentication - Your verification code is: 4968.
+[2023-11-01T17:17:51.140] [DEBUG] auhtentication - Saving otp in database
+[2023-11-01T17:18:00.940] [DEBUG] auhtentication - Sending otp on email riyaz.s@osplabs.com
+[2023-11-01T17:18:11.044] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T17:18:31.299] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698839311 c6-20020a17090a020600b002804c91633dsm791708pjc.14 - gsmtp
+[2023-11-01T17:19:28.964] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T17:19:29.226] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T17:19:29.279] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T17:19:37.264] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T17:19:49.350] [DEBUG] auhtentication - Your verification code is: 4805.
+[2023-11-01T17:19:50.319] [DEBUG] auhtentication - Saving otp in database
+[2023-11-01T17:19:55.440] [DEBUG] auhtentication - Sending otp on email riyaz.s@osplabs.com
+[2023-11-01T17:19:57.480] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T17:20:01.981] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698839401 f3-20020a170902e98300b001c9c8d761a3sm1204968plb.131 - gsmtp
+[2023-11-01T18:27:49.461] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T18:27:49.808] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T18:27:49.847] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T18:27:57.317] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T18:28:15.637] [DEBUG] auhtentication - Your verification code is: 1168.
+[2023-11-01T18:28:17.000] [DEBUG] auhtentication - Saving otp in database
+[2023-11-01T18:28:27.404] [DEBUG] auhtentication - Sending otp on email riyaz.s@osplabs.com
+[2023-11-01T18:28:29.726] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T18:28:49.247] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698843529 i16-20020a170902c95000b001c62c9d7289sm1315585pla.104 - gsmtp
+[2023-11-01T18:29:15.985] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T18:29:45.714] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T18:29:46.014] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T18:29:46.056] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T18:29:48.183] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T18:31:38.067] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T18:31:38.337] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T18:31:38.380] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T18:31:41.546] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T18:32:29.611] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T18:32:29.880] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T18:32:29.924] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T18:32:32.368] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T18:32:45.332] [DEBUG] auhtentication - Your verification code is: 2071.
+[2023-11-01T18:32:46.532] [DEBUG] auhtentication - Saving otp in database
+[2023-11-01T18:32:53.189] [DEBUG] auhtentication - Sending otp on email riyaz.s@osplabs.com
+[2023-11-01T18:32:54.598] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T18:33:05.083] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698843784 j1-20020a170902da8100b001cc50146b43sm1307558plx.202 - gsmtp
+[2023-11-01T18:33:26.825] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T18:33:48.769] [INFO] auhtentication - Verifying Otp
+[2023-11-01T18:34:08.766] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T18:34:09.028] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T18:34:09.073] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T18:34:11.005] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T18:34:32.007] [INFO] auhtentication - Verifying Otp
+[2023-11-01T18:45:24.780] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T18:45:25.048] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T18:45:25.093] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T18:45:33.823] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T18:45:51.606] [DEBUG] auhtentication - Your verification code is: 9497.
+[2023-11-01T18:45:52.254] [DEBUG] auhtentication - Saving otp in database
+[2023-11-01T18:45:55.975] [DEBUG] auhtentication - Sending otp on email riyaz.s@osplabs.com
+[2023-11-01T18:45:57.510] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T18:46:01.684] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698844561 ij6-20020a170902ab4600b001cc307bcdbdsm1361126plb.211 - gsmtp
+[2023-11-01T18:46:24.569] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T18:46:50.750] [INFO] auhtentication - Verifying Otp
+[2023-11-01T18:46:53.208] [INFO] auhtentication - Otp verified
+[2023-11-01T18:46:55.039] [DEBUG] auhtentication - Validating your password
+[2023-11-01T18:46:57.855] [DEBUG] auhtentication - Your password is validated successfully
+[2023-11-01T18:47:01.054] [DEBUG] auhtentication - Signin with firebase with userId: 9
+[2023-11-01T18:47:07.698] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
+[2023-11-01T18:47:11.149] [DEBUG] auhtentication - Updating the lastLoggedin time
+[2023-11-01T18:47:12.773] [DEBUG] auhtentication - lastLoggedIn time is updated
+[2023-11-01T18:47:13.479] [DEBUG] auhtentication - Commiting transactions to the database
+[2023-11-01T18:47:15.006] [INFO] auhtentication - User loggedIn successfully
+[2023-11-01T18:47:16.438] [INFO] auhtentication - signinResponse: {
+  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg4NDQ2MjMsInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODg0NDYyMywiZXhwIjoxNjk4ODQ4MjIzLCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.VPDaFDP-sWLKaRrhmrlb3RHIL8D2fhVWHOGirYNLVOV4Xt6aGxSm9QagtRUFGja_WW1H6KjzgdAxuLxSrSXZ7YhkIGhajxqRd0LaOfGOaV092EvDDgh5-e2Q5kp1xbDfaOree9SBOWeoh9XYB2JGZs2F1vQO8xFYohQRQZG14ZCgpvAmYyUSBCSZc3taQNFJgl11CQET09-yzy20s4PcUfzYXmc23uOmCFhKfJXjxMT13b5I3Vifwn5xFnQeL8jEAhrqlcxRzt3mU19AoRjT7ZOTqxHXfVra-eMuj6Mmp104ijyIRwJDHv-JnlhgxNLoq-i-_O3XqNdSmq9YVhBhDg",
+  "refreshToken": "AMf-vBzcwjvVsU3VfpiI_-DXz4cNz1mXHYf_MNBPcZDniWBY9n1D4rmFe937YBTWB-AKpe4S-eOfWwuFahDv7UIgw6GlyLf4zZM3m-7LjkoMJ7G-f9Ag-FSxH3uRVFB2I8dm1qOYsJ22c-wOmy0D6OLq-Jmd3-PYK9oFlkOJLRcu1WAdBtmk7znkpPGgQ_d4zWECsFZJa0zW",
+  "expiresIn": "19:47:09"
+}
+[2023-11-01T18:48:09.291] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T18:48:09.573] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T18:48:09.617] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T18:48:14.800] [DEBUG] auhtentication - Request : POST /protected/auth/admin/signout
+[2023-11-01T18:48:16.598] [DEBUG] auhtentication - Validating claims
+[2023-11-01T18:48:23.877] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: decodedToken
+[2023-11-01T18:48:23.877] [INFO] auhtentication - [decodedToken] {
+  admin: true,
+  iss: 'https://securetoken.google.com/societymanagement-9ccff',
+  aud: 'societymanagement-9ccff',
+  auth_time: 1698844623,
+  user_id: '9',
+  sub: '9',
+  iat: 1698844623,
+  exp: 1698848223,
+  email: 'riyaz.s@osplabs.com',
+  email_verified: false,
+  firebase: { identities: { email: [Array] }, sign_in_provider: 'password' },
+  uid: '9'
+}
+[2023-11-01T18:48:37.629] [INFO] auhtentication - Claims validated successfully
+[2023-11-01T18:48:39.774] [DEBUG] auhtentication - Revoking refresh tokens for userId: 9
+[2023-11-01T18:48:44.026] [DEBUG] auhtentication - Refresh tokens revoked for userId: 9
+[2023-11-01T18:48:44.026] [DEBUG] auhtentication - User Logged Out successfully
+[2023-11-01T19:31:23.458] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:31:23.610] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:31:23.649] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:31:55.382] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:31:55.425] [DEBUG] auhtentication - User with email faiyazshaikh1904@gmail.com already registered
+[2023-11-01T19:32:57.615] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:33:02.495] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:33:11.161] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:33:11.173] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:33:11.249] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:33:11.250] [DEBUG] auhtentication - Signup with database for email: shazaib@gmail.com
+[2023-11-01T19:33:11.263] [DEBUG] auhtentication - Successfully signup in the database for email: shazaib@gmail.com
+[2023-11-01T19:33:11.264] [DEBUG] auhtentication - Signup with firebase for userId: 10
+[2023-11-01T19:33:13.171] [DEBUG] auhtentication - Successfully signup in firebase for userId: 10
+[2023-11-01T19:33:13.171] [DEBUG] auhtentication - Committing transactions to the database
+[2023-11-01T19:33:13.181] [DEBUG] auhtentication - Admin user created successfully
+[2023-11-01T19:33:13.181] [DEBUG] auhtentication - signupResponse {
+  "firstName": "Shazaib",
   "lastName": "Shaikh",
-  "email": "faiyazshaikh1904@gmail.com",
-  "mobile": "8762145638",
-  "roomNumber": 402,
+  "email": "shazaib@gmail.com",
+  "mobile": "6541239870",
+  "roomNumber": 102,
   "address": "Naya Nagar",
   "role": 4
 }
-[2023-10-31T16:00:02.289] [DEBUG] auhtentication - Request : POST /auth/user/signin
-[2023-10-31T16:00:02.307] [DEBUG] auhtentication - Validating your password
-[2023-10-31T16:00:02.383] [DEBUG] auhtentication - Your password is validated successfully
-[2023-10-31T16:00:02.383] [DEBUG] auhtentication - Signin with firebase with userId: 8
-[2023-10-31T16:00:03.193] [DEBUG] auhtentication - Signin successfully with firebase for userId: 8
-[2023-10-31T16:00:03.195] [DEBUG] auhtentication - Updating the lastLoggedin time
-[2023-10-31T16:00:03.200] [DEBUG] auhtentication - lastLoggedIn time is updated
-[2023-10-31T16:00:03.200] [DEBUG] auhtentication - Commiting transactions to the database
-[2023-10-31T16:00:03.207] [INFO] auhtentication - User loggedIn successfully
-[2023-10-31T16:00:03.207] [INFO] auhtentication - signinResponse: {
-  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6ZmFsc2UsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9zb2NpZXR5bWFuYWdlbWVudC05Y2NmZiIsImF1ZCI6InNvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXV0aF90aW1lIjoxNjk4NzQ4MjAyLCJ1c2VyX2lkIjoiOCIsInN1YiI6IjgiLCJpYXQiOjE2OTg3NDgyMDIsImV4cCI6MTY5ODc1MTgwMiwiZW1haWwiOiJmYWl5YXpzaGFpa2gxOTA0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJmYWl5YXpzaGFpa2gxOTA0QGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.NaKhpFCTwarAUa1adNZgepnvVAFE2bS7CqBgy9WBHjNt5U-geUpn0vCG5q5hVFqcPJCS0Z20bw3BJRIgikuyT0sIrBp38U5QZwqX7obHyldl-8sz4M8A-Ji3ExSG8Ca7ruUV8IdKew9nfIsOp-2ldtr2VL-IHdOXxRTX0CJF3qzpe1-WKXBpfgF92kedaQxHBkPKkmFklCkCGlk_evSZ72tyXepeTxaHLIeLWyuDZ9Se_zkAXWuMPDLwYy8JNtGyFtaTdUII3w6aNVyk8OQI_RrFeXPsi7HWAilANXDdgg5PUN48NRjGrATvEIZaVV1nUTtNahXYXWJZrr1969Iu1Q",
-  "refreshToken": "AMf-vBwF0hsvcXa83-dvr6eAq7lA9xJrcLtPtltfMxIJ7nd6ZYqjSTGGDSHlO4XMZi3P4z_LZJN-ccOQiZ8yC0ljuQXOFFp5AR_ZhGrkq1zvLLvdIrjCu6zeoRN7Npqjcdt4-_mubg1iql7ZQCUKNWjcsYCL4hsNZmohqnX2477I5Dmwe1r2NcZikIJWQVxmSOVEe-y6kwoe17-4nRJUfoD_nvFJfztN6w",
-  "expiresIn": "17:00:03"
-}
-[2023-10-31T16:01:17.993] [DEBUG] auhtentication - Request : POST /auth/admin/signup
-[2023-10-31T16:01:18.011] [DEBUG] auhtentication - Encrypting your password
-[2023-10-31T16:01:18.097] [DEBUG] auhtentication - Your password encrypted successfully
-[2023-10-31T16:01:18.098] [DEBUG] auhtentication - Signup with database for email: riyaz.s@osplabs.com
-[2023-10-31T16:01:18.101] [DEBUG] auhtentication - Successfully signup in the database for email: riyaz.s@osplabs.com
-[2023-10-31T16:01:18.101] [DEBUG] auhtentication - Signup with firebase for userId: 9
-[2023-10-31T16:01:19.771] [DEBUG] auhtentication - Successfully signup in firebase for userId: 9
-[2023-10-31T16:01:19.772] [DEBUG] auhtentication - Committing transactions to the database
-[2023-10-31T16:01:19.781] [DEBUG] auhtentication - Admin user created successfully
-[2023-10-31T16:01:19.782] [DEBUG] auhtentication - signupResponse {
-  "firstName": "Riyaz",
-  "lastName": "Shaikh",
-  "email": "riyaz.s@osplabs.com",
-  "mobile": "6325987410",
-  "roomNumber": 101,
-  "address": "Naya Nagar",
-  "role": 1
-}
-[2023-10-31T18:29:56.465] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
-[2023-10-31T18:29:56.478] [DEBUG] auhtentication - Creating email token
-[2023-10-31T18:29:56.479] [ERROR] auhtentication - crypto is not defined
-[2023-10-31T18:29:56.479] [DEBUG] auhtentication - Rolling back any database transactions
-[2023-10-31T18:31:11.061] [DEBUG] auhtentication - Received signal: SIGINT
-[2023-10-31T18:33:05.474] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:33:05.796] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:33:05.840] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:33:11.043] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
-[2023-10-31T18:33:34.646] [DEBUG] auhtentication - Creating email token
-[2023-10-31T18:33:39.217] [DEBUG] auhtentication - Email token created successfully
-[2023-10-31T18:33:41.665] [DEBUG] auhtentication - Saving email token
-[2023-10-31T18:33:55.873] [DEBUG] auhtentication - Email token saved successfully
-[2023-10-31T18:34:04.264] [DEBUG] auhtentication - Sending mail of forgot password
-[2023-10-31T18:34:22.673] [DEBUG] auhtentication - Forgot password mail sent successfully
-[2023-10-31T18:34:26.127] [DEBUG] auhtentication - Commiting transactions to database
-[2023-10-31T18:34:47.186] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698757487 i3-20020a170902c94300b001c8836a3795sm1278228pla.271 - gsmtp
-[2023-10-31T18:35:14.744] [DEBUG] auhtentication - Request : GET /reset-password/9?token=2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9
-[2023-10-31T18:37:06.592] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:37:06.864] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:37:06.921] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:37:14.311] [DEBUG] auhtentication - Request : POST /protected/auth/admin/reset-password
-[2023-10-31T18:37:17.146] [DEBUG] auhtentication - Validating claims
-[2023-10-31T18:37:25.586] [ERROR] auhtentication - Firebase ID token has expired. Get a fresh ID token from your client app and try again (auth/id-token-expired). See https://firebase.google.com/docs/auth/admin/verify-id-tokens for details on how to retrieve an ID token.
-[2023-10-31T18:37:26.545] [DEBUG] auhtentication - Invalid Token
-[2023-10-31T18:38:01.163] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:38:01.411] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:38:01.469] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:38:03.316] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T18:38:14.255] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T18:38:31.616] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T18:56:10.077] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:56:10.337] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:56:10.377] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:56:15.282] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T18:57:24.911] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:57:25.199] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:57:25.281] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:57:34.893] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T18:58:06.209] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:58:06.456] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:58:06.498] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:58:20.991] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:58:21.248] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:58:21.291] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:58:23.335] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T18:58:53.589] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T18:59:44.715] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T18:59:44.960] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T18:59:45.020] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T18:59:46.439] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T18:59:52.278] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T18:59:52.279] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 5,
-    userId: 9,
-    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
-    expiryOn: 2023-10-31T13:13:47.042Z,
-    isActive: true
-  },
-  _previousDataValues: {
-    forgotPasswordId: 5,
-    userId: 9,
-    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
-    expiryOn: 2023-10-31T13:13:47.042Z,
-    isActive: true
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+[2023-11-01T19:35:40.016] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:35:40.036] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:35:40.112] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:35:40.113] [DEBUG] auhtentication - Signup with database for email: aniketd@yopmail.com
+[2023-11-01T19:35:40.134] [ERROR] auhtentication - Error
+    at Query.run (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)
+    at /home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/sequelize.js:315:28
+    at async PostgresQueryInterface.insert (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+    at async model.save (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:2490:35)
+    at async User.create (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:1362:12)
+    at async signUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/models/helpers/index.js:26:18)
+    at async SignUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/controllers/user.js:21:22) {
+  name: 'SequelizeForeignKeyConstraintError',
+  parent: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$pVVdet3KmunEM8CM3SuNNui5Xk1hR10BPCRV6W7gLgriTx/MR8wre',
+      'aniketd@yopmail.com',
+      '6541239870',
+      'Naya Nagar',
+      'Aniket',
+      'Dubey',
+      'A',
+      '501',
+      '2'
     ]
   },
-  isNewRecord: false
-}
-[2023-10-31T19:00:24.585] [DEBUG] auhtentication - Using email token
-[2023-10-31T19:00:24.624] [DEBUG] auhtentication - Email token used
-[2023-10-31T19:00:24.628] [DEBUG] auhtentication - Updating updatedBy
-[2023-10-31T19:00:24.649] [DEBUG] auhtentication - Updated successfully
-[2023-10-31T19:00:24.650] [DEBUG] auhtentication - Encrypting your new password
-[2023-10-31T19:00:24.729] [DEBUG] auhtentication - Your new password encrypted successfully
-[2023-10-31T19:00:24.732] [DEBUG] auhtentication - Changing password in database for userId: 9
-[2023-10-31T19:00:24.740] [INFO] auhtentication - rowsUpdated 1
-[2023-10-31T19:00:24.741] [INFO] auhtentication - updatedUser: 1
-[2023-10-31T19:00:24.742] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
-[2023-10-31T19:00:24.743] [DEBUG] auhtentication - Changing password in firebase for userId: 9
-[2023-10-31T19:00:24.926] [ERROR] auhtentication - The uid must be a non-empty string with at most 128 characters.
-[2023-10-31T19:00:24.926] [DEBUG] auhtentication - Rolling back any database transactions
-[2023-10-31T19:03:25.061] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:03:25.298] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:03:25.340] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:03:27.297] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:03:36.100] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T19:03:36.101] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 5,
-    userId: 9,
-    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
-    expiryOn: 2023-10-31T13:13:47.042Z,
-    isActive: false
-  },
-  _previousDataValues: {
-    forgotPasswordId: 5,
-    userId: 9,
-    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
-    expiryOn: 2023-10-31T13:13:47.042Z,
-    isActive: false
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+  original: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$pVVdet3KmunEM8CM3SuNNui5Xk1hR10BPCRV6W7gLgriTx/MR8wre',
+      'aniketd@yopmail.com',
+      '6541239870',
+      'Naya Nagar',
+      'Aniket',
+      'Dubey',
+      'A',
+      '501',
+      '2'
     ]
   },
-  isNewRecord: false
+  sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+  parameters: [
+    '2023-11-01 00:00:00.000 +00:00',
+    false,
+    true,
+    false,
+    '$2b$10$pVVdet3KmunEM8CM3SuNNui5Xk1hR10BPCRV6W7gLgriTx/MR8wre',
+    'aniketd@yopmail.com',
+    '6541239870',
+    'Naya Nagar',
+    'Aniket',
+    'Dubey',
+    'A',
+    '501',
+    '2'
+  ],
+  table: 'User',
+  fields: null,
+  value: undefined,
+  index: 'User_roomNumber_fkey',
+  reltype: undefined
 }
-[2023-10-31T19:04:42.342] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:04:42.589] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:04:42.627] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:04:45.782] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:04:57.332] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T19:04:57.333] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 5,
-    userId: 9,
-    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
-    expiryOn: 2023-10-31T13:13:47.042Z,
-    isActive: false
-  },
-  _previousDataValues: {
-    forgotPasswordId: 5,
-    userId: 9,
-    emailToken: '2790ac1075fa225b115b6e6585fdb1e8845109e2f4afe4133cc5568a0e0e6b79428315ee962df4c11fef49f30710c8df20a4a91baa638734fb814e77cf14842123a33beb144568d2f8bce0b0148d3c90d0f50d733659c01ef6261e3cc456083f43f3111292e5597b881150814d4ca1e6e5d529bab50473c29666532e3fb74ab9',
-    expiryOn: 2023-10-31T13:13:47.042Z,
-    isActive: false
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+[2023-11-01T19:35:40.136] [DEBUG] auhtentication - Rolling back any database transactions
+[2023-11-01T19:36:22.176] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:36:22.196] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:36:22.270] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:36:22.271] [DEBUG] auhtentication - Signup with database for email: aniketd@yopmail.com
+[2023-11-01T19:36:22.274] [ERROR] auhtentication - Error
+    at Query.run (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)
+    at /home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/sequelize.js:315:28
+    at async PostgresQueryInterface.insert (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+    at async model.save (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:2490:35)
+    at async User.create (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:1362:12)
+    at async signUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/models/helpers/index.js:26:18)
+    at async SignUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/controllers/user.js:21:22) {
+  name: 'SequelizeForeignKeyConstraintError',
+  parent: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(502) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$WVq9VgyYnh1uORtjKyFAF.0Ppk6HS3fNoLvlFu2hs3MZm2XdEvz4S',
+      'aniketd@yopmail.com',
+      '6541239870',
+      'Naya Nagar',
+      'Aniket',
+      'Dubey',
+      'A',
+      '502',
+      '2'
     ]
   },
-  isNewRecord: false
-}
-[2023-10-31T19:05:32.129] [DEBUG] auhtentication - Using email token
-[2023-10-31T19:05:37.986] [DEBUG] auhtentication - Email token used
-[2023-10-31T19:05:40.410] [DEBUG] auhtentication - Updating updatedBy
-[2023-10-31T19:05:48.187] [DEBUG] auhtentication - Updated successfully
-[2023-10-31T19:05:49.265] [DEBUG] auhtentication - Encrypting your new password
-[2023-10-31T19:06:01.273] [DEBUG] auhtentication - Your new password encrypted successfully
-[2023-10-31T19:06:05.144] [DEBUG] auhtentication - Changing password in database for userId: 9
-[2023-10-31T19:06:08.345] [INFO] auhtentication - rowsUpdated 1
-[2023-10-31T19:06:09.656] [INFO] auhtentication - updatedUser: 1
-[2023-10-31T19:06:11.033] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
-[2023-10-31T19:06:12.504] [DEBUG] auhtentication - Changing password in firebase for userId: 9
-[2023-10-31T19:06:19.728] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
-[2023-10-31T19:06:23.048] [DEBUG] auhtentication - Updating updatedBy for userId: 9
-[2023-10-31T19:06:29.976] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
-[2023-10-31T19:06:31.656] [INFO] auhtentication - Password reset successfully
-[2023-10-31T19:12:28.493] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:25:32.010] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:25:32.298] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:25:32.337] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:25:38.284] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
-[2023-10-31T19:26:13.406] [DEBUG] auhtentication - Creating email token
-[2023-10-31T19:26:13.407] [DEBUG] auhtentication - Email token created successfully
-[2023-10-31T19:26:13.408] [DEBUG] auhtentication - Saving email token
-[2023-10-31T19:26:27.262] [DEBUG] auhtentication - Email token saved successfully
-[2023-10-31T19:26:33.869] [DEBUG] auhtentication - Sending mail of forgot password
-[2023-10-31T19:26:36.235] [DEBUG] auhtentication - Forgot password mail sent successfully
-[2023-10-31T19:26:36.236] [DEBUG] auhtentication - Commiting transactions to database
-[2023-10-31T19:26:38.860] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698760598 k17-20020a170902c41100b001c73f3a9b7fsm1349818plk.185 - gsmtp
-[2023-10-31T19:26:47.060] [DEBUG] auhtentication - Request : GET /reset-password/9?token=dcf41b9b5d1b1f5dc41b1ca15fd1d7839fa0e0f8f4bfced55bc2d8c410f0425d26a6c78793ef8b7ef7456b63400cd2a5eb34401dbbbdd6c89723f00cd8b93d8db6e021c4ce07c9a834276cda683688e024a68b8bb6106705f38bcf48ae922b9f283101692cfc8d21cc9454c9fbf99c8d000a86743d4d0bfc7f7fbfcbd42d38e5
-[2023-10-31T19:27:09.778] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:27:10.023] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:27:10.060] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:27:26.332] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:27:56.012] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:27:56.263] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:27:56.332] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:27:58.214] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:28:12.121] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T19:28:12.121] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 6,
-    userId: 9,
-    emailToken: 'dcf41b9b5d1b1f5dc41b1ca15fd1d7839fa0e0f8f4bfced55bc2d8c410f0425d26a6c78793ef8b7ef7456b63400cd2a5eb34401dbbbdd6c89723f00cd8b93d8db6e021c4ce07c9a834276cda683688e024a68b8bb6106705f38bcf48ae922b9f283101692cfc8d21cc9454c9fbf99c8d000a86743d4d0bfc7f7fbfcbd42d38e5',
-    expiryOn: 2023-10-31T14:06:17.246Z,
-    isActive: true
-  },
-  _previousDataValues: {
-    forgotPasswordId: 6,
-    userId: 9,
-    emailToken: 'dcf41b9b5d1b1f5dc41b1ca15fd1d7839fa0e0f8f4bfced55bc2d8c410f0425d26a6c78793ef8b7ef7456b63400cd2a5eb34401dbbbdd6c89723f00cd8b93d8db6e021c4ce07c9a834276cda683688e024a68b8bb6106705f38bcf48ae922b9f283101692cfc8d21cc9454c9fbf99c8d000a86743d4d0bfc7f7fbfcbd42d38e5',
-    expiryOn: 2023-10-31T14:06:17.246Z,
-    isActive: true
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+  original: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(502) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$WVq9VgyYnh1uORtjKyFAF.0Ppk6HS3fNoLvlFu2hs3MZm2XdEvz4S',
+      'aniketd@yopmail.com',
+      '6541239870',
+      'Naya Nagar',
+      'Aniket',
+      'Dubey',
+      'A',
+      '502',
+      '2'
     ]
   },
-  isNewRecord: false
+  sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+  parameters: [
+    '2023-11-01 00:00:00.000 +00:00',
+    false,
+    true,
+    false,
+    '$2b$10$WVq9VgyYnh1uORtjKyFAF.0Ppk6HS3fNoLvlFu2hs3MZm2XdEvz4S',
+    'aniketd@yopmail.com',
+    '6541239870',
+    'Naya Nagar',
+    'Aniket',
+    'Dubey',
+    'A',
+    '502',
+    '2'
+  ],
+  table: 'User',
+  fields: null,
+  value: undefined,
+  index: 'User_roomNumber_fkey',
+  reltype: undefined
 }
-[2023-10-31T19:28:45.217] [DEBUG] auhtentication - Using email token
-[2023-10-31T19:28:53.169] [DEBUG] auhtentication - Email token used
-[2023-10-31T19:28:54.137] [DEBUG] auhtentication - Updating updatedBy
-[2023-10-31T19:28:56.122] [DEBUG] auhtentication - Updated successfully
-[2023-10-31T19:28:59.823] [DEBUG] auhtentication - Encrypting your new password
-[2023-10-31T19:29:04.903] [DEBUG] auhtentication - Your new password encrypted successfully
-[2023-10-31T19:29:05.968] [DEBUG] auhtentication - Changing password in database for userId: 9
-[2023-10-31T19:29:06.645] [INFO] auhtentication - rowsUpdated 1
-[2023-10-31T19:29:07.296] [INFO] auhtentication - updatedUser: 1
-[2023-10-31T19:29:08.463] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
-[2023-10-31T19:29:09.313] [DEBUG] auhtentication - Changing password in firebase for userId: 9
-[2023-10-31T19:29:12.641] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
-[2023-10-31T19:29:13.553] [DEBUG] auhtentication - Updating updatedBy for userId: 9
-[2023-10-31T19:29:16.216] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
-[2023-10-31T19:29:17.128] [INFO] auhtentication - Password reset successfully
-[2023-10-31T19:29:53.163] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:29:53.407] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:29:53.448] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:29:56.119] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:30:30.701] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
-[2023-10-31T19:30:34.461] [DEBUG] auhtentication - Creating email token
-[2023-10-31T19:30:34.461] [DEBUG] auhtentication - Email token created successfully
-[2023-10-31T19:30:34.461] [DEBUG] auhtentication - Saving email token
-[2023-10-31T19:30:45.927] [DEBUG] auhtentication - Email token saved successfully
-[2023-10-31T19:30:45.928] [DEBUG] auhtentication - Sending mail of forgot password
-[2023-10-31T19:30:52.165] [DEBUG] auhtentication - Forgot password mail sent successfully
-[2023-10-31T19:30:52.166] [DEBUG] auhtentication - Commiting transactions to database
-[2023-10-31T19:30:55.187] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698760855 m29-20020a638c1d000000b0056b6d1ac949sm1102528pgd.13 - gsmtp
-[2023-10-31T19:31:03.512] [DEBUG] auhtentication - Request : GET /reset-password/9?token=5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73
-[2023-10-31T19:31:32.527] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:31:32.769] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:31:32.807] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:31:36.044] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:31:48.514] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T19:31:48.515] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 7,
-    userId: 9,
-    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
-    expiryOn: 2023-10-31T14:10:41.747Z,
-    isActive: true
-  },
-  _previousDataValues: {
-    forgotPasswordId: 7,
-    userId: 9,
-    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
-    expiryOn: 2023-10-31T14:10:41.747Z,
-    isActive: true
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+[2023-11-01T19:36:22.275] [DEBUG] auhtentication - Rolling back any database transactions
+[2023-11-01T19:36:45.025] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T19:37:56.396] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:37:56.679] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:37:56.726] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:38:10.147] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:39:00.086] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:39:03.607] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:39:05.471] [DEBUG] auhtentication - Signup with database for email: aniketd@yopmail.com
+[2023-11-01T19:40:21.472] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:40:21.874] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:40:21.937] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:40:23.369] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:40:34.818] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:40:36.878] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:40:37.667] [DEBUG] auhtentication - Signup with database for email: aniketdubey9768@gmail.com
+[2023-11-01T19:41:22.364] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:41:22.678] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:41:22.728] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:41:29.780] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:41:37.195] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:41:38.546] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:41:40.058] [DEBUG] auhtentication - Signup with database for email: aniketdubey9768@gmail.com
+[2023-11-01T19:49:38.816] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:49:39.164] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:49:39.203] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:49:47.901] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:50:20.487] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:50:24.335] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:50:26.663] [DEBUG] auhtentication - Signup with database for email: riyazshaikh7122001@gmail.com
+[2023-11-01T19:51:19.995] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:51:20.323] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:51:20.389] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:51:23.426] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:51:32.796] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:51:33.809] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:51:34.573] [DEBUG] auhtentication - Signup with database for email: riyazshaikh7122001@gmail.com
+[2023-11-01T19:54:07.104] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:54:07.389] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:54:07.444] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:54:08.597] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:54:16.926] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:54:18.599] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:54:19.671] [DEBUG] auhtentication - Signup with database for email: riyazshaikh7122001@gmail.com
+[2023-11-01T19:58:54.127] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T19:58:54.401] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T19:58:54.462] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T19:58:58.068] [DEBUG] auhtentication - Request : POST /auth/user/signup
+[2023-11-01T19:59:07.108] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T19:59:09.629] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T19:59:10.044] [DEBUG] auhtentication - Signup with database for email: riyazshaikh7122001@gmail.com
+[2023-11-01T19:59:11.364] [ERROR] auhtentication - Error
+    at Query.run (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)
+    at /home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/sequelize.js:315:28
+    at async PostgresQueryInterface.insert (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+    at async model.save (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:2490:35)
+    at async User.create (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:1362:12)
+    at async signUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/models/helpers/index.js:26:18)
+    at async SignUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/controllers/user.js:21:22) {
+  name: 'SequelizeForeignKeyConstraintError',
+  parent: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$jbU0G8YqGhNjZeIljoH1UO9PnldWV8m8uCJDHCyv9SVRsq.o00YrS',
+      'riyazshaikh7122001@gmail.com',
+      '6541239870',
+      'Naya Nagar',
+      'Riyaz',
+      'Shaikh',
+      'A',
+      '501',
+      '2'
     ]
   },
-  isNewRecord: false
-}
-[2023-10-31T19:32:24.324] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T19:32:24.572] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T19:32:24.615] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T19:32:27.077] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:32:36.711] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T19:32:36.712] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 7,
-    userId: 9,
-    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
-    expiryOn: 2023-10-31T14:10:41.747Z,
-    isActive: true
-  },
-  _previousDataValues: {
-    forgotPasswordId: 7,
-    userId: 9,
-    emailToken: '5e5e3b3f79a5464d6940817af325c92431f5497c1539ed419a878ad4c9d07a637b1e527bbfe673a616dfabcbc8c8799b1f80892242517460110a56afda66e8b262c04a934465095eea1dd585c896d3831773fc1172f4f23c2f41f073189474c395fc262036e473e04fca0069c181796b25dc9f60486b8d5b159f04baf187ca73',
-    expiryOn: 2023-10-31T14:10:41.747Z,
-    isActive: true
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+  original: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$jbU0G8YqGhNjZeIljoH1UO9PnldWV8m8uCJDHCyv9SVRsq.o00YrS',
+      'riyazshaikh7122001@gmail.com',
+      '6541239870',
+      'Naya Nagar',
+      'Riyaz',
+      'Shaikh',
+      'A',
+      '501',
+      '2'
     ]
   },
-  isNewRecord: false
+  sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+  parameters: [
+    '2023-11-01 00:00:00.000 +00:00',
+    false,
+    true,
+    false,
+    '$2b$10$jbU0G8YqGhNjZeIljoH1UO9PnldWV8m8uCJDHCyv9SVRsq.o00YrS',
+    'riyazshaikh7122001@gmail.com',
+    '6541239870',
+    'Naya Nagar',
+    'Riyaz',
+    'Shaikh',
+    'A',
+    '501',
+    '2'
+  ],
+  table: 'User',
+  fields: null,
+  value: undefined,
+  index: 'User_roomNumber_fkey',
+  reltype: undefined
 }
-[2023-10-31T19:32:46.128] [DEBUG] auhtentication - Using email token
-[2023-10-31T19:32:47.199] [DEBUG] auhtentication - Email token used
-[2023-10-31T19:32:47.815] [DEBUG] auhtentication - Updating updatedBy
-[2023-10-31T19:32:49.704] [DEBUG] auhtentication - Updated successfully
-[2023-10-31T19:32:50.752] [DEBUG] auhtentication - Encrypting your new password
-[2023-10-31T19:32:52.343] [DEBUG] auhtentication - Your new password encrypted successfully
-[2023-10-31T19:32:53.551] [DEBUG] auhtentication - Changing password in database for userId: 9
-[2023-10-31T19:32:54.236] [INFO] auhtentication - rowsUpdated 1
-[2023-10-31T19:32:55.110] [INFO] auhtentication - updatedUser: 1
-[2023-10-31T19:32:55.111] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
-[2023-10-31T19:32:55.937] [DEBUG] auhtentication - Changing password in firebase for userId: 9
-[2023-10-31T19:32:59.031] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
-[2023-10-31T19:33:01.376] [DEBUG] auhtentication - Updating updatedBy for userId: 9
-[2023-10-31T19:33:03.040] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
-[2023-10-31T19:33:03.937] [INFO] auhtentication - Password reset successfully
-[2023-10-31T19:33:16.387] [DEBUG] auhtentication - Request : POST /auth/admin/signin
-[2023-10-31T19:33:21.881] [DEBUG] auhtentication - Validating your password
-[2023-10-31T19:33:21.957] [DEBUG] auhtentication - Your password is validated successfully
-[2023-10-31T19:33:21.957] [DEBUG] auhtentication - Signin with firebase with userId: 9
-[2023-10-31T19:33:27.726] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
-[2023-10-31T19:33:27.729] [DEBUG] auhtentication - Updating the lastLoggedin time
-[2023-10-31T19:33:27.738] [DEBUG] auhtentication - lastLoggedIn time is updated
-[2023-10-31T19:33:27.738] [DEBUG] auhtentication - Commiting transactions to the database
-[2023-10-31T19:33:27.751] [INFO] auhtentication - User loggedIn successfully
-[2023-10-31T19:33:27.752] [INFO] auhtentication - signinResponse: {
-  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg3NjEwMDUsInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODc2MTAwNSwiZXhwIjoxNjk4NzY0NjA1LCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.glIYHR2JiWkkWCaUy9f0965Yw7GJuOKzwD9qjLoQ7NJGUZyQOxDXK7vtaPKtoIFlTeix3hGxFr-r8WJ2nOnKvPO-QcyezIfoduKLJglzkIpxlTVLo-1-Ml8vt6awpq5sFbBab4CnH822oy2fR3iCXgIXmZlGY7O-4WFwbs5ADToe3vqHweJqR8g8ndwMZQFr-XnvWARWKcSPERPPcQbfqRt2lcnSDKr8mEHRSR7lkgUuAtbd5dqhKdim4VtoXYaXQEtIG80Xujjx9LEsFI8CGnDVlkpGfA5qij1mHmh4NPA3oZyyUJjWKfQL1dPBSo77_6wQ6cJB22n7cYFPKhZikw",
-  "refreshToken": "AMf-vBxM1UgLgI79Djwf78t1a1JwXJOFKjgxt1jj04HQUNmkIHrpJjlulVR0M11UqQErFGVUHZPTVv9ZM9GYn6-eHWa7v2KSDKGcVW_yrGRdhrP246b8UZDGosm7m9u_n4S3yzN4XG6Ti3UMxC6GIakst3mi9tRRiqyvKevXpRt1lLUmnpGxUxiAdHrDs3mD3uVtSMI-Ar-G",
-  "expiresIn": "20:33:27"
-}
-[2023-10-31T19:34:08.136] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
-[2023-10-31T19:34:13.454] [DEBUG] auhtentication - Creating email token
-[2023-10-31T19:34:13.455] [DEBUG] auhtentication - Email token created successfully
-[2023-10-31T19:34:13.455] [DEBUG] auhtentication - Saving email token
-[2023-10-31T19:34:13.479] [DEBUG] auhtentication - Email token saved successfully
-[2023-10-31T19:34:13.479] [DEBUG] auhtentication - Sending mail of forgot password
-[2023-10-31T19:34:13.487] [DEBUG] auhtentication - Forgot password mail sent successfully
-[2023-10-31T19:34:13.487] [DEBUG] auhtentication - Commiting transactions to database
-[2023-10-31T19:34:15.924] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698761055 jo13-20020a170903054d00b001c9cb2fb8d8sm1372259plb.49 - gsmtp
-[2023-10-31T19:34:23.690] [DEBUG] auhtentication - Request : GET /reset-password/9?token=2c303d1584685af2d542d9f2a454b67275bcc0787052572de3a742a634c58fad451b8679d2507351746137959b360897541eec4c767a5d3f4cf57e497191e499427e3bffb0d5540fc8de1787586abd45b1966e2210ebc846be252773266b752699fc29fe229bfc0cc62b3e936fdf08c150910e2c76ed2af9881d95393d012825
-[2023-10-31T19:34:51.240] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T19:34:57.387] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T19:34:57.388] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 8,
-    userId: 9,
-    emailToken: '2c303d1584685af2d542d9f2a454b67275bcc0787052572de3a742a634c58fad451b8679d2507351746137959b360897541eec4c767a5d3f4cf57e497191e499427e3bffb0d5540fc8de1787586abd45b1966e2210ebc846be252773266b752699fc29fe229bfc0cc62b3e936fdf08c150910e2c76ed2af9881d95393d012825',
-    expiryOn: 2023-10-31T14:14:13.455Z,
-    isActive: true
-  },
-  _previousDataValues: {
-    forgotPasswordId: 8,
-    userId: 9,
-    emailToken: '2c303d1584685af2d542d9f2a454b67275bcc0787052572de3a742a634c58fad451b8679d2507351746137959b360897541eec4c767a5d3f4cf57e497191e499427e3bffb0d5540fc8de1787586abd45b1966e2210ebc846be252773266b752699fc29fe229bfc0cc62b3e936fdf08c150910e2c76ed2af9881d95393d012825',
-    expiryOn: 2023-10-31T14:14:13.455Z,
-    isActive: true
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+[2023-11-01T19:59:11.382] [DEBUG] auhtentication - Rolling back any database transactions
+[2023-11-01T20:01:11.179] [DEBUG] auhtentication - Request : POST /auth/admin/signup
+[2023-11-01T20:01:23.990] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T20:01:25.199] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T20:01:25.920] [DEBUG] auhtentication - Signup with database for email: riyazshaikh7122001@gmail.com
+[2023-11-01T20:01:27.228] [ERROR] auhtentication - Error
+    at Query.run (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)
+    at /home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/sequelize.js:315:28
+    at async PostgresQueryInterface.insert (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+    at async model.save (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:2490:35)
+    at async User.create (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:1362:12)
+    at async signUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/models/helpers/index.js:26:18)
+    at async SignUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/controllers/user.js:21:22) {
+  name: 'SequelizeForeignKeyConstraintError',
+  parent: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$KO9dMkbKYfEhedcUHVtmn.iHEo3Jfd1TGgIIcKPq3TAbovRoEuZuC',
+      'riyazshaikh7122001@gmail.com',
+      '6325987410',
+      'Naya Nagar',
+      'Riyaz',
+      'Shaikh',
+      'A',
+      '501',
+      '1'
     ]
   },
-  isNewRecord: false
-}
-[2023-10-31T19:35:20.955] [DEBUG] auhtentication - Using email token
-[2023-10-31T19:35:22.883] [DEBUG] auhtentication - Email token used
-[2023-10-31T19:35:23.834] [DEBUG] auhtentication - Updating updatedBy
-[2023-10-31T19:35:25.515] [DEBUG] auhtentication - Updated successfully
-[2023-10-31T19:35:26.666] [DEBUG] auhtentication - Encrypting your new password
-[2023-10-31T19:35:29.251] [DEBUG] auhtentication - Your new password encrypted successfully
-[2023-10-31T19:35:30.426] [DEBUG] auhtentication - Changing password in database for userId: 9
-[2023-10-31T19:35:33.370] [INFO] auhtentication - rowsUpdated 1
-[2023-10-31T19:35:34.347] [INFO] auhtentication - updatedUser: 1
-[2023-10-31T19:35:34.347] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
-[2023-10-31T19:35:35.745] [DEBUG] auhtentication - Changing password in firebase for userId: 9
-[2023-10-31T19:35:40.130] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
-[2023-10-31T19:35:41.218] [DEBUG] auhtentication - Updating updatedBy for userId: 9
-[2023-10-31T19:35:44.602] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
-[2023-10-31T19:35:46.129] [INFO] auhtentication - Password reset successfully
-[2023-10-31T19:36:02.391] [DEBUG] auhtentication - Request : POST /auth/admin/signin
-[2023-10-31T19:36:07.002] [DEBUG] auhtentication - Validating your password
-[2023-10-31T19:36:07.094] [DEBUG] auhtentication - Invalid Password
-[2023-10-31T19:36:16.544] [DEBUG] auhtentication - Request : POST /auth/admin/signin
-[2023-10-31T19:36:23.251] [DEBUG] auhtentication - Validating your password
-[2023-10-31T19:36:23.326] [DEBUG] auhtentication - Your password is validated successfully
-[2023-10-31T19:36:23.327] [DEBUG] auhtentication - Signin with firebase with userId: 9
-[2023-10-31T19:36:26.351] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
-[2023-10-31T19:36:26.352] [DEBUG] auhtentication - Updating the lastLoggedin time
-[2023-10-31T19:36:26.356] [DEBUG] auhtentication - lastLoggedIn time is updated
-[2023-10-31T19:36:26.356] [DEBUG] auhtentication - Commiting transactions to the database
-[2023-10-31T19:36:26.368] [INFO] auhtentication - User loggedIn successfully
-[2023-10-31T19:36:26.368] [INFO] auhtentication - signinResponse: {
-  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg3NjExODQsInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODc2MTE4NCwiZXhwIjoxNjk4NzY0Nzg0LCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.ZTaTyHY1bw6wHAsukf0G6TKu7ZkoFCJYMOJnzOrPxQuNN6rQ8Q7hDSMcBmXzwZpwNMAnABQ2ZIlUXyGvoFPGgZ7VU6HsEEK9Qco6Of-jceT2E9nkcNeo73hwiQrIqCZLDh8JC7A-oE3sgt6vKiOAppeLrBZhR0yqsVLnb31fLvANpu9NjLvUZSpSk7vsxFFQTHxAjh-79V2mjtyUoaRAzDJQYaxdG8WQtisHk9fC00-Lh6VwGnKB5UOM-1pvcvujY9zfG8zCSZXt2orfpm7kxGRCtP4TBZAYO3V5C5Fd9UZuV6GJcAET2TB4cWfFBLuo6fgH4bfPgPsz40IaMCCVTA",
-  "refreshToken": "AMf-vBwHrfWwiuYoKH9Ci4gX3Xe7KqBrAQy3KoSKGeC4r9ZnBB_bDX1SMrwNtEP6JwttQeofvNDafdyMFxpqMPTBcZ4gdNvZf6PUDvoQX3YtBb8b0MDKjHQyfSrjP1h9QTl70w11P0uZ2fXmf8whJKl0ns-ROCSsDDquB-2KW8Q8210LUtUW2GyOU84NtjuXvMM4sjDlCyDc",
-  "expiresIn": "20:36:26"
-}
-[2023-10-31T20:17:23.285] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
-[2023-10-31T20:17:23.597] [DEBUG] auhtentication - Authentication service started on port : 3000
-[2023-10-31T20:17:23.671] [INFO] auhtentication - Connection to database: society has been established successfully.
-[2023-10-31T20:17:32.390] [DEBUG] auhtentication - Request : POST /auth/admin/forgot-password
-[2023-10-31T20:17:37.050] [DEBUG] auhtentication - Creating email token
-[2023-10-31T20:17:37.051] [DEBUG] auhtentication - Email token created successfully
-[2023-10-31T20:17:37.051] [DEBUG] auhtentication - Saving email token
-[2023-10-31T20:17:37.083] [DEBUG] auhtentication - Email token saved successfully
-[2023-10-31T20:17:37.084] [DEBUG] auhtentication - Sending mail of forgot password
-[2023-10-31T20:17:37.097] [DEBUG] auhtentication - Forgot password mail sent successfully
-[2023-10-31T20:17:37.097] [DEBUG] auhtentication - Commiting transactions to database
-[2023-10-31T20:17:40.459] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698763660 x22-20020aa79ad6000000b006c107a9e8f0sm1332536pfp.128 - gsmtp
-[2023-10-31T20:18:01.416] [DEBUG] auhtentication - Request : GET /reset-password/9?token=fe8cf2c6073ef3939ec31a034173ae1f46af816ad096d4fffab1a6f46615304ef1b3fd509c7217360852efd11c3ac2c4f71b5836e427650be07c7e23c4adb5e180921533de536fa38b6fd8e7118e92fe99e9ae80c69dbe28010e1532c691f60d238a3cdba7e24ccf10b80323c7bdd959fbc1d5e0a74acb09a717f5c4a35e2fd9
-[2023-10-31T20:18:23.659] [DEBUG] auhtentication - Request : POST /auth/admin/reset-password
-[2023-10-31T20:18:28.893] [WARN] auhtentication - log4js:logger.log: valid log-level not found as first parameter given: userToken
-[2023-10-31T20:18:28.895] [INFO] auhtentication - [userToken] UserForgotPassword {
-  dataValues: {
-    forgotPasswordId: 9,
-    userId: 9,
-    emailToken: 'fe8cf2c6073ef3939ec31a034173ae1f46af816ad096d4fffab1a6f46615304ef1b3fd509c7217360852efd11c3ac2c4f71b5836e427650be07c7e23c4adb5e180921533de536fa38b6fd8e7118e92fe99e9ae80c69dbe28010e1532c691f60d238a3cdba7e24ccf10b80323c7bdd959fbc1d5e0a74acb09a717f5c4a35e2fd9',
-    expiryOn: 2023-10-31T14:57:37.052Z,
-    isActive: true
-  },
-  _previousDataValues: {
-    forgotPasswordId: 9,
-    userId: 9,
-    emailToken: 'fe8cf2c6073ef3939ec31a034173ae1f46af816ad096d4fffab1a6f46615304ef1b3fd509c7217360852efd11c3ac2c4f71b5836e427650be07c7e23c4adb5e180921533de536fa38b6fd8e7118e92fe99e9ae80c69dbe28010e1532c691f60d238a3cdba7e24ccf10b80323c7bdd959fbc1d5e0a74acb09a717f5c4a35e2fd9',
-    expiryOn: 2023-10-31T14:57:37.052Z,
-    isActive: true
-  },
-  uniqno: 1,
-  _changed: Set(0) {},
-  _options: {
-    isNewRecord: false,
-    _schema: 'public',
-    _schemaDelimiter: '',
-    raw: true,
-    attributes: [
-      'forgotPasswordId',
-      'userId',
-      'emailToken',
-      'expiryOn',
-      'isActive'
+  original: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$KO9dMkbKYfEhedcUHVtmn.iHEo3Jfd1TGgIIcKPq3TAbovRoEuZuC',
+      'riyazshaikh7122001@gmail.com',
+      '6325987410',
+      'Naya Nagar',
+      'Riyaz',
+      'Shaikh',
+      'A',
+      '501',
+      '1'
     ]
   },
-  isNewRecord: false
+  sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+  parameters: [
+    '2023-11-01 00:00:00.000 +00:00',
+    false,
+    true,
+    false,
+    '$2b$10$KO9dMkbKYfEhedcUHVtmn.iHEo3Jfd1TGgIIcKPq3TAbovRoEuZuC',
+    'riyazshaikh7122001@gmail.com',
+    '6325987410',
+    'Naya Nagar',
+    'Riyaz',
+    'Shaikh',
+    'A',
+    '501',
+    '1'
+  ],
+  table: 'User',
+  fields: null,
+  value: undefined,
+  index: 'User_roomNumber_fkey',
+  reltype: undefined
 }
-[2023-10-31T20:18:34.931] [DEBUG] auhtentication - Using email token
-[2023-10-31T20:18:36.323] [DEBUG] auhtentication - Email token used
-[2023-10-31T20:18:36.835] [DEBUG] auhtentication - Updating updatedBy
-[2023-10-31T20:18:37.794] [DEBUG] auhtentication - Updated successfully
-[2023-10-31T20:18:38.646] [DEBUG] auhtentication - Encrypting your new password
-[2023-10-31T20:18:39.565] [DEBUG] auhtentication - Your new password encrypted successfully
-[2023-10-31T20:18:40.099] [DEBUG] auhtentication - Changing password in database for userId: 9
-[2023-10-31T20:18:40.681] [INFO] auhtentication - rowsUpdated 1
-[2023-10-31T20:18:41.171] [INFO] auhtentication - updatedUser: 1
-[2023-10-31T20:18:41.171] [DEBUG] auhtentication - Password changed successfully in database for userId: 9
-[2023-10-31T20:18:41.712] [DEBUG] auhtentication - Changing password in firebase for userId: 9
-[2023-10-31T20:18:44.477] [DEBUG] auhtentication - Password changed successfully in firebase for userId: 9
-[2023-10-31T20:18:45.171] [DEBUG] auhtentication - Updating updatedBy for userId: 9
-[2023-10-31T20:18:46.354] [DEBUG] auhtentication - Updated updatedBy successfully for userId: 9
-[2023-10-31T20:18:46.877] [INFO] auhtentication - Password reset successfully
+[2023-11-01T20:01:27.230] [DEBUG] auhtentication - Rolling back any database transactions
+[2023-11-01T20:02:41.728] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T20:02:41.992] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T20:02:42.040] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T20:02:44.966] [DEBUG] auhtentication - Request : POST /auth/admin/signup
+[2023-11-01T20:02:50.916] [DEBUG] auhtentication - Encrypting your password
+[2023-11-01T20:02:52.197] [DEBUG] auhtentication - Your password encrypted successfully
+[2023-11-01T20:02:53.004] [DEBUG] auhtentication - Signup with database for email: riyazshaikh7122001@gmail.com
+[2023-11-01T20:02:54.565] [ERROR] auhtentication - Error
+    at Query.run (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/postgres/query.js:50:25)
+    at /home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/sequelize.js:315:28
+    at async PostgresQueryInterface.insert (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+    at async model.save (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:2490:35)
+    at async User.create (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/sequelize/lib/model.js:1362:12)
+    at async signUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/models/helpers/index.js:26:18)
+    at async SignUp (file:///home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/controllers/user.js:21:22) {
+  name: 'SequelizeForeignKeyConstraintError',
+  parent: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$zpgkMdjvqIFAE/Hk7VVW1OUPHwDcDzV9QttKJetV8Wy7v4GQNFjQu',
+      'riyazshaikh7122001@gmail.com',
+      '6325987410',
+      'Naya Nagar',
+      'Riyaz',
+      'Shaikh',
+      'A',
+      '501',
+      '1'
+    ]
+  },
+  original: error: insert or update on table "User" violates foreign key constraint "User_roomNumber_fkey"
+      at Parser.parseErrorMessage (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:287:98)
+      at Parser.handlePacket (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:126:29)
+      at Parser.parse (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/parser.js:39:38)
+      at Socket.<anonymous> (/home/riyaz.s@osp.local/Riyaz/Society/SocietyManagement/Authentication/node_modules/pg-protocol/dist/index.js:11:42)
+      at Socket.emit (node:events:513:28)
+      at addChunk (node:internal/streams/readable:324:12)
+      at readableAddChunk (node:internal/streams/readable:297:9)
+      at Readable.push (node:internal/streams/readable:234:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+      at TCP.callbackTrampoline (node:internal/async_hooks:130:17) {
+    length: 249,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (roomNumber)=(501) is not present in table "Floor".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'User',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'User_roomNumber_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation',
+    sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+    parameters: [
+      '2023-11-01 00:00:00.000 +00:00',
+      false,
+      true,
+      false,
+      '$2b$10$zpgkMdjvqIFAE/Hk7VVW1OUPHwDcDzV9QttKJetV8Wy7v4GQNFjQu',
+      'riyazshaikh7122001@gmail.com',
+      '6325987410',
+      'Naya Nagar',
+      'Riyaz',
+      'Shaikh',
+      'A',
+      '501',
+      '1'
+    ]
+  },
+  sql: 'INSERT INTO "public"."User" ("userId","createdOn","isDeleted","activationStatus","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role") VALUES (DEFAULT,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) RETURNING "userId","createdOn","updatedOn","updatedBy","isDeleted","deletedOn","deletedBy","lastLoggedInOn","activationStatus","activationStatusUpdatedOn","activationStatusUpdatedBy","isAdmin","password","email","mobile","address","firstName","lastName","buildingWing","roomNumber","role","verificationDocument";',
+  parameters: [
+    '2023-11-01 00:00:00.000 +00:00',
+    false,
+    true,
+    false,
+    '$2b$10$zpgkMdjvqIFAE/Hk7VVW1OUPHwDcDzV9QttKJetV8Wy7v4GQNFjQu',
+    'riyazshaikh7122001@gmail.com',
+    '6325987410',
+    'Naya Nagar',
+    'Riyaz',
+    'Shaikh',
+    'A',
+    '501',
+    '1'
+  ],
+  table: 'User',
+  fields: null,
+  value: undefined,
+  index: 'User_roomNumber_fkey',
+  reltype: undefined
+}
+[2023-11-01T20:02:54.568] [DEBUG] auhtentication - Rolling back any database transactions
+[2023-11-01T20:07:25.517] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T20:07:25.671] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T20:07:25.704] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T20:07:38.617] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T20:07:38.661] [INFO] auhtentication - Verifying Otp
+[2023-11-01T20:07:38.672] [INFO] auhtentication - Otp verified
+[2023-11-01T20:07:38.673] [DEBUG] auhtentication - Validating your password
+[2023-11-01T20:07:38.744] [DEBUG] auhtentication - Your password is validated successfully
+[2023-11-01T20:07:38.745] [DEBUG] auhtentication - Signin with firebase with userId: 9
+[2023-11-01T20:07:39.705] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
+[2023-11-01T20:07:39.708] [DEBUG] auhtentication - Updating the lastLoggedin time
+[2023-11-01T20:07:39.755] [DEBUG] auhtentication - lastLoggedIn time is updated
+[2023-11-01T20:07:39.755] [DEBUG] auhtentication - Commiting transactions to the database
+[2023-11-01T20:07:39.756] [INFO] auhtentication - User loggedIn successfully
+[2023-11-01T20:07:39.756] [INFO] auhtentication - signinResponse: {
+  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg4NDk0NTksInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODg0OTQ1OSwiZXhwIjoxNjk4ODUzMDU5LCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.RIuAvajPjqfJr04Ixxik6jtRcX2Zdnilo40ZfqPh7ptPcA9jXHONDFAgJh_omNyAwWV3O_jluxbIUWuyfDTUBALL_eE8hMzqeuut3KE-Jj5Hw7ktaYi9OfREcrJa4kDaSaN1hqTELMdW3UrD-Ed8gN06WrG6kZuFzKRaEaw_LIn3VUtdD_54evj4QTh9vfdHEkWe9NN2WgZZtKdgmz5f04k89JRBji872q7sndCr9JHAuuMP6aGBYR_53gX-fDKEcepghGQ7AybttTb4fWxL0l4T0MYDyCNsxYFTnkzGfD-DVwIRbTuKgwDF7bup7eO9nDo54j2pQ_6lDvKjO4h5eQ",
+  "refreshToken": "AMf-vBwGa2CO5753gAC6SOX29TNxbvyOCjX61wuF7EG8w38bnYeBZ2H_fmZ5YWiKS95e1fFC-eH3-ckNRq91arb5_C388_OCUVMDTRfBvwGmxT8g4MXb-A4QNzgvt4wsbIM5rmtjFctajtLgNBMhdKDfQbgmvtkag01iTIhuGKtdQenc82O8l3kbl8a3dMQC8_KtR2AGNZ7C",
+  "expiresIn": "21:07:39"
+}
+[2023-11-01T20:07:49.358] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T20:09:27.898] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T20:10:19.297] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T20:11:35.383] [DEBUG] auhtentication - Received signal: SIGINT
+[2023-11-01T20:11:39.796] [DEBUG] auhtentication - Setting up listners for database connections cleanup if server terminated
+[2023-11-01T20:11:40.161] [DEBUG] auhtentication - Authentication service started on port : 3000
+[2023-11-01T20:11:40.202] [INFO] auhtentication - Connection to database: society has been established successfully.
+[2023-11-01T20:11:43.341] [DEBUG] auhtentication - Request : POST /auth/admin/otp/login
+[2023-11-01T20:11:56.071] [DEBUG] auhtentication - Your verification code is: 3602.
+[2023-11-01T20:11:56.528] [DEBUG] auhtentication - Saving otp in database
+[2023-11-01T20:11:59.704] [DEBUG] auhtentication - Sending otp on email riyaz.s@osplabs.com
+[2023-11-01T20:12:00.641] [DEBUG] auhtentication - Commiting transactions to database
+[2023-11-01T20:12:05.554] [INFO] auhtentication - Email Sent250 2.0.0 OK  1698849725 f23-20020a17090ac29700b002775281b9easm947863pjt.50 - gsmtp
+[2023-11-01T20:12:37.886] [DEBUG] auhtentication - Request : POST /auth/admin/signin
+[2023-11-01T20:12:43.350] [INFO] auhtentication - Verifying Otp
+[2023-11-01T20:12:44.735] [INFO] auhtentication - Otp verified
+[2023-11-01T20:12:45.759] [DEBUG] auhtentication - Validating your password
+[2023-11-01T20:12:47.670] [DEBUG] auhtentication - Your password is validated successfully
+[2023-11-01T20:12:48.950] [DEBUG] auhtentication - Signin with firebase with userId: 9
+[2023-11-01T20:13:07.526] [DEBUG] auhtentication - Signin successfully with firebase for userId: 9
+[2023-11-01T20:13:08.054] [DEBUG] auhtentication - Updating the lastLoggedin time
+[2023-11-01T20:13:09.717] [DEBUG] auhtentication - lastLoggedIn time is updated
+[2023-11-01T20:13:10.229] [DEBUG] auhtentication - Commiting transactions to the database
+[2023-11-01T20:13:10.231] [INFO] auhtentication - User loggedIn successfully
+[2023-11-01T20:13:10.637] [INFO] auhtentication - signinResponse: {
+  "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJhZG1pbiI6dHJ1ZSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3NvY2lldHltYW5hZ2VtZW50LTljY2ZmIiwiYXVkIjoic29jaWV0eW1hbmFnZW1lbnQtOWNjZmYiLCJhdXRoX3RpbWUiOjE2OTg4NDk3NzAsInVzZXJfaWQiOiI5Iiwic3ViIjoiOSIsImlhdCI6MTY5ODg0OTc3MCwiZXhwIjoxNjk4ODUzMzcwLCJlbWFpbCI6InJpeWF6LnNAb3NwbGFicy5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicml5YXouc0Bvc3BsYWJzLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.WGxsUKiuaZgKJmMbAKGakLiC4-z6nNSrcykHZqQWlK35b2QNES0QxNKlCq3bR5TOG4_LVnf3MIR0qbIbzlTJx9rLZO1iuk4h4D53TeIcXnylAVEi8ONp5nX4IXQZFDAH-7u3CX-7ctTrvD9ODavuBk2DYstRhjBhyp-21kUstbUVnENqjgsf1YpXBJXA-CCQI7egdp4QlcPmkViOhZeu1Z-LyDIiWo3vCHg3Y3zNj7_EGypcUXU4JHxgxhueYrBCsVI0aeWLoCGZjsgVAQ6qSEOdTP9z6gPcC3mlheON_51nupMvo_uPkJFvMEGKrEiXim4vLsXkIssL9l8mIYKhSQ",
+  "refreshToken": "AMf-vBweYOeuq2zbicvRJO2z4sN08fqmBhc4kKf2KDmi9hzxPNVgF0aLPtXUeiatQsgDVgbk006AdJxrBsHvtB2RKE5aK96jXlJeKVcHwQHgrj0XQNWJWu-Og8tQEf37RiFyC1u34vrihj6b14pCNHUgNjII0Drts89IfzJx91mrPddbfwikpw46PO3lXM79_rlX4xk_1Egy",
+  "expiresIn": "21:13:07"
+}
