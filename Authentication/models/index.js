@@ -13,7 +13,7 @@ User.hasMany(UserOtp, { foreignKey: 'userId' });
 
 Role.hasMany(User, { foreignKey: 'role' });
 
-Floor.belongsTo(User, { foreignKey: 'roomNumber', targetKey: 'roomNumber' });
+Floor.belongsTo(User, { foreignKey: 'floorId', targetKey: 'roomNumber' });
 Floor.belongsTo(Building, { foreignKey: 'buildingId' });
 
 Building.belongsTo(User, { foreignKey: 'buildingWing', targetKey: 'buildingWing' });

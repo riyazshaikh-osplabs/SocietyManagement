@@ -106,7 +106,7 @@ const ValidateEmailForSignin = isAdmin => {
 
 const ValidateRoomNumber = async (req, res, next) => {
     try {
-        const roomNumber = Number(req.body?.roomNumber);
+        const roomNumber = req.body?.roomNumber;
         const buildingWing = req.body?.buildingWing;
 
         const isRoomExists = await isValidRoomNumber(roomNumber, buildingWing);

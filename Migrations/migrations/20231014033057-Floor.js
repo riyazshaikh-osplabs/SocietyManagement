@@ -18,7 +18,8 @@ module.exports = {
         }
       },
       roomNumber: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
+        unique: true,
         allowNull: false
       },
       floorNumber: {

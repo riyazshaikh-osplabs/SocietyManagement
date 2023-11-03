@@ -18,7 +18,8 @@ const Floor = sequelize.define('Floor', {
         }
     },
     roomNumber: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.TEXT,
+        unique: true,
         allowNull: false,
     },
     floorNumber: {

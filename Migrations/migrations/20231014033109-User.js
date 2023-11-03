@@ -95,24 +95,23 @@ module.exports = {
       },
       buildingWing: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Building',
           key: 'buildingWing'
         }
       },
       roomNumber: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         allowNull: false,
-
         references: {
           model: 'Floor',
-          key: 'floorId'
+          key: 'roomNumber'
         }
       },
       role: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Role',
           key: 'roleId'

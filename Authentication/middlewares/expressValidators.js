@@ -43,11 +43,13 @@ const SignupValidationRules = () => {
         body('buildingWing')
             .not().isEmpty().withMessage('Building Wing is required').bail()
             .isString().withMessage('Building Wings should be of type string').bail()
-            .isLength({ max: 1 }).withMessage('Wing should be of single character')
+            .isLength({ max: 1 }).withMessage('Wing should be of single character').bail()
+            .matches(/^[A-Z]+$/).withMessage('Input should consist of capital letters only')
             .trim(),
         body('roomNumber')
             .not().isEmpty().withMessage('Room Number is required').bail()
-            .isInt().withMessage('Room Number should be of type number')
+            .isString().withMessage('Room Number should be of type string').bail()
+            .matches(/^[A-Z]\/\d{3}$/).withMessage('Room Number should match the format X/XXX')
             .trim(),
         body('role')
             .not().isEmpty().withMessage('Role is required').bail()

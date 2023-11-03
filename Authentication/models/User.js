@@ -101,8 +101,8 @@ const User = sequelize.define('User', {
         }
     },
     roomNumber: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.TEXT,
+        allowNull: true,
         references: {
             model: 'Floor',
             key: 'roomNumber'
@@ -110,7 +110,7 @@ const User = sequelize.define('User', {
     },
     role: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
             model: 'Role',
             key: 'roleId'

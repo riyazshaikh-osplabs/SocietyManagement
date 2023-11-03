@@ -19,13 +19,12 @@ const createAdmin = async (firstName, lastName, email, mobile, password, buildin
             buildingWing: buildingWing,
             roomNumber: roomNumber,
             role: 1,
-            roomNumber: 102,
             createdOn: new Date()
         }, { transaction });
 
         console.log('Creating admin user in firebase...');
         const response = await admin.auth().createUser({
-            uid: user.dataValues.userId.toString(),
+            uid: user.dataValues?.userId?.toString(),
             email,
             password
         });
