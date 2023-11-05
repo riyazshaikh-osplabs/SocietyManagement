@@ -25,6 +25,10 @@ module.exports = {
       floorNumber: {
         type: Sequelize.INTEGER,
         allowNull: false
+      },
+      isAlloted: {
+        type: Sequelize.BOOLEAN,
+        allowNull: true,
       }
     }, {
       schema: 'public',

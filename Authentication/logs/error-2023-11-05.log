@@ -1,0 +1,4 @@
+5 Nov 2023 11:53 AM -- error -- Missing where attribute in the options parameter
+5 Nov 2023 11:54 AM -- error -- Invalid value { model: User, where: { roomNumber: 'A/102', userId: 5 } }
+5 Nov 2023 11:55 AM -- error -- The email address is already in use by another account.
+5 Nov 2023 10:40 PM -- error -- The user with the provided uid already exists.

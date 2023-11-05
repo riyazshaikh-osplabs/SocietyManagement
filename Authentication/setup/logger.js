@@ -393,110 +393,110 @@
 
 
 
-import winston from "winston";
-import winstonRotate from "winston-daily-rotate-file";
+// import winston from "winston";
+// import winstonRotate from "winston-daily-rotate-file";
 
-const createLoggerInstance = (filename, levels) => {
-    return winston.createLogger({
-        levels: {
-            access: 1
-        },
-        format: winston.format.combine(
-            winston.format.timestamp({
-                format: () => {
-                    const date = new Date();
-                    const hours = date.getHours() % 12 || 12;
-                    const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
-                    return `${date.getDate()} ${date.toLocaleDateString('en-us', { month: 'short' })} ${date.getFullYear()} ${hours}:${date.getMinutes()}:${date.getSeconds()} ${ampm}`;
-                }
-            }),
-            winston.format.printf(({ timestamp, level, message }) => {
-                return `${timestamp} -- ${level} -- ${message}`;
-            }),
-        ),
-        transports: [
-            new winston.transports.Console({ level: levels }),
-            new winstonRotate({
-                filename: `logs/${filename}-%DATE%.log`,
-                zippedArchive: true,
-                maxFiles: '30d',
-                maxSize: '10k',
-                level: levels
-            })
-        ]
-    });
-};
+// const createLoggerInstance = (filename, levels) => {
+//     return winston.createLogger({
+//         levels: {
+//             access: 1
+//         },
+//         format: winston.format.combine(
+//             winston.format.timestamp({
+//                 format: () => {
+//                     const date = new Date();
+//                     const hours = date.getHours() % 12 || 12;
+//                     const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
+//                     return `${date.getDate()} ${date.toLocaleDateString('en-us', { month: 'short' })} ${date.getFullYear()} ${hours}:${date.getMinutes()}:${date.getSeconds()} ${ampm}`;
+//                 }
+//             }),
+//             winston.format.printf(({ timestamp, level, message }) => {
+//                 return `${timestamp} -- ${level} -- ${message}`;
+//             }),
+//         ),
+//         transports: [
+//             new winston.transports.Console({ level: levels }),
+//             new winstonRotate({
+//                 filename: `logs/${filename}-%DATE%.log`,
+//                 zippedArchive: true,
+//                 maxFiles: '30d',
+//                 maxSize: '10k',
+//                 level: levels
+//             })
+//         ]
+//     });
+// };
 
-const debugLogger = winston.createLogger({
-    format: winston.format.combine(
-        winston.format.timestamp({
-            format: () => {
-                const date = new Date();
-                const hours = date.getHours() % 12 || 12;
-                const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
-                return `${date.getDate()} ${date.toLocaleDateString('en-us', { month: 'short' })} ${date.getFullYear()} ${hours}:${date.getMinutes()}:${date.getSeconds()} ${ampm}`;
-            }
-        }),
-        winston.format.printf(({ timestamp, level, message }) => {
-            return `${timestamp} -- ${level} -- ${message}`;
-        }),
-    ),
-    transports: [
-        new winston.transports.Console({ level: 'debug' }),
-        new winstonRotate({
-            filename: `logs/debug-%DATE%.log`,
-            zippedArchive: true,
-            maxFiles: '30d',
-            maxSize: '10k',
-            level: 'debug'
-        }),
-    ]
-});
+// const debugLogger = winston.createLogger({
+//     format: winston.format.combine(
+//         winston.format.timestamp({
+//             format: () => {
+//                 const date = new Date();
+//                 const hours = date.getHours() % 12 || 12;
+//                 const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
+//                 return `${date.getDate()} ${date.toLocaleDateString('en-us', { month: 'short' })} ${date.getFullYear()} ${hours}:${date.getMinutes()}:${date.getSeconds()} ${ampm}`;
+//             }
+//         }),
+//         winston.format.printf(({ timestamp, level, message }) => {
+//             return `${timestamp} -- ${level} -- ${message}`;
+//         }),
+//     ),
+//     transports: [
+//         new winston.transports.Console({ level: 'debug' }),
+//         new winstonRotate({
+//             filename: `logs/debug-%DATE%.log`,
+//             zippedArchive: true,
+//             maxFiles: '30d',
+//             maxSize: '10k',
+//             level: 'debug'
+//         }),
+//     ]
+// });
 
-const errorLogger = winston.createLogger({
-    format: winston.format.combine(
-        winston.format.timestamp({
-            format: () => {
-                const date = new Date();
-                const hours = date.getHours() % 12 || 12;
-                const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
-                return `${date.getDate()} ${date.toLocaleDateString('en-us', { month: 'short' })} ${date.getFullYear()} ${hours}:${date.getMinutes()} ${ampm}`;
-            }
-        }),
-        winston.format.printf(({ timestamp, level, message }) => {
-            return `${timestamp} -- ${level} -- ${message}`;
-        }),
-    ),
-    transports: [
-        new winston.transports.Console({ level: 'error' }),
-        new winstonRotate({
-            filename: `logs/error-%DATE%.log`,
-            zippedArchive: true,
-            maxFiles: '30d',
-            maxSize: '10k',
-            level: 'error'
-        }),
-        new winstonRotate({
-            filename: `logs/debug-%DATE%.log`,
-            maxFiles: '30d',
-            maxSize: '10k',
-            level: 'error'
-        }),
-    ]
-});
+// const errorLogger = winston.createLogger({
+//     format: winston.format.combine(
+//         winston.format.timestamp({
+//             format: () => {
+//                 const date = new Date();
+//                 const hours = date.getHours() % 12 || 12;
+//                 const ampm = date.getHours() >= 12 ? 'PM' : 'AM';
+//                 return `${date.getDate()} ${date.toLocaleDateString('en-us', { month: 'short' })} ${date.getFullYear()} ${hours}:${date.getMinutes()} ${ampm}`;
+//             }
+//         }),
+//         winston.format.printf(({ timestamp, level, message }) => {
+//             return `${timestamp} -- ${level} -- ${message}`;
+//         }),
+//     ),
+//     transports: [
+//         new winston.transports.Console({ level: 'error' }),
+//         new winstonRotate({
+//             filename: `logs/error-%DATE%.log`,
+//             zippedArchive: true,
+//             maxFiles: '30d',
+//             maxSize: '10k',
+//             level: 'error'
+//         }),
+//         new winstonRotate({
+//             filename: `logs/debug-%DATE%.log`,
+//             maxFiles: '30d',
+//             maxSize: '10k',
+//             level: 'error'
+//         }),
+//     ]
+// });
 
-const accessLogger = createLoggerInstance('access', 'access');
+// const accessLogger = createLoggerInstance('access', 'access');
 
 const access = (message) => {
-    accessLogger.log('access', message);
+    console.log(message);
 }
 
 const debug = (message) => {
-    debugLogger.log('debug', message);
+    console.debug(message);
 }
 
 const error = (message) => {
-    errorLogger.log('error', message);
+    console.error(message);
 }
 
 const log = (message) => {

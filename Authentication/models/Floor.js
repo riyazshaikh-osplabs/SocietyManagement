@@ -25,6 +25,11 @@ const Floor = sequelize.define('Floor', {
     floorNumber: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    isAlloted: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: false
     }
 }, {
     schema: 'public',

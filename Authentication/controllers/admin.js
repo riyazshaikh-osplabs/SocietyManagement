@@ -1,6 +1,6 @@
 import { sequelize } from '../setup/db.js';
 import { generateOtp, sendResponse } from '../utils/api.js';
-import { resetPasswordInDb, saveEmailToken, saveOtp, signUp, updateLastLoggedIn, updateUpdateBy, useEmailToken, useOtp } from '../models/helpers/index.js';
+import { getUserByBookingStatus, resetPasswordInDb, saveEmailToken, saveOtp, signUp, updateBookingStatus, updateLastLoggedIn, updateUpdateBy, useEmailToken, useOtp } from '../models/helpers/index.js';
 import { resetPasswordInFirebase, revokeTokens, signInFirebase, signUpFirebase } from '../utils/firebase.js';
 import { encryptPassword, validatePassword } from '../utils/bcrypt.js';
 import logger from '../setup/logger.js';
@@ -22,6 +22,10 @@ const SignUp = async (req, res, next) => {
         logger.debug(`Successfully signup in the database for email: ${email}`);
 
         const userId = user?.dataValues?.userId;
+        logger.debug(`Updating booking status for userId: ${userId}`);
+        await updateBookingStatus(userId, roomNumber, transaction);
+        logger.debug(`Successfully updated the booking status`);
+
         logger.debug(`Signup with firebase for userId: ${userId}`);
         await signUpFirebase(userId, email, password, true);
         logger.debug(`Successfully signup in firebase for userId: ${userId}`);
@@ -37,7 +41,7 @@ const SignUp = async (req, res, next) => {
             mobile: user?.dataValues?.mobile,
             roomNumber: user?.dataValues?.roomNumber,
             address: user?.dataValues?.address,
-            role: user?.dataValues?.role
+            role: user?.dataValues?.role,
         };
         logger.debug(`signupResponse ${JSON.stringify(signupResponse, null, 2)}`);
 
@@ -227,11 +231,29 @@ const SendOtp = async (req, res, next) => {
     }
 }
 
+const GetAllotedUser = async (req, res, next) => {
+    const transaction = await sequelize?.transaction();
+    try {
+        logger.debug(`Get all allotted users`);
+        const allottedUserIds = await getUserByBookingStatus();
+        logger.debug(`Successfully fetched allotted users: ${allottedUserIds}`);
+
+        // Now you have the `userId` values of allotted users in the `allottedUserIds` array.
+        // You can use this array as needed in your controller.
+    } catch (error) {
+        logger.error(error);
+        logger.debug('Rolling back any database transactions');
+        await transaction?.rollback();
+        next(error);
+    }
+}
+
 export {
     SignUp,
     SignIn,
     SignOut,
     ResetPassword,
     ForgotPassword,
-    SendOtp
+    SendOtp,
+    GetAllotedUser
 }

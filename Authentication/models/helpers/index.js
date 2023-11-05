@@ -4,6 +4,7 @@ import logger from "../../setup/logger.js";
 import UserForgotPassword from "../UserForgotPassword.js";
 import { Op } from "sequelize";
 import UserOtp from "../UserOtp.js";
+import { all } from "axios";
 
 /** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
 const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
@@ -217,6 +218,39 @@ const useOtp = async (userId, otp, transaction) => {
     await UserOtp.destroy({ where: { otp: otp, ...userIdCondition } }, { transaction });
 }
 
+/** updateBookingStatus takes userId, roomNumber, transaction*/
+const updateBookingStatus = async (userId, roomNumber, transaction) => {
+    const userIdCondition = userId == null ? null : { userId: userId };
+    const [updatedRowsCount, updatedRows] = await Floor.update(
+        { isAlloted: true },
+        {
+            where: {
+                roomNumber: roomNumber,
+            },
+            include: [
+                {
+                    model: User,
+                    where: userIdCondition,
+                },
+            ],
+            returning: true,
+            transaction,
+        }
+    );
+    logger.debug('updatedRowsCount', updatedRowsCount, 'updatedRows', updatedRows);
+}
+
+const getUserByBookingStatus = async () => {
+    const allottedUsers = await Floor.findAll({
+        attributes: ['isAlloted'],
+        where: {
+            isAlloted: true, // Replace with the condition that identifies allotted users
+        },
+    });
+    logger.log(`alloteduser ${JSON.stringify(allottedUsers)}`)
+    return allottedUsers.map(user => user.isAlloted);
+}
+
 export {
     signUp,
     getUserFromEmail,
@@ -231,5 +265,7 @@ export {
     useEmailToken,
     saveOtp,
     verifyUserOtp,
-    useOtp
+    useOtp,
+    updateBookingStatus,
+    getUserByBookingStatus
 }

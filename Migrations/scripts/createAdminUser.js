@@ -18,6 +18,7 @@ const createAdmin = async (firstName, lastName, email, mobile, password, buildin
             isDeleted: false,
             buildingWing: buildingWing,
             roomNumber: roomNumber,
+            isBooked: true,
             role: 1,
             createdOn: new Date()
         }, { transaction });
