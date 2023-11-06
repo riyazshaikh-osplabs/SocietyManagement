@@ -1,5 +1,5 @@
 import express from "express";
-import { SignUp, SignIn, ForgotPassword, ResetPassword, SendOtp, GetAllotedUser } from "../../controllers/admin.js";
+import { SignUp, SignIn, ForgotPassword, ResetPassword, SendOtp, GetAllotedUser, GetBuildingWings, GetRoleOfUser } from "../../controllers/admin.js";
 import { SignupValidationRules, ValidateReqParams, ForgotPasswordValidationRules, ResetPasswordValidationRules, LoginOtpValidationRules, SignInValidationRules } from "../../middlewares/expressValidators.js";
 import { ValidateEmailForSignup, ValidateEmailForSignin, ValidateRoomNumber, ValidateEmailToken } from "../../middlewares/authRequest.js";
 const router = express.Router();
@@ -9,6 +9,8 @@ router.post('/signin', SignInValidationRules(), ValidateReqParams, ValidateEmail
 router.post('/forgot-password', ForgotPasswordValidationRules(), ValidateReqParams, ValidateEmailForSignin(true), ForgotPassword);
 router.post('/reset-password', ResetPasswordValidationRules(), ValidateReqParams, ValidateEmailToken(true), ResetPassword);
 router.post('/otp/login', LoginOtpValidationRules(), ValidateReqParams, ValidateEmailForSignin(true), SendOtp);
-router.get('/alloted/admin', GetAllotedUser);
+router.get('/alloted/user', GetAllotedUser);
+router.get('/wings', GetBuildingWings);
+router.get('/roles', GetRoleOfUser);
 
 export default router;

@@ -1,6 +1,6 @@
 import { sequelize } from '../setup/db.js';
 import { generateOtp, sendResponse } from '../utils/api.js';
-import { getUserByBookingStatus, resetPasswordInDb, saveEmailToken, saveOtp, signUp, updateBookingStatus, updateLastLoggedIn, updateUpdateBy, useEmailToken, useOtp } from '../models/helpers/index.js';
+import { getBuildingWings, getRoles, getUserByBookingStatus, resetPasswordInDb, saveEmailToken, saveOtp, signUp, updateBookingStatus, updateLastLoggedIn, updateUpdateBy, useEmailToken, useOtp } from '../models/helpers/index.js';
 import { resetPasswordInFirebase, revokeTokens, signInFirebase, signUpFirebase } from '../utils/firebase.js';
 import { encryptPassword, validatePassword } from '../utils/bcrypt.js';
 import logger from '../setup/logger.js';
@@ -235,11 +235,42 @@ const GetAllotedUser = async (req, res, next) => {
     const transaction = await sequelize?.transaction();
     try {
         logger.debug(`Get all allotted users`);
-        const allottedUserIds = await getUserByBookingStatus();
-        logger.debug(`Successfully fetched allotted users: ${allottedUserIds}`);
+        const roomNumbers = await getUserByBookingStatus();
+        logger.debug(`Successfully fetched allotted users: ${JSON.stringify(roomNumbers, null, 2)}`);
 
-        // Now you have the `userId` values of allotted users in the `allottedUserIds` array.
-        // You can use this array as needed in your controller.
+        sendResponse(res, 200, 'Successfully fetched roomNumbers', [roomNumbers]);
+    } catch (error) {
+        logger.error(error);
+        logger.debug('Rolling back any database transactions');
+        await transaction?.rollback();
+        next(error);
+    }
+}
+
+const GetBuildingWings = async (req, res, next) => {
+    const transaction = await sequelize?.transaction();
+    try {
+        logger.debug(`Fetching building wings`);
+        const buildingWings = await getBuildingWings();
+        logger.debug(`Successfully fetched building wings`);
+
+        sendResponse(res, 200, 'Successfully fetched building wings', [buildingWings]);
+    } catch (error) {
+        logger.error(error);
+        logger.debug('Rolling back any database transactions');
+        await transaction?.rollback();
+        next(error);
+    }
+}
+
+const GetRoleOfUser = async (req, res, next) => {
+    const transaction = await sequelize?.transaction();
+    try {
+        logger.debug(`Fetching the roles of user`);
+        const roles = await getRoles();
+        logger.debug(`Roles fetched successfully`);
+
+        sendResponse(res, 200, 'Roles fetched successfully', [roles]);
     } catch (error) {
         logger.error(error);
         logger.debug('Rolling back any database transactions');
@@ -255,5 +286,7 @@ export {
     ResetPassword,
     ForgotPassword,
     SendOtp,
-    GetAllotedUser
+    GetAllotedUser,
+    GetBuildingWings,
+    GetRoleOfUser
 }

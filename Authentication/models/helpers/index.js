@@ -1,5 +1,5 @@
 import moment from "moment"
-import { Building, Floor, User } from "../../models/index.js";
+import { Building, Floor, Role, User } from "../../models/index.js";
 import logger from "../../setup/logger.js";
 import UserForgotPassword from "../UserForgotPassword.js";
 import { Op } from "sequelize";
@@ -242,13 +242,39 @@ const updateBookingStatus = async (userId, roomNumber, transaction) => {
 
 const getUserByBookingStatus = async () => {
     const allottedUsers = await Floor.findAll({
-        attributes: ['isAlloted'],
-        where: {
-            isAlloted: true, // Replace with the condition that identifies allotted users
-        },
+        attributes: ['isAlloted', 'roomNumber'],
     });
     logger.log(`alloteduser ${JSON.stringify(allottedUsers)}`)
-    return allottedUsers.map(user => user.isAlloted);
+    return allottedUsers.map(user => ({
+        isAlloted: user?.isAlloted,
+        roomNumber: user?.roomNumber
+    }));
+}
+
+const getBuildingWings = async () => {
+    const wings = await Building.findAll({
+        attributes: ['buildingWing', 'buildingFloor']
+    });
+
+    return wings.map(wing => ({
+        buildingWing: wing?.buildingWing,
+        buildingFloor: wing?.buildingFloor
+    }))
+}
+
+const getRoles = async () => {
+    const roles = await Role.findAll({
+        attributes: ['role']
+    })
+    logger.debug(`roles: ${JSON.stringify(roles, null, 2)}`);
+    const allRoles = roles.map(role => role.role);
+    return {
+        Chairman: allRoles[1],
+        Treasurer: allRoles[2],
+        Resident: allRoles[3],
+        Staff: allRoles[4],
+        Guest: allRoles[5]
+    }
 }
 
 export {
@@ -267,5 +293,7 @@ export {
     verifyUserOtp,
     useOtp,
     updateBookingStatus,
-    getUserByBookingStatus
+    getUserByBookingStatus,
+    getBuildingWings,
+    getRoles
 }
