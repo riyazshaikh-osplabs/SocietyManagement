@@ -2,7 +2,6 @@ import { sendResponse } from "../utils/api.js";
 import { getUserById, getUserByRoomNumber, getUserFromEmail, isEmailTokenValid, isValidRoomNumber, verifyUserOtp } from "../models/helpers/index.js";
 import logger from "../setup/logger.js";
 import admin from "../setup/firebase.js";
-import jwt from "jsonwebtoken";
 
 const ValidateClaims = isAdmin => {
     return async (req, res, next) => {

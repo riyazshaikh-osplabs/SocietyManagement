@@ -240,23 +240,27 @@ const updateBookingStatus = async (userId, roomNumber, transaction) => {
     logger.debug('updatedRowsCount', updatedRowsCount, 'updatedRows', updatedRows);
 }
 
-const getUserByBookingStatus = async () => {
+const getUserByBookingStatus = async (buildingId) => {
+    const buildingIdCondition = buildingId == null ? null : { buildingId: buildingId }
     const allottedUsers = await Floor.findAll({
-        attributes: ['isAlloted', 'roomNumber'],
+        attributes: ['floorId', 'isAlloted', 'roomNumber'],
+        where: buildingIdCondition
     });
     logger.log(`alloteduser ${JSON.stringify(allottedUsers)}`)
-    return allottedUsers.map(user => ({
-        isAlloted: user?.isAlloted,
-        roomNumber: user?.roomNumber
-    }));
+    return allottedUsers;
+    // return allottedUsers.map(user => ({
+    //     isAlloted: user?.isAlloted,
+    //     roomNumber: user?.roomNumber
+    // }));
 }
 
 const getBuildingWings = async () => {
     const wings = await Building.findAll({
-        attributes: ['buildingWing', 'buildingFloor']
+        attributes: ['buildingId', 'buildingWing', 'buildingFloor']
     });
 
     return wings.map(wing => ({
+        buildingId: wing?.buildingId,
         buildingWing: wing?.buildingWing,
         buildingFloor: wing?.buildingFloor
     }))
@@ -264,17 +268,18 @@ const getBuildingWings = async () => {
 
 const getRoles = async () => {
     const roles = await Role.findAll({
-        attributes: ['role']
+        attributes: ['roleId', 'role']
     })
     logger.debug(`roles: ${JSON.stringify(roles, null, 2)}`);
-    const allRoles = roles.map(role => role.role);
-    return {
-        Chairman: allRoles[1],
-        Treasurer: allRoles[2],
-        Resident: allRoles[3],
-        Staff: allRoles[4],
-        Guest: allRoles[5]
-    }
+    const allRoles = roles.filter(role => role.role !== 'Admin');
+    return allRoles;
+    // return {
+    //     Chairman: allRoles[1],
+    //     Treasurer: allRoles[2],
+    //     Resident: allRoles[3],
+    //     Staff: allRoles[4],
+    //     Guest: allRoles[5]
+    // }
 }
 
 export {

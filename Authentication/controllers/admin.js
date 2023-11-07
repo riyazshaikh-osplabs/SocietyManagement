@@ -231,24 +231,22 @@ const SendOtp = async (req, res, next) => {
     }
 }
 
-const GetAllotedUser = async (req, res, next) => {
-    const transaction = await sequelize?.transaction();
+const GetRoomNumbers = async (req, res, next) => {
     try {
+        const { bldgId } = req.params;
         logger.debug(`Get all allotted users`);
-        const roomNumbers = await getUserByBookingStatus();
+        const roomNumbers = await getUserByBookingStatus(bldgId);
         logger.debug(`Successfully fetched allotted users: ${JSON.stringify(roomNumbers, null, 2)}`);
 
         sendResponse(res, 200, 'Successfully fetched roomNumbers', [roomNumbers]);
     } catch (error) {
         logger.error(error);
         logger.debug('Rolling back any database transactions');
-        await transaction?.rollback();
         next(error);
     }
 }
 
 const GetBuildingWings = async (req, res, next) => {
-    const transaction = await sequelize?.transaction();
     try {
         logger.debug(`Fetching building wings`);
         const buildingWings = await getBuildingWings();
@@ -258,13 +256,11 @@ const GetBuildingWings = async (req, res, next) => {
     } catch (error) {
         logger.error(error);
         logger.debug('Rolling back any database transactions');
-        await transaction?.rollback();
         next(error);
     }
 }
 
 const GetRoleOfUser = async (req, res, next) => {
-    const transaction = await sequelize?.transaction();
     try {
         logger.debug(`Fetching the roles of user`);
         const roles = await getRoles();
@@ -274,7 +270,6 @@ const GetRoleOfUser = async (req, res, next) => {
     } catch (error) {
         logger.error(error);
         logger.debug('Rolling back any database transactions');
-        await transaction?.rollback();
         next(error);
     }
 }
@@ -286,7 +281,7 @@ export {
     ResetPassword,
     ForgotPassword,
     SendOtp,
-    GetAllotedUser,
+    GetRoomNumbers,
     GetBuildingWings,
     GetRoleOfUser
 }
