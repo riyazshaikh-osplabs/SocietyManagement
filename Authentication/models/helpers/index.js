@@ -4,10 +4,9 @@ import logger from "../../setup/logger.js";
 import UserForgotPassword from "../UserForgotPassword.js";
 import { Op } from "sequelize";
 import UserOtp from "../UserOtp.js";
-import { all } from "axios";
 
 /** signup takes firstName, lastName, password, email, mobile, roomNumber, role, address, isAdmin, isDeleted, activationStatus, transaction */
-const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, address, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
+const signUp = async (firstName, lastName, password, email, mobile, buildingWing, roomNumber, role, isAdmin = false, isDeleted = false, activationStatus = true, transaction) => {
     const userFields = {
         firstName: firstName == null ? null : firstName,
         lastName: lastName == null ? null : lastName,
@@ -17,7 +16,6 @@ const signUp = async (firstName, lastName, password, email, mobile, buildingWing
         buildingWing: buildingWing == null ? null : buildingWing,
         roomNumber: roomNumber == null ? null : roomNumber,
         role: role == null ? null : role,
-        address: address == null ? null : address,
         createdOn: moment().format('YYYY-MM-DD'),
         isAdmin: isAdmin == null ? null : isAdmin,
         isDeleted: isDeleted == null ? null : isDeleted,

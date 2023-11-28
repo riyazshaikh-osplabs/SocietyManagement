@@ -18,7 +18,7 @@ const SignUp = async (req, res, next) => {
         logger.debug(`Your password encrypted successfully`);
 
         logger.debug(`Signup with database for email: ${email}`);
-        const user = await signUp(firstName, lastName, hashedPassword, email, mobile, buildingWing, roomNumber, role, address, true, false, true, transaction);
+        const user = await signUp(firstName, lastName, hashedPassword, email, mobile, buildingWing, roomNumber, role, true, false, true, transaction);
         logger.debug(`Successfully signup in the database for email: ${email}`);
 
         const userId = user?.dataValues?.userId;
